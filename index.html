@@ -12,13 +12,13 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Your Name</a>
+                <a href="#home">jarred carter</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#contact">contact</a></li>
             </ul>
             <div class="theme-toggle">
                 <button id="theme-btn">🌙</button>
@@ -29,15 +29,15 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="highlight">Your Name</span></h1>
-            <p class="hero-subtitle">Web Developer & Creative Problem Solver</p>
+            <h1 class="hero-title">hi, i'm <span class="highlight">jarred carter</span></h1>
+            <p class="hero-subtitle">cybersecurity analyst and vulnerability researcher</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll Down</span>
+            <span>scroll further!</span>
             <div class="scroll-arrow">↓</div>
         </div>
     </section>
@@ -45,12 +45,117 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">about jarred</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>Write your story here. Talk about your background, interests, and what drives you as a developer.</p>
                     <p>Add another paragraph about your skills, goals, or what you're currently working on.</p>
                     
+                    <div class="skills">
+                        <h3>Skills & Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <!-- Add more skills -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">offsec</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Offensive Security Challenges</h3>
+                        <p>Exploited 20+ vulnerabilities across buffer overflows, register corruption, and glibc/heap memory issues by completing 4 weekly CTF challenges for 14 weeks using reverse engineering tools to analyze C executables, identify vulnerabilities, and develop Python Pwntools scripts for vulnerability exploitation and administrator access.</p>
+                        <p>Achieved root access on 5 servers by leveraging HTML encoding and SQL-based exploits for web challenges, documenting vulnerabilities and binary analysis findings, exploitation techniques, and payloads in extreme detail.</p>
+                        <div class="project-links">
+                            <!--<a href="#" class="btn btn-small">Live Demo</a>-->
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">db-modeling</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>SQL Database Modeling and Querying Project</h3>
+                        <p>Enabled real-time inventory lookup of over 5k+ items by designing normalized relational schemas from ER diagrams and writing/executing complex CREATE TABLE, INSERT, SELECT, and JOIN statements using MySQL to simulate a donation system for furniture items.</p>
+                        <p>Validated the design of 3 schemas and database performance by simulating full-stack backend logic using MySQL.</p>
+                        <!--<div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">pentesting</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>NBN Corporation Pentesting</h3>
+                        <p>Achieved root access on 2 servers by identifying critical XSS, SQL injection, and local file inclusion vulnerabilities in a penetration test for NBN Corporation, assessing risks using NIST CVSS Version 3 with average score of 8.86.</p>
+                        <p>Recommended 5 immediate security fixes and mitigations (input sanitization, system updates, enhanced password policies, microservice architecture implementation) to isolate assets and prevent unauthorized server access.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Final Report</a>
+                            <!--<a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">difo</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Digital Forensics</h3>
+                        <p>Reassembled deleted and obfuscated evidence from 8 system images using Scalpel and FTK Imager for recovery of hashes, user accounts, logs, documents, and metadata to deepen digital evidence recovery insights.</p>
+                        <p>Identified 80+ functions, libraries, and security vulnerabilities by reverse engineering unknown executables, creating and inspecting forensic images/file systems with Procmon and Pestudio.</p>
+                        <!--<div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">capstone</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cyberassess: Cybersecurity Competency Assessment</h3>
+                        <p>Designed and developed 75% of the interactive assessment modules in Articulate 360 while acting as primary liaison between the team and professor, implanting proactive deadline strategies for delay prevention.</p>
+                        <p>Spearheaded the design and delivery of 4 final project materials and accompanying presentation to an audience of over 60 colleagues, faculty members, and guests from other projects and the surrounding community.</p>
+                        <p>Informed 10+ team and faculty members of individual task progress, status, and projected completion times by compiling and distributing 15 comprehensive weekly reports.</p>
+                        <!--<div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Section -->
+    <section id="personal" class="personal">
+        <div class="container">
+            <h2 class="section-title">life away from the keyboard</h2>
+            <div class="personal-content">
+                <div class="personal-text">
+                    <p>i'm much more social than one would think of someone who's big into tech. check out some more of my hobbies and whatnot here!</p>
+
                     <div class="skills">
                         <h3>Skills & Technologies</h3>
                         <div class="skill-tags">
@@ -72,63 +177,25 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">Project 1</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Title</h3>
-                        <p>Brief description of your project and what technologies you used.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">Project 2</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Another Project</h3>
-                        <p>Another brief description of a different project.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Add more project cards as needed -->
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">get in touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always open to discussing new opportunities and interesting projects.</p>
+                    <h3>let's connect!</h3>
+                    <p>i'm always open to new opportunities and interesting projects. if you think i'm a great fit for something, please reach out on any of the platforms listed below.</p>
                     <div class="contact-links">
-                        <a href="mailto:your.email@example.com">📧 Email</a>
-                        <a href="https://linkedin.com/in/yourprofile">💼 LinkedIn</a>
-                        <a href="https://github.com/yourusername">🐙 GitHub</a>
+                        <a href="mailto:jc12690@nyu.edu">📧  email</a>
+                        <a href="https://linkedin.com/in/jarred-carter">💼  linkedin</a>
+                        <a href="https://github.com/jc12690">🐙  github</a>
                     </div>
                 </div>
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
                     <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary">whoosh!</button>
                 </form>
             </div>
         </div>
@@ -137,7 +204,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            <p>Copyright &copy; 2025 Jarred M. Carter. All rights reserved.</p>
         </div>
     </footer>
 
