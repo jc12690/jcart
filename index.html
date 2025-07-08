@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>J.Cart Portfolio & Projects</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -12,13 +12,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">jarred carter</a>
+                <a href="#home">Jarred Carter</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#contact">contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="theme-toggle">
                 <button id="theme-btn">🌙</button>
@@ -29,8 +30,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">hi, i'm <span class="highlight">jarred carter</span></h1>
-            <p class="hero-subtitle">cybersecurity analyst and vulnerability researcher</p>
+            <h1 class="hero-title">Hi, I'm <span class="highlight">Jarred Carter!</span></h1>
+            <p class="hero-subtitle">Cybersecurity Analyst |  Vulnerability Researcher</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -45,22 +46,167 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">about jarred</h2>
+            <h2 class="section-title">About Jarred</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Write your story here. Talk about your background, interests, and what drives you as a developer.</p>
-                    <p>Add another paragraph about your skills, goals, or what you're currently working on.</p>
-                    
-                    <div class="skills">
-                        <h3>Skills & Technologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Python</span>
-                            <!-- Add more skills -->
+                    <p>I'm Jarred Carter, a new cybersecurity graduate with a passion for offensive security, penetration testing, and digital forensics. With hands-on experience in both government and private sector environments, I specialize in identifying vulnerabilities and developing comprehensive security solutions.</p>
+
+                    <p>Having just completed my master's degree on full scholarship at NYU, I bring both academic rigor and real-world experience to every project. My background spans from NASA research to penetration testing at financial institutions.</p>
+
+                    <!-- Education Cards -->
+                    <div class="education-cards">
+                        <div class="education-card-compact">
+                            <div class="education-header">
+                                <h3>M.S., Cybersecurity</h3>
+                                <span class="school">New York University</span>
+                            </div>
+                            <div class="education-details">
+                                <span class="date">May 2025</span>
+                                <span class="gpa">GPA: 3.8/4.0</span>
+                            </div>
                         </div>
+
+                        <div class="education-card-compact">
+                            <div class="education-header">
+                                <h3>B.S., Computer Science & B.S., Cybersecurity</h3>
+                                <span class="school">Marshall University</span>
+                            </div>
+                            <div class="education-details">
+                                <span class="date">Dec 2022</span>
+                                <span class="gpa">GPA: 3.7/4.0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="certifications-section">
+                        <h3>Certifications & Awards</h3>
+                        <div class="cert-badges">
+                            <span class="cert-badge">CompTIA Security+</span>
+                            <span class="cert-badge">SFS CyberCorps Scholar</span>
+                            <span class="cert-badge">IEEE Published Author</span>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="skills">
+                        <h3>Core Competencies</h3>
+                        <div class="skill-categories">
+                            <div class="skill-category">
+                                <h4>Security Tools</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Metasploit</span>
+                                    <span class="skill-tag">Nmap</span>
+                                    <span class="skill-tag">Wireshark</span>
+                                    <span class="skill-tag">Burp Suite</span>
+                                    <span class="skill-tag">Nessus</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Programming</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">SQL</span>
+                                    <span class="skill-tag">C#</span>
+                                    <span class="skill-tag">HTML/CSS</span>
+                                    <span class="skill-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <span>Your Photo</span>
+                    </div>
+                    <!-- Quick Stats -->
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Vulnerabilities Found</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">$1M+</span>
+                            <span class="stat-label">Cost Savings</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">40K+</span>
+                            <span class="stat-label">Users Impacted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Security Analyst</h3>
+                            <span class="company"> <a href="https://openlawlib.org/">Open Law Library</a></span>
+                            <span class="date">06/2024 - 09/2024</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Achieved 25% increase in efficiency of setup process by parallelizing backend operations in 14 code dependencies for data fetching and streamlining logging output verbosity for government law repositories.</li>
+                            <li>Expanded system compatibility by 30% by enhancing hardware security of two-factor authentication protocols.</li>
+                            <li>Impacted UX for 40k+ users across high-traffic open-source repositories by resolving 6 critical GitHub issues, boosting repository health and reducing delays and bug-related downtime during edits to repositories.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Information Systems Specialist</h3>
+                            <span class="company">WorkForce WV</span>
+                            <span class="date">05/2018 - 08/2023</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Reduced costs by ~$150k by designing and implementing in-house resume construction system using ASP.NET, C#, HTML5, and SQL to eliminate need for Microsoft Office 365 licenses at 18 career centers statewide.</li>
+                            <li>Spearheaded comprehensive user support and training documentation process to optimize future employee onboarding and decrease time spent on future software development and feature addition efforts.</li>
+                            <li>Boosted interdepartmental productivity by engineering and launching a DevOps-compatible project management system complemented by system entity mapping diagrams and dashboards for review by upper management.</li>
+                            <li>Decreased setup errors by 40% and accelerated new-hire readiness by streamlining user-account turnaround in Salesforce CRM; implemented standardized provisioning processes according to COVID remote work policy.</li>
+                            <li>Strengthened agency cybersecurity posture by reviewing and correlating Nessus scan results to known CVEs for remediation, reviewing NIST and MITRE ATT&CK frameworks for compliance with federal guidelines and risk objectives, and supporting hardware/system implementations with technical teams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Penetration Testing Engineer</h3>
+                            <span class="company">City National Bank</span>
+                            <span class="date">08/2022 - 12/2022</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Achieved a reduction in successful phishing attempts by 58% by executing cybersecurity-focused company-wide newsletter campaign on email phishing, password security, and social engineering tactics, impacting 1k+ employees.</li>
+                            <li>Enhanced enterprise threat detection and network security by configuring and deploying honeypots using Raspberry Pi.</li>
+                            <li>Performed comprehensive network penetration testing and verified patching of previously discovered vulnerabilities by exploiting web applications and scanning network traffic logs using Metasploit, Wireshark, Maltego, and Shodan.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>PSL Research Test Engineer</h3>
+                            <span class="company">NASA Glenn Research Center</span>
+                            <span class="date">06/2021 - 08/2021</span>
+                        </div>
+                        <ul class="timeline-description">
+                            <li>Saved ~$1m in costs per test run by developing a virtual simulator in IEC Structured Text language that enabled the simulator to emulate the addition of fuel into the propulsion systems laboratory with NASA mechanical test engineers.</li>
+                            <li>Increased projection accuracy by 80% by analyzing existing propulsion data with Excel for accurate trend projections; ensured precise replication of in-flight environments for propulsion emulation through collaboration with engineers to simulate conditions and facilitate accurate readings comparable to airborne flights at high altitudes.</li>
+                            <li>Authored paper detailing the processes, calculations, scalability, and results of the completed simulator addition.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -151,27 +297,98 @@
     <!-- Personal Section -->
     <section id="personal" class="personal">
         <div class="container">
-            <h2 class="section-title">life away from the keyboard</h2>
+            <h2 class="section-title">Life Away from the Keyboard</h2>
             <div class="personal-content">
                 <div class="personal-text">
-                    <p>i'm much more social than one would think of someone who's big into tech. check out some more of my hobbies and whatnot here!</p>
+                    <p>I'm much more social than one would think of someone who's big into tech! When I'm not hunting for vulnerabilities or analyzing security frameworks, you'll find me in the kitchen perfecting my latest crème brûlée recipe or strutting down runways in New York.</p>
 
-                    <div class="skills">
-                        <h3>Skills & Technologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Python</span>
-                            <!-- Add more skills -->
+                    <p>My creative pursuits keep me balanced and give me a unique perspective that I bring to everything I do - whether it's the precision required in both cybersecurity and baking, or the confidence gained from modeling that helps me present technical findings to stakeholders.</p>
+
+                    <!-- Creative Pursuits -->
+                    <div class="creative-pursuits">
+                        <div class="pursuit-category">
+                            <h3>🍰 Baked Goods</h3>
+                            <p>Specializing in French pastries and desserts with a focus on precision and presentation. Crème brûlée is my most requested dessert among community members and NYU staff!</p>
+                            <div class="hobby-tags">
+                                <span class="hobby-tag">French Pastries</span>
+                                <span class="hobby-tag">Dessert Design</span>
+                                <span class="hobby-tag">Catering</span>
+                            </div>
+                        </div>
+
+                        <div class="pursuit-category">
+                            <h3>📸 Fashion & Modeling</h3>
+                            <p>Professional modeling work including runway shows for New York Fashion Week and editorial shoots for Gayletter and Ladygunn magazines, among others.</p>
+                            <div class="hobby-tags">
+                                <span class="hobby-tag">Runway Modeling</span>
+                                <span class="hobby-tag">Editorial Shoots</span>
+                                <span class="hobby-tag">NYFW</span>
+                            </div>
+                        </div>
+
+                        <div class="pursuit-category">
+                            <h3>🎯 Other Interests</h3>
+                            <p>Always exploring new creative outlets and staying active in the community.</p>
+                            <div class="hobby-tags">
+                                <span class="hobby-tag">Weightlifting</span>
+                                <span class="hobby-tag">International Travel</span>
+                                <span class="hobby-tag">Pilates</span>
+                                <span class="hobby-tag">Community Involvement</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
+
+                <div class="personal-visual">
                     <div class="image-placeholder">
-                        <span>Your Photo</span>
+                        <span></span>
                     </div>
+
+                    <!-- Creative Stats -->
+                    <div class="creative-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">🍮</div>
+                            <div class="stat-info">
+                                <span class="stat-number">87+</span>
+                                <span class="stat-label">Crème Brûlée Batches</span>
+                                <span class="stat-sublabel">Served & Sold</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">👗</div>
+                            <div class="stat-info">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">NYFW Runway Shows</span>
+                                <span class="stat-sublabel">Booked & Walked</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">📷</div>
+                            <div class="stat-info">
+                                <span class="stat-number">6+</span>
+                                <span class="stat-label">Magazine Features</span>
+                                <span class="stat-sublabel">Editorial Shoots</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">🎂</div>
+                            <div class="stat-info">
+                                <span class="stat-number">56+</span>
+                                <span class="stat-label">Custom Desserts</span>
+                                <span class="stat-sublabel">Created for Events</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fun Quote -->
+                    <div class="personal-quote">
+                        <blockquote>
+                            "The same attention to detail that helps me find security vulnerabilities also makes the perfect caramelized sugar crust."
+                        </blockquote>
+                    </div>c
                 </div>
             </div>
         </div>
