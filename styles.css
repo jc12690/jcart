@@ -498,6 +498,41 @@ body {
     left: 0;
 }
 
+.experience-card-company {
+    font-size: 16px;
+    color: #6366f1;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.experience-card-category {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffd700;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.experience-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+    color: #666;
+    background-color: #222;
+}
+
+/* Make sure experience cards have consistent spacing */
+.experience-card-title {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+    font-weight: normal;
+}
+
 /* Featured Project */
 .featured-project {
     display: grid;
