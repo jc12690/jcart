@@ -2,429 +2,253 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J.Cart Portfolio & Projects</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <title>JARRED CARTER</title>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Jarred Carter</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <button id="theme-btn">🌙</button>
+<!-- Header -->
+<header class="header">
+    <div class="header-content">
+        <div class="header-left">
+            <div class="menu-icon">☰</div>
+            <div class="header-links">
+                <a href="#projects">PROJECTS</a>
+                <a href="#resume">RESUME</a>
+                <a href="#blog">BLOG</a> <!-- LINK TO MEDIUM BLOG -->
             </div>
         </div>
-    </nav>
+        <div class="header-right">
+            <a href="#" class="search-icon">🔍</a>
+            <a href="#about" class="login-btn">ABOUT</a>
+            <a href="#contact" class="contact-btn">CONTACT</a>
+            <div style="font-size: 20px;">🌙</div>
+        </div>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="highlight">Jarred Carter!</span></h1>
-            <p class="hero-subtitle">Cybersecurity Analyst |  Vulnerability Researcher</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+<!-- Main Logo Section -->
+<section class="logo-section">
+    <div class="logo-container">
+        <div class="tagline">BUILT WITH ❤️<br>in NYC</div>
+        <h1 class="main-logo"> JARRED CARTER </h1>
+        <div class="discover-more">EST. 1999</div>
+        <div class="discover-icon">⚡</div>
+    </div>
+</section>
+
+<!-- Navigation -->
+<nav class="main-nav">
+    <div class="nav-container">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#projects" class="active">PROJECTS</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#hobbies">HOBBIES</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+<!-- Breadcrumb
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="#home">Home</a>
+    </div>
+</div>
+-->
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-header">ABOUT</div>
+
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="about-text">
+                <h2 class="about-title">Cybersecurity Analyst  |  Vulnerability Researcher  |  Avid CTF Player
+                <p class="about-description">A new cybersecurity graduate with a passion for offensive security, penetration testing, and digital forensics. With hands-on experience in both government and private sector environments, I specialize in identifying vulnerabilities and developing comprehensive security solutions.</p>
+                <div class="about-subtitle">Having just completed my master's degree on full scholarship at NYU, I bring both academic rigor and real-world experience to every project for innovative problem-solving. My background spans from NASA research to penetration testing at financial institutions.</div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>scroll further!</span>
-            <div class="scroll-arrow">↓</div>
-        </div>
-    </section>
+            <div class="about-image">
+                <div class="image-placeholder">Your Photo</div>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Jarred</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm Jarred Carter, a new cybersecurity graduate with a passion for offensive security, penetration testing, and digital forensics. With hands-on experience in both government and private sector environments, I specialize in identifying vulnerabilities and developing comprehensive security solutions.</p>
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Vulnerabilities Found</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$1M+</div>
+                <div class="stat-label">Cost Savings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">40K+</div>
+                <div class="stat-label">Users Impacted</div>
+            </div>
+        </section>
 
-                    <p>Having just completed my master's degree on full scholarship at NYU, I bring both academic rigor and real-world experience to every project. My background spans from NASA research to penetration testing at financial institutions.</p>
-
-                    <!-- Education Cards -->
-                    <div class="education-cards">
-                        <div class="education-card-compact">
-                            <div class="education-header">
-                                <h3>M.S., Cybersecurity</h3>
-                                <span class="school">New York University</span>
-                            </div>
-                            <div class="education-details">
-                                <span class="date">May 2025</span>
-                                <span class="gpa">GPA: 3.8/4.0</span>
-                            </div>
-                        </div>
-
-                        <div class="education-card-compact">
-                            <div class="education-header">
-                                <h3>B.S., Computer Science & B.S., Cybersecurity</h3>
-                                <span class="school">Marshall University</span>
-                            </div>
-                            <div class="education-details">
-                                <span class="date">Dec 2022</span>
-                                <span class="gpa">GPA: 3.7/4.0</span>
-                            </div>
-                        </div>
+        <!-- Education Section -->
+        <section class="education-section">
+            <h3 class="subsection-title">Education</h3>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-content">
+                        <h4 class="degree-title">M.S., Cybersecurity</h4>
+                        <div class="university">New York University</div>
+                        <div class="graduation-date">May 2025</div>
                     </div>
-
-                    <!-- Certifications -->
-                    <div class="certifications-section">
-                        <h3>Certifications & Awards</h3>
-                        <div class="cert-badges">
-                            <span class="cert-badge">CompTIA Security+</span>
-                            <span class="cert-badge">SFS CyberCorps Scholar</span>
-                            <span class="cert-badge">IEEE Published Author</span>
-                        </div>
-                    </div>
-
-                    <!-- Skills -->
-                    <div class="skills">
-                        <h3>Core Competencies</h3>
-                        <div class="skill-categories">
-                            <div class="skill-category">
-                                <h4>Security Tools</h4>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Metasploit</span>
-                                    <span class="skill-tag">Nmap</span>
-                                    <span class="skill-tag">Wireshark</span>
-                                    <span class="skill-tag">Burp Suite</span>
-                                    <span class="skill-tag">Nessus</span>
-                                </div>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Programming</h4>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">SQL</span>
-                                    <span class="skill-tag">C#</span>
-                                    <span class="skill-tag">HTML/CSS</span>
-                                    <span class="skill-tag">Java</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="gpa">GPA: 3.8/4.0</div>
                 </div>
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <span>Your Photo</span>
+                <div class="education-card">
+                    <div class="education-content">
+                        <h4 class="degree-title">B.S., Computer Science & B.S., Cybersecurity</h4>
+                        <div class="university">Marshall University</div>
+                        <div class="graduation-date">Dec 2022</div>
                     </div>
-                    <!-- Quick Stats -->
-                    <div class="quick-stats">
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">Vulnerabilities Found</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">$1M+</span>
-                            <span class="stat-label">Cost Savings</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">40K+</span>
-                            <span class="stat-label">Users Impacted</span>
-                        </div>
-                    </div>
+                    <div class="gpa">GPA: 3.7/4.0</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Security Analyst</h3>
-                            <span class="company"> <a href="https://openlawlib.org/">Open Law Library</a></span>
-                            <span class="date">06/2024 - 09/2024</span>
-                        </div>
-                        <ul class="timeline-description">
-                            <li>Achieved 25% increase in efficiency of setup process by parallelizing backend operations in 14 code dependencies for data fetching and streamlining logging output verbosity for government law repositories.</li>
-                            <li>Expanded system compatibility by 30% by enhancing hardware security of two-factor authentication protocols.</li>
-                            <li>Impacted UX for 40k+ users across high-traffic open-source repositories by resolving 6 critical GitHub issues, boosting repository health and reducing delays and bug-related downtime during edits to repositories.</li>
-                        </ul>
+        <!-- Certifications Section -->
+        <section class="certifications-section">
+            <h3 class="subsection-title">Certifications & Awards</h3>
+            <div class="certifications-grid">
+                <div class="certification-badge">CompTIA Security+ Certification</div>
+                <div class="certification-badge">IEEE Published Author</div>
+                <div class="certification-badge">NASA Internal Paper Author</div>
+                <div class="certification-badge">CyberCorps Scholarship for Service Scholar (Awarded to top 1% of the class for 2 consecutive years)</div>
+            </div>
+        </section>
+
+        <!-- Core Competencies Section -->
+        <section class="competencies-section">
+            <h3 class="subsection-title">Core Competencies</h3>
+            <div class="competencies-grid">
+                <div class="competency-category">
+                    <h4 class="category-title">Security Tools</h4>
+                    <div class="skills-list">
+                        <div class="skill-item">Metasploit</div>
+                        <div class="skill-item">Nmap</div>
+                        <div class="skill-item">Wireshark</div>
+                        <div class="skill-item">Burp Suite</div>
+                        <div class="skill-item">Nessus</div>
                     </div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Information Systems Specialist</h3>
-                            <span class="company">WorkForce WV</span>
-                            <span class="date">05/2018 - 08/2023</span>
-                        </div>
-                        <ul class="timeline-description">
-                            <li>Reduced costs by ~$150k by designing and implementing in-house resume construction system using ASP.NET, C#, HTML5, and SQL to eliminate need for Microsoft Office 365 licenses at 18 career centers statewide.</li>
-                            <li>Spearheaded comprehensive user support and training documentation process to optimize future employee onboarding and decrease time spent on future software development and feature addition efforts.</li>
-                            <li>Boosted interdepartmental productivity by engineering and launching a DevOps-compatible project management system complemented by system entity mapping diagrams and dashboards for review by upper management.</li>
-                            <li>Decreased setup errors by 40% and accelerated new-hire readiness by streamlining user-account turnaround in Salesforce CRM; implemented standardized provisioning processes according to COVID remote work policy.</li>
-                            <li>Strengthened agency cybersecurity posture by reviewing and correlating Nessus scan results to known CVEs for remediation, reviewing NIST and MITRE ATT&CK frameworks for compliance with federal guidelines and risk objectives, and supporting hardware/system implementations with technical teams.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Penetration Testing Engineer</h3>
-                            <span class="company">City National Bank</span>
-                            <span class="date">08/2022 - 12/2022</span>
-                        </div>
-                        <ul class="timeline-description">
-                            <li>Achieved a reduction in successful phishing attempts by 58% by executing cybersecurity-focused company-wide newsletter campaign on email phishing, password security, and social engineering tactics, impacting 1k+ employees.</li>
-                            <li>Enhanced enterprise threat detection and network security by configuring and deploying honeypots using Raspberry Pi.</li>
-                            <li>Performed comprehensive network penetration testing and verified patching of previously discovered vulnerabilities by exploiting web applications and scanning network traffic logs using Metasploit, Wireshark, Maltego, and Shodan.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>PSL Research Test Engineer</h3>
-                            <span class="company">NASA Glenn Research Center</span>
-                            <span class="date">06/2021 - 08/2021</span>
-                        </div>
-                        <ul class="timeline-description">
-                            <li>Saved ~$1m in costs per test run by developing a virtual simulator in IEC Structured Text language that enabled the simulator to emulate the addition of fuel into the propulsion systems laboratory with NASA mechanical test engineers.</li>
-                            <li>Increased projection accuracy by 80% by analyzing existing propulsion data with Excel for accurate trend projections; ensured precise replication of in-flight environments for propulsion emulation through collaboration with engineers to simulate conditions and facilitate accurate readings comparable to airborne flights at high altitudes.</li>
-                            <li>Authored paper detailing the processes, calculations, scalability, and results of the completed simulator addition.</li>
-                        </ul>
+                <div class="competency-category">
+                    <h4 class="category-title">Programming</h4>
+                    <div class="skills-list">
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">C#</div>
+                        <div class="skill-item">HTML/CSS</div>
+                        <div class="skill-item">Java</div>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <!-- PROJECTS SECTION -->
+    <div class="section-header">PROJECTS</div>
+
+    <!-- Featured Project -->
+    <section class="featured-project">
+        <div class="project-text">
+            <h2 class="project-title">CTF Guru Gains Root on 36 Different Servers</h2>
+            <p class="project-description">
+                <li>Exploited 20+ vulnerabilities across buffer overflows, register corruption, and glibc/heap memory issues by completing 4 weekly CTF challenges for 14 weeks using reverse engineering tools to analyze C executables, identify vulnerabilities, and develop Python Pwntools scripts for vulnerability exploitation and administrator access.</li>
+                <li>Achieved root access on 5 servers by leveraging HTML encoding and SQL-based exploits for web challenges, documenting vulnerabilities and binary analysis findings, exploitation techniques, and payloads in extreme detail.</li>
+            </p>
+            <!--<div class="read-time">📖 5 MIN READ</div>-->
+        </div>
+        <div class="project-image">
+            <div class="project-placeholder">Featured Project Screenshot</div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">offsec</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Offensive Security Challenges</h3>
-                        <p>Exploited 20+ vulnerabilities across buffer overflows, register corruption, and glibc/heap memory issues by completing 4 weekly CTF challenges for 14 weeks using reverse engineering tools to analyze C executables, identify vulnerabilities, and develop Python Pwntools scripts for vulnerability exploitation and administrator access.</p>
-                        <p>Achieved root access on 5 servers by leveraging HTML encoding and SQL-based exploits for web challenges, documenting vulnerabilities and binary analysis findings, exploitation techniques, and payloads in extreme detail.</p>
-                        <div class="project-links">
-                            <!--<a href="#" class="btn btn-small">Live Demo</a>-->
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">db-modeling</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>SQL Database Modeling and Querying Project</h3>
-                        <p>Enabled real-time inventory lookup of over 5k+ items by designing normalized relational schemas from ER diagrams and writing/executing complex CREATE TABLE, INSERT, SELECT, and JOIN statements using MySQL to simulate a donation system for furniture items.</p>
-                        <p>Validated the design of 3 schemas and database performance by simulating full-stack backend logic using MySQL.</p>
-                        <!--<div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
-                        </div>
-                    </div>
-                </div>
+    <!-- Projects Grid -->
+    <section class="projects-grid">
+        <div class="project-card">
+            <div class="project-card-image">
+                <div class="project-placeholder">Project Image</div>
+            </div>
+            <div class="project-card-content">
+                <div class="project-card-category">Principles of Database Systems</div>
+                <h3 class="project-card-title">SQL Database Modeling and Querying</h3>
+                <p class="project-card-description">
+                    <li>Enabled real-time inventory lookup of over 5k+ items by designing normalized relational schemas from ER diagrams and writing/executing complex CREATE TABLE, INSERT, SELECT, and JOIN statements using MySQL to simulate a donation system for furniture items.</li>
+                    <li>Validated the design of 3 schemas and database performance by simulating full-stack backend logic using MySQL and Flask for interactive website development.</li>
+                </p>
+            </div>
+        </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">pentesting</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>NBN Corporation Pentesting</h3>
-                        <p>Achieved root access on 2 servers by identifying critical XSS, SQL injection, and local file inclusion vulnerabilities in a penetration test for NBN Corporation, assessing risks using NIST CVSS Version 3 with average score of 8.86.</p>
-                        <p>Recommended 5 immediate security fixes and mitigations (input sanitization, system updates, enhanced password policies, microservice architecture implementation) to isolate assets and prevent unauthorized server access.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Final Report</a>
-                            <!--<a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
-                    </div>
-                </div>
+        <div class="project-card">
+            <div class="project-card-image">
+                <div class="project-placeholder">Project Image</div>
+            </div>
+            <div class="project-card-content">
+                <div class="project-card-category">Digital Forensics</div>
+                <h3 class="project-card-title">Obfuscated Evidence Recovery</h3>
+                <p class="project-card-description">
+                    <li>Reassembled deleted and obfuscated evidence from 8 system images using Scalpel and FTK Imager for recovery of hashes, user accounts, logs, documents, and metadata to deepen digital evidence recovery insights.</li>
+                    <li>Identified 80+ functions, libraries, and security vulnerabilities by reverse engineering unknown executables, creating and inspecting forensic images/file systems with Procmon and Pestudio.</li>
+                </p>
+            </div>
+        </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">difo</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Digital Forensics</h3>
-                        <p>Reassembled deleted and obfuscated evidence from 8 system images using Scalpel and FTK Imager for recovery of hashes, user accounts, logs, documents, and metadata to deepen digital evidence recovery insights.</p>
-                        <p>Identified 80+ functions, libraries, and security vulnerabilities by reverse engineering unknown executables, creating and inspecting forensic images/file systems with Procmon and Pestudio.</p>
-                        <!--<div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
-                    </div>
-                </div>
+        <div class="project-card">
+            <div class="project-card-image">
+                <div class="project-placeholder">Project Image</div>
+            </div>
+            <div class="project-card-content">
+                <div class="project-card-category">Pentesting and Vulnerability Analysis</div>
+                <h3 class="project-card-title">Network Penetration Test for NBN Corporation</h3>
+                <p class="project-card-description">
+                    <li>Achieved root access on 2 servers by identifying critical XSS, SQL injection, and local file inclusion vulnerabilities in a penetration test for NBN Corporation, assessing risks using NIST CVSS Version 3 with average score of 8.86.</li>
+                    <li>Recommended 5 immediate security fixes and mitigations (input sanitization, system updates, enhanced password policies, microservice architecture implementation) to isolate assets and prevent unauthorized server access.</li>
+                </p>
+            </div>
+        </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-placeholder">capstone</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Cyberassess: Cybersecurity Competency Assessment</h3>
-                        <p>Designed and developed 75% of the interactive assessment modules in Articulate 360 while acting as primary liaison between the team and professor, implanting proactive deadline strategies for delay prevention.</p>
-                        <p>Spearheaded the design and delivery of 4 final project materials and accompanying presentation to an audience of over 60 colleagues, faculty members, and guests from other projects and the surrounding community.</p>
-                        <p>Informed 10+ team and faculty members of individual task progress, status, and projected completion times by compiling and distributing 15 comprehensive weekly reports.</p>
-                        <!--<div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-small btn-secondary">GitHub</a>-->
-                    </div>
-                </div>
+        <div class="project-card">
+            <div class="project-card-image">
+                <div class="project-placeholder">Project Image</div>
+            </div>
+            <div class="project-card-content">
+                <div class="project-card-category">Capstone</div>
+                <h3 class="project-card-title">Cyberassess: Cybersecurity Competency Assessment</h3>
+                <p class="project-card-description">
+                    <li>Designed and developed 75% of the interactive assessment modules in Articulate 360 while acting as primary liaison between the team and professor, implanting proactive deadline strategies for delay prevention.</li>
+                    <li>Spearheaded the design and delivery of 4 final project materials and accompanying presentation to an audience of over 60 colleagues, faculty members, and guests from other projects and the surrounding community.</li>
+                    <li>Informed 10+ team and faculty members of individual task progress, status, and projected completion times by compiling and distributing 15 comprehensive weekly reports.</li>
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Personal Section -->
-    <section id="personal" class="personal">
-        <div class="container">
-            <h2 class="section-title">Life Away from the Keyboard</h2>
-            <div class="personal-content">
-                <div class="personal-text">
-                    <p>I'm much more social than one would think of someone who's big into tech! When I'm not hunting for vulnerabilities or analyzing security frameworks, you'll find me in the kitchen perfecting my latest crème brûlée recipe or strutting down runways in New York.</p>
-
-                    <p>My creative pursuits keep me balanced and give me a unique perspective that I bring to everything I do - whether it's the precision required in both cybersecurity and baking, or the confidence gained from modeling that helps me present technical findings to stakeholders.</p>
-
-                    <!-- Creative Pursuits -->
-                    <div class="creative-pursuits">
-                        <div class="pursuit-category">
-                            <h3>🍰 Baked Goods</h3>
-                            <p>Specializing in French pastries and desserts with a focus on precision and presentation. Crème brûlée is my most requested dessert among community members and NYU staff!</p>
-                            <div class="hobby-tags">
-                                <span class="hobby-tag">French Pastries</span>
-                                <span class="hobby-tag">Dessert Design</span>
-                                <span class="hobby-tag">Catering</span>
-                            </div>
-                        </div>
-
-                        <div class="pursuit-category">
-                            <h3>📸 Fashion & Modeling</h3>
-                            <p>Professional modeling work including runway shows for New York Fashion Week and editorial shoots for Gayletter and Ladygunn magazines, among others.</p>
-                            <div class="hobby-tags">
-                                <span class="hobby-tag">Runway Modeling</span>
-                                <span class="hobby-tag">Editorial Shoots</span>
-                                <span class="hobby-tag">NYFW</span>
-                            </div>
-                        </div>
-
-                        <div class="pursuit-category">
-                            <h3>🎯 Other Interests</h3>
-                            <p>Always exploring new creative outlets and staying active in the community.</p>
-                            <div class="hobby-tags">
-                                <span class="hobby-tag">Weightlifting</span>
-                                <span class="hobby-tag">International Travel</span>
-                                <span class="hobby-tag">Pilates</span>
-                                <span class="hobby-tag">Community Involvement</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="personal-visual">
-                    <div class="image-placeholder">
-                        <span></span>
-                    </div>
-
-                    <!-- Creative Stats -->
-                    <div class="creative-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">🍮</div>
-                            <div class="stat-info">
-                                <span class="stat-number">87+</span>
-                                <span class="stat-label">Crème Brûlée Batches</span>
-                                <span class="stat-sublabel">Served & Sold</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">👗</div>
-                            <div class="stat-info">
-                                <span class="stat-number">2</span>
-                                <span class="stat-label">NYFW Runway Shows</span>
-                                <span class="stat-sublabel">Booked & Walked</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">📷</div>
-                            <div class="stat-info">
-                                <span class="stat-number">6+</span>
-                                <span class="stat-label">Magazine Features</span>
-                                <span class="stat-sublabel">Editorial Shoots</span>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">🎂</div>
-                            <div class="stat-info">
-                                <span class="stat-number">56+</span>
-                                <span class="stat-label">Custom Desserts</span>
-                                <span class="stat-sublabel">Created for Events</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Fun Quote -->
-                    <div class="personal-quote">
-                        <blockquote>
-                            "The same attention to detail that helps me find security vulnerabilities also makes the perfect caramelized sugar crust."
-                        </blockquote>
-                    </div>c
-                </div>
-            </div>
+    <!-- Opinion/Blog Section -->
+    <section class="opinion-section">
+        <div class="opinion-header">
+            <div class="opinion-title">THOUGHTS & INSIGHTS</div>
+            <div class="author-avatar">👤</div>
+            <div class="author-name">Your Name</div>
+            <div class="author-title">Full Stack Developer</div>
+        </div>
+        <div class="opinion-content">
+            <p>For creative inspiration, developers should look beyond their screens. Whether it's exploring new cities, practicing photography, or diving into a good book, the experiences we have outside of coding often fuel our most innovative solutions. Balance isn't just about productivity—it's about perspective.</p>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">get in touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>let's connect!</h3>
-                    <p>i'm always open to new opportunities and interesting projects. if you think i'm a great fit for something, please reach out on any of the platforms listed below.</p>
-                    <div class="contact-links">
-                        <a href="mailto:jc12690@nyu.edu">📧  email</a>
-                        <a href="https://linkedin.com/in/jarred-carter">💼  linkedin</a>
-                        <a href="https://github.com/jc12690">🐙  github</a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">whoosh!</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>Copyright &copy; 2025 Jarred M. Carter. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+</main>
 </body>
 </html>
