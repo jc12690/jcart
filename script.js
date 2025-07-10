@@ -1,41 +1,11 @@
-// Add this to your script.js file
-// Active navigation highlighting
-const navLinks = document.querySelectorAll('.nav-menu a');
-const sections = document.querySelectorAll('section');
-
-function updateActiveNav() {
-    let current = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Listen for scroll events
-window.addEventListener('scroll', updateActiveNav);
-
-// Set initial active state
-updateActiveNav();
-
-// Update your existing smooth scrolling code
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const navHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navHeight - 20; // 20px extra padding
+            const offset = 100; // Adjust this value as needed
+            const targetPosition = target.offsetTop - offset;
 
             window.scrollTo({
                 top: targetPosition,
@@ -44,3 +14,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Active navigation highlighting
+const navLinks = document.querySelectorAll('.nav-container a');
+const sections = document.querySelectorAll('section, .section-header');
+
+function updateActiveNav() {
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 200) {
+            // Get the section ID or create one from the text content
+            current = section.getAttribute('id') || section.textContent.toLowerCase().replace(/\s+/g, '');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href').substring(1); // Remove the #
+        if (href === current) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();

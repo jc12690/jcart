@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./styles.css"> <!-- relative paths -->
+    <link rel="stylesheet" href="./styles.css">
     <script src="./script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
             <div class="header-links">
                 <a href="#projects">PROJECTS</a>
                 <a href="#resume">RESUME</a>
-                <a href="#blog">BLOG</a> <!-- LINK TO MEDIUM BLOG -->
+                <a href="#blog">BLOG</a>
             </div>
         </div>
         <div class="header-right">
@@ -35,8 +35,7 @@
 <!-- Main Logo Section -->
 <section class="logo-section">
     <div class="logo-container">
-        <!--<div class="tagline">BUILT WITH ❤️<br>in NYC</div> ADD TO FOOTER -->
-        <h1 class="main-logo"> JARRED CARTER </h1>
+        <h1 class="main-logo">JARRED CARTER</h1>
         <div class="discover-more">EST. 1999</div>
         <div class="discover-icon">⚡</div>
     </div>
@@ -55,35 +54,26 @@
     </div>
 </nav>
 
-<!-- Breadcrumb
-<div class="breadcrumb">
-    <div class="breadcrumb-container">
-        <a href="#home">Home</a>
-    </div>
-</div>
--->
-
 <!-- Main Content -->
 <main class="main-content">
-
-    <!-- Main Content -->
-    <main class="main-content">
+    <!-- About Section -->
+    <section id="about">
         <div class="section-header">ABOUT</div>
 
         <!-- About Hero Section -->
-        <section class="about-hero">
+        <div class="about-hero">
             <div class="about-text">
-                <h2 class="about-title">Cybersecurity Analyst  |  Vulnerability Researcher  |  Avid CTF Player
+                <h2 class="about-title">Cybersecurity Analyst | Vulnerability Researcher | Avid CTF Player</h2>
                 <p class="about-description">A new cybersecurity graduate with a passion for offensive security, penetration testing, and digital forensics. With hands-on experience in both government and private sector environments, I specialize in identifying vulnerabilities and developing comprehensive security solutions.</p>
                 <div class="about-subtitle">Having just completed my master's degree on full scholarship at NYU, I bring both academic rigor and real-world experience to every project for innovative problem-solving. My background spans from NASA research to penetration testing at financial institutions.</div>
             </div>
             <div class="about-image">
                 <div class="image-placeholder">Your Photo</div>
             </div>
-        </section>
+        </div>
 
         <!-- Stats Section -->
-        <section class="stats-section">
+        <div class="stats-section">
             <div class="stat-card">
                 <div class="stat-number">20+</div>
                 <div class="stat-label">Vulnerabilities Found</div>
@@ -96,10 +86,10 @@
                 <div class="stat-number">40K+</div>
                 <div class="stat-label">Users Impacted</div>
             </div>
-        </section>
+        </div>
 
         <!-- Education Section -->
-        <section class="education-section">
+        <div class="education-section">
             <h3 class="subsection-title">Education</h3>
             <div class="education-grid">
                 <div class="education-card">
@@ -119,10 +109,10 @@
                     <div class="gpa">GPA: 3.7/4.0</div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Certifications Section -->
-        <section class="certifications-section">
+        <div class="certifications-section">
             <h3 class="subsection-title">Certifications & Awards</h3>
             <div class="certifications-grid">
                 <div class="certification-badge">CompTIA Security+ Certification</div>
@@ -130,10 +120,10 @@
                 <div class="certification-badge">NASA Internal Paper Author</div>
                 <div class="certification-badge">CyberCorps Scholarship for Service Scholar (Awarded to top 1% of the class for 2 consecutive years)</div>
             </div>
-        </section>
+        </div>
 
         <!-- Core Competencies Section -->
-        <section class="competencies-section">
+        <div class="competencies-section">
             <h3 class="subsection-title">Core Competencies</h3>
             <div class="competencies-grid">
                 <div class="competency-category">
@@ -157,83 +147,121 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- PROJECTS SECTION -->
-    <div class="section-header">PROJECTS</div>
-
-    <!-- Featured Project -->
-    <section class="featured-project">
-        <div class="project-text">
-            <h2 class="project-title">CTF Guru Gains Root on 36 Different Servers</h2>
-            <p class="project-description">
-                <li>Exploited 20+ vulnerabilities across buffer overflows, register corruption, and glibc/heap memory issues by completing 4 weekly CTF challenges for 14 weeks using reverse engineering tools to analyze C executables, identify vulnerabilities, and develop Python Pwntools scripts for vulnerability exploitation and administrator access.</li>
-                <li>Achieved root access on 5 servers by leveraging HTML encoding and SQL-based exploits for web challenges, documenting vulnerabilities and binary analysis findings, exploitation techniques, and payloads in extreme detail.</li>
-            </p>
-            <!--<div class="read-time">📖 5 MIN READ</div>-->
-        </div>
-        <div class="project-image">
-            <div class="project-placeholder">Featured Project Screenshot</div>
         </div>
     </section>
 
-    <!-- Projects Grid -->
-    <section class="projects-grid">
-        <div class="project-card">
-            <div class="project-card-image">
-                <div class="project-placeholder">Project Image</div>
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+    <div class="experience-section">
+        <div class="subsection-title">EXPERIENCE</div>
+                <div class="experience-card">
+                    <div class="experience-content">
+                </div>
+
+        <!-- Experience Card -->
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-card-image">
+                    <div class="experience-card-content">
+                        <h3 class="experience-card-title">Test1</h3>
+                        <h1 class="experience-card-company">Test1</h1>
+                        <div class="project-card-description">
+                            <ul>
+                                <li>Enabled real-time inventory lookup of over 5k+ items by designing normalized relational schemas from ER diagrams and writing/executing complex CREATE TABLE, INSERT, SELECT, and JOIN statements using MySQL to simulate a donation system for furniture items.</li>
+                                <li>Validated the design of 3 schemas and database performance by simulating full-stack backend logic using MySQL and Flask for interactive website development.</li>
+                            </ul>
+                        </div>
+                    </div>
             </div>
-            <div class="project-card-content">
-                <div class="project-card-category">Principles of Database Systems</div>
-                <h3 class="project-card-title">SQL Database Modeling and Querying</h3>
-                <p class="project-card-description">
-                    <li>Enabled real-time inventory lookup of over 5k+ items by designing normalized relational schemas from ER diagrams and writing/executing complex CREATE TABLE, INSERT, SELECT, and JOIN statements using MySQL to simulate a donation system for furniture items.</li>
-                    <li>Validated the design of 3 schemas and database performance by simulating full-stack backend logic using MySQL and Flask for interactive website development.</li>
-                </p>
+        </div>
+    </div>
+                </div>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="section-header">PROJECTS</div>
+
+        <!-- Featured Project -->
+        <div class="featured-project">
+            <div class="project-text">
+                <h2 class="project-title">CTF Guru Gains Root on 36 Different Servers</h2>
+                <div class="project-description">
+                    <ul>
+                        <li>Exploited 20+ vulnerabilities across buffer overflows, register corruption, and glibc/heap memory issues by completing 4 weekly CTF challenges for 14 weeks using reverse engineering tools to analyze C executables, identify vulnerabilities, and develop Python Pwntools scripts for vulnerability exploitation and administrator access.</li>
+                        <li>Achieved root access on 5 servers by leveraging HTML encoding and SQL-based exploits for web challenges, documenting vulnerabilities and binary analysis findings, exploitation techniques, and payloads in extreme detail.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-image">
+                <div class="project-placeholder">Featured Project Screenshot</div>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-card-image">
-                <div class="project-placeholder">Project Image</div>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-image">
+                    <div class="project-placeholder">Project Image</div>
+                </div>
+                <div class="project-card-content">
+                    <div class="project-card-category">Principles of Database Systems</div>
+                    <h3 class="project-card-title">SQL Database Modeling and Querying</h3>
+                    <div class="project-card-description">
+                        <ul>
+                            <li>Enabled real-time inventory lookup of over 5k+ items by designing normalized relational schemas from ER diagrams and writing/executing complex CREATE TABLE, INSERT, SELECT, and JOIN statements using MySQL to simulate a donation system for furniture items.</li>
+                            <li>Validated the design of 3 schemas and database performance by simulating full-stack backend logic using MySQL and Flask for interactive website development.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="project-card-content">
-                <div class="project-card-category">Digital Forensics</div>
-                <h3 class="project-card-title">Obfuscated Evidence Recovery</h3>
-                <p class="project-card-description">
-                    <li>Reassembled deleted and obfuscated evidence from 8 system images using Scalpel and FTK Imager for recovery of hashes, user accounts, logs, documents, and metadata to deepen digital evidence recovery insights.</li>
-                    <li>Identified 80+ functions, libraries, and security vulnerabilities by reverse engineering unknown executables, creating and inspecting forensic images/file systems with Procmon and Pestudio.</li>
-                </p>
-            </div>
-        </div>
 
-        <div class="project-card">
-            <div class="project-card-image">
-                <div class="project-placeholder">Project Image</div>
+            <div class="project-card">
+                <div class="project-card-image">
+                    <div class="project-placeholder">Project Image</div>
+                </div>
+                <div class="project-card-content">
+                    <div class="project-card-category">Digital Forensics</div>
+                    <h3 class="project-card-title">Obfuscated Evidence Recovery</h3>
+                    <div class="project-card-description">
+                        <ul>
+                            <li>Reassembled deleted and obfuscated evidence from 8 system images using Scalpel and FTK Imager for recovery of hashes, user accounts, logs, documents, and metadata to deepen digital evidence recovery insights.</li>
+                            <li>Identified 80+ functions, libraries, and security vulnerabilities by reverse engineering unknown executables, creating and inspecting forensic images/file systems with Procmon and Pestudio.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="project-card-content">
-                <div class="project-card-category">Pentesting and Vulnerability Analysis</div>
-                <h3 class="project-card-title">Network Penetration Test for NBN Corporation</h3>
-                <p class="project-card-description">
-                    <li>Achieved root access on 2 servers by identifying critical XSS, SQL injection, and local file inclusion vulnerabilities in a penetration test for NBN Corporation, assessing risks using NIST CVSS Version 3 with average score of 8.86.</li>
-                    <li>Recommended 5 immediate security fixes and mitigations (input sanitization, system updates, enhanced password policies, microservice architecture implementation) to isolate assets and prevent unauthorized server access.</li>
-                </p>
-            </div>
-        </div>
 
-        <div class="project-card">
-            <div class="project-card-image">
-                <div class="project-placeholder">Project Image</div>
+            <div class="project-card">
+                <div class="project-card-image">
+                    <div class="project-placeholder">Project Image</div>
+                </div>
+                <div class="project-card-content">
+                    <div class="project-card-category">Pentesting and Vulnerability Analysis</div>
+                    <h3 class="project-card-title">Network Penetration Test for NBN Corporation</h3>
+                    <div class="project-card-description">
+                        <ul>
+                            <li>Achieved root access on 2 servers by identifying critical XSS, SQL injection, and local file inclusion vulnerabilities in a penetration test for NBN Corporation, assessing risks using NIST CVSS Version 3 with average score of 8.86.</li>
+                            <li>Recommended 5 immediate security fixes and mitigations (input sanitization, system updates, enhanced password policies, microservice architecture implementation) to isolate assets and prevent unauthorized server access.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="project-card-content">
-                <div class="project-card-category">Capstone</div>
-                <h3 class="project-card-title">Cyberassess: Cybersecurity Competency Assessment</h3>
-                <p class="project-card-description">
-                    <li>Designed and developed 75% of the interactive assessment modules in Articulate 360 while acting as primary liaison between the team and professor, implanting proactive deadline strategies for delay prevention.</li>
-                    <li>Spearheaded the design and delivery of 4 final project materials and accompanying presentation to an audience of over 60 colleagues, faculty members, and guests from other projects and the surrounding community.</li>
-                    <li>Informed 10+ team and faculty members of individual task progress, status, and projected completion times by compiling and distributing 15 comprehensive weekly reports.</li>
-                </p>
+
+            <div class="project-card">
+                <div class="project-card-image">
+                    <div class="project-placeholder">Project Image</div>
+                </div>
+                <div class="project-card-content">
+                    <div class="project-card-category">Capstone</div>
+                    <h3 class="project-card-title">Cyberassess: Cybersecurity Competency Assessment</h3>
+                    <div class="project-card-description">
+                        <ul>
+                            <li>Designed and developed 75% of the interactive assessment modules in Articulate 360 while acting as primary liaison between the team and professor, implanting proactive deadline strategies for delay prevention.</li>
+                            <li>Spearheaded the design and delivery of 4 final project materials and accompanying presentation to an audience of over 60 colleagues, faculty members, and guests from other projects and the surrounding community.</li>
+                            <li>Informed 10+ team and faculty members of individual task progress, status, and projected completion times by compiling and distributing 15 comprehensive weekly reports.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -243,11 +271,11 @@
         <div class="opinion-header">
             <div class="opinion-title">THOUGHTS & INSIGHTS</div>
             <div class="author-avatar">👤</div>
-            <div class="author-name">Your Name</div>
-            <div class="author-title">Full Stack Developer</div>
+            <div class="author-name">Jarred Carter</div>
+            <div class="author-title">Cybersecurity Analyst</div>
         </div>
         <div class="opinion-content">
-            <p>For creative inspiration, developers should look beyond their screens. Whether it's exploring new cities, practicing photography, or diving into a good book, the experiences we have outside of coding often fuel our most innovative solutions. Balance isn't just about productivity—it's about perspective.</p>
+            <p>For creative inspiration, cybersecurity professionals should look beyond their screens. Whether it's exploring new attack vectors, practicing with different tools, or diving into the latest research papers, the experiences we have outside of traditional security work often fuel our most innovative defensive solutions. Balance isn't just about productivity—it's about perspective.</p>
         </div>
     </section>
 </main>
