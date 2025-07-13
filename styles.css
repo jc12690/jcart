@@ -1,4 +1,8 @@
-* {
+html {
+    scroll-behavior: smooth;
+}
+
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -557,6 +561,7 @@ body {
 
 .project-text {
     padding-right: 20px;
+    text-align: justify;
 
 }
 
@@ -691,6 +696,21 @@ body {
     position: absolute;
     left: 0;
 }
+
+/*
+.card-link {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: rgba(0,0,0,0); // transparent and clickable
+    cursor: pointer;
+    border: none;
+    outline: none;
+    display: block;
+}
+*/
 
 /* Opinion/Blog Section */
 .opinion-section {
