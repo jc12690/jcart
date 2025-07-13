@@ -214,6 +214,7 @@ body {
     line-height: 1.8;
     color: #ccc;
     margin-bottom: 25px;
+    text-align: justify;
 }
 
 .about-subtitle {
@@ -229,6 +230,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .image-placeholder {
@@ -476,9 +486,10 @@ body {
 }
 
 .experience-card-description {
-    font-size: 14px;
+    font-size: 15px;
     color: #ccc;
     line-height: 1.5;
+    text-align: justify;
 }
 
 .experience-card-description ul {
@@ -546,6 +557,7 @@ body {
 
 .project-text {
     padding-right: 20px;
+
 }
 
 .project-title {
@@ -664,6 +676,7 @@ body {
 .project-card-description ul {
     list-style: none;
     padding-left: 0;
+    text-align: justify;
 }
 
 .project-card-description li {
