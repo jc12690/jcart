@@ -179,7 +179,7 @@ body {
     background-color: #111111;
     color: #ffd700;
     padding: 15px 20px;
-    font-size: 18px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 30px;
@@ -460,6 +460,7 @@ body {
 .experience-card-image img {
     width: 100%;
     height: 100%;
+    justify-content: center;
     object-fit: cover;
 }
 
@@ -740,6 +741,11 @@ body {
 
     .main-logo {
         font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .sub-logo {
+        font-size: 1rem;
         letter-spacing: 4px;
     }
 
