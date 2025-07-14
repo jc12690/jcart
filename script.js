@@ -41,3 +41,41 @@ function updateActiveNav() {
 
 window.addEventListener('scroll', updateActiveNav);
 updateActiveNav();
+
+// Shrink and center main logo on scroll
+window.addEventListener('scroll', () => {
+    const logo = document.querySelector('.logo-section');
+    const mainLogo = document.querySelector('.main-logo');
+    const subLogo = document.querySelector('.sub-logo');
+
+    if (window.scrollY > 100) {
+        logo.classList.add('scrolled');
+        mainLogo.classList.add('scrolled');
+        subLogo.classList.add('scrolled');
+    } else {
+        logo.classList.remove('scrolled');
+        mainLogo.classList.remove('scrolled');
+        subLogo.classList.remove('scrolled');
+    }
+});
+
+// Toggle menu on mobile
+const menuIcon = document.querySelector('.menu-icon');
+const headerLinks = document.querySelector('.header-links');
+
+menuIcon.addEventListener('click', () => {
+    headerLinks.classList.toggle('active');
+});
+
+const toggleThemeBtn = document.querySelector('.header-right div'); // 🌙 icon
+
+toggleThemeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+
+    // Optionally change the icon
+    if (document.body.classList.contains('light-mode')) {
+        toggleThemeBtn.textContent = '☀️'; // sun emoji for light mode
+    } else {
+        toggleThemeBtn.textContent = '🌙'; // moon emoji for dark mode
+    }
+});

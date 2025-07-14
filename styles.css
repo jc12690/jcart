@@ -141,8 +141,10 @@ body {
 
 /* Navigation */
 .main-nav {
-    background-color: #111111;
-    padding: 20px 0;
+    position: sticky;
+    top: 60px; /* 👈 height of the scrolled logo */
+    z-index: 999;
+    background-color: #111;
     border-bottom: 1px solid #333;
 }
 
@@ -151,7 +153,7 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
     padding: 0 20px;
 }
 
@@ -183,7 +185,7 @@ body {
     background-color: #111111;
     color: #ffd700;
     padding: 15px 20px;
-    font-size: 20px;
+    font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 30px;
@@ -852,11 +854,86 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header-links {
-        display: none;
+    @media (max-width: 768px) {
+        .header-links {
+            display: none;
+            flex-direction: column;
+            background-color: #111;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            padding: 10px;
+            border: 1px solid #333;
+        }
+
+        .header-links.active {
+            display: flex;
+        }
     }
 
     .main-logo {
         font-size: 2rem;
     }
+}
+
+.logo-section.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    height: 60px;
+}
+
+.main-logo.scrolled {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.sub-logo.scrolled {
+    display: none;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #222;
+}
+
+body.light-mode .header,
+body.light-mode .main-nav,
+body.light-mode .logo-section.scrolled {
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+body.light-mode .header-links a,
+body.light-mode .nav-container a,
+body.light-mode .project-card-title,
+body.light-mode .section-header {
+    color: #222;
+}
+
+body.light-mode .contact-btn {
+    background-color: #222;
+    color: #fff;
+}
+
+body.light-mode .contact-btn:hover {
+    background-color: #444;
+}
+
+/* Optional: reduce contrast for hover states in light mode */
+body.light-mode .nav-container a.active,
+body.light-mode .nav-container a:hover {
+    color: #007acc;
+    border-bottom-color: #007acc;
+}
+
+body {
+    transition: background-color 0.4s, color 0.4s;
 }
