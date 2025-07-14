@@ -93,14 +93,16 @@ body {
 /* Main Logo Section */
 .logo-section {
     text-align: center;
-    padding: 20px 20px;
+    padding: 60px 20px;
     background-color: #0a0a0a;
     position: relative;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-container {
     position: relative;
     display: inline-block;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-logo {
@@ -110,6 +112,17 @@ body {
     color: #e0e0e0;
     text-transform: uppercase;
     margin-bottom: 20px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.sub-logo {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #ccc;
+    text-transform: uppercase;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
 }
 
 .discover-more {
@@ -140,12 +153,126 @@ body {
 }
 
 /* Navigation */
+/* Navigation - Fixed Overlap Issue */
 .main-nav {
     position: sticky;
-    top: 60px; /* 👈 height of the scrolled logo */
-    z-index: 999;
+    top: 0; /* Changed from 60px to 0 */
+    z-index: 998; /* Lower than logo */
     background-color: #111;
     border-bottom: 1px solid #333;
+    transition: top 0.3s ease;
+}
+
+/* When logo is scrolled, push nav down */
+.main-nav.logo-visible {
+    top: 60px;
+}
+
+/* Logo Section - Improved */
+.logo-section.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container.scrolled {
+    transform: translateY(0);
+}
+
+.main-logo.scrolled {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin: 0;
+    line-height: 1;
+    transform: scale(1);
+}
+
+.sub-logo.scrolled {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* Navigation - Updated to work with new logo behavior */
+.main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 998;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.main-nav.logo-visible {
+    top: 60px;
+}
+
+/* Light mode adjustments for the logo */
+body.light-mode .logo-section.scrolled {
+    background-color: rgba(248, 249, 250, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+body.light-mode .main-logo,
+body.light-mode .sub-logo {
+    color: #222;
+}
+
+/* Add a subtle fade-in animation */
+@keyframes fadeToCenter {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-section.scrolled .main-logo {
+    animation: fadeToCenter 0.6s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-logo {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .main-logo.scrolled {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .sub-logo {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-logo {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .main-logo.scrolled {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
 }
 
 .nav-container {
@@ -876,20 +1003,6 @@ body {
     }
 }
 
-.logo-section.scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 60px;
-    width: 100%;
-    background-color: rgba(10, 10, 10, 0.95);
-    z-index: 1000;
-    padding: 10px 0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    height: 60px;
-}
-
 .main-logo.scrolled {
     font-size: 1.5rem;
     margin: 0;
@@ -899,6 +1012,7 @@ body {
     display: none;
 }
 
+body./* Enhanced Light Mode */
 body.light-mode {
     background-color: #ffffff;
     color: #222;
@@ -907,33 +1021,73 @@ body.light-mode {
 body.light-mode .header,
 body.light-mode .main-nav,
 body.light-mode .logo-section.scrolled {
-    background-color: #f0f0f0;
-    color: #222;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
 }
 
 body.light-mode .header-links a,
 body.light-mode .nav-container a,
-body.light-mode .project-card-title,
-body.light-mode .section-header {
+body.light-mode .main-logo,
+body.light-mode .sub-logo {
     color: #222;
 }
 
+body.light-mode .section-header {
+    background-color: #f8f9fa;
+    color: #007acc;
+    border-left: 4px solid #007acc;
+}
+
 body.light-mode .contact-btn {
-    background-color: #222;
+    background-color: #007acc;
     color: #fff;
+    border-color: #007acc;
 }
 
 body.light-mode .contact-btn:hover {
-    background-color: #444;
+    background-color: #0056b3;
 }
 
-/* Optional: reduce contrast for hover states in light mode */
 body.light-mode .nav-container a.active,
 body.light-mode .nav-container a:hover {
     color: #007acc;
     border-bottom-color: #007acc;
 }
 
-body {
-    transition: background-color 0.4s, color 0.4s;
+body.light-mode .header-links a:hover {
+    color: #007acc;
+}
+
+body.light-mode .stats-section,
+body.light-mode .education-card,
+body.light-mode .competency-category,
+body.light-mode .experience-card,
+body.light-mode .project-card,
+body.light-mode .opinion-section {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+body.light-mode .stat-number {
+    color: #007acc;
+}
+
+body.light-mode .stat-label,
+body.light-mode .about-description,
+body.light-mode .project-description,
+body.light-mode .experience-card-description,
+body.light-mode .project-card-description {
+    color: #666;
+}
+
+body.light-mode .university,
+body.light-mode .experience-card-company {
+    color: #007acc;
+}
+
+body.light-mode .category-title,
+body.light-mode .gpa,
+body.light-mode .experience-card-category,
+body.light-mode .project-card-category {
+    color: #007acc;
 }
