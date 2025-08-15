@@ -96,5 +96,21 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNav();
 });
 
+// Add to your JS file (after existing functions)
+function updateHeaderName() {
+    const headerName = document.querySelector('.header-name');
+    const logoSectionBottom =
+        document.querySelector('.logo-section').offsetTop +
+        document.querySelector('.logo-section').offsetHeight;
+
+    if (window.scrollY > logoSectionBottom - 100) {
+        headerName.classList.add('visible');
+        document.querySelector('.main-nav').classList.add('visible');
+    } else {
+        headerName.classList.remove('visible');
+        document.querySelector('.main-nav').classList.remove('visible');
+    }
+}
+
 // Add scroll event listener
 window.addEventListener('scroll', handleScroll);

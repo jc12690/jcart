@@ -43,22 +43,23 @@ body {
     justify-self: center;
 }
 
+/* QWEN LOCAL */
 .header-name {
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
     color: #e0e0e0;
-    text-transform: uppercase;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* QWEN LOCAL */
 .header-name.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    visibility: visible;
 }
 
 .header-right {
@@ -195,6 +196,11 @@ body {
     background-color: #111;
     border-bottom: 1px solid #333;
     transition: all 0.3s ease;
+}
+
+/* QWEN LOCAL */
+.main-nav.visible {
+    transform: translateY(-5px);
 }
 
 .nav-container {

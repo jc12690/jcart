@@ -33,7 +33,7 @@
             <div class="header-links">
                 <a href="#about" class="login-btn">ABOUT</a>
             </div>
-            <a href="mailto:jc12690@nyu.edu" class="contact-btn">CONTACT</a>
+            <a href="./contact.html" class="contact-btn">CONTACT</a>
             <div class="theme-toggle">🌙</div>
         </div>
     </div>
@@ -54,9 +54,9 @@
 <nav class="main-nav">
     <div class="nav-container">
         <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
         <a href="#experience">EXPERIENCE</a>
         <a href="#projects">PROJECTS</a>
-        <a href="#competencies-section">SKILLS</a>
         <!--<a href="#contact">CONTACT</a>-->
     </div>
 </nav>
@@ -143,29 +143,31 @@
         <!-- Core Competencies Section -->
         <div class="competencies-section">
             <!--<h3 class="subsection-title">Core Competencies</h3>-->
-            <div class="section-header">CORE COMPETENCIES</div>
-            <div class="competencies-grid">
-                <div class="competency-category">
-                    <h4 class="category-title">Security Tools</h4>
-                    <div class="skills-list">
-                        <div class="skill-item">Metasploit</div>
-                        <div class="skill-item">Nmap</div>
-                        <div class="skill-item">Wireshark</div>
-                        <div class="skill-item">Burp Suite</div>
-                        <div class="skill-item">Nessus</div>
+            <section id="skills">
+                <div class="section-header">CORE COMPETENCIES</div>
+                <div class="competencies-grid">
+                    <div class="competency-category">
+                        <h4 class="category-title">Security Tools</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">Metasploit</div>
+                            <div class="skill-item">Nmap</div>
+                            <div class="skill-item">Wireshark</div>
+                            <div class="skill-item">Burp Suite</div>
+                            <div class="skill-item">Nessus</div>
+                        </div>
+                    </div>
+                    <div class="competency-category">
+                        <h4 class="category-title">Programming</h4>
+                        <div class="skills-list">
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">SQL</div>
+                            <div class="skill-item">C#</div>
+                            <div class="skill-item">HTML/CSS</div>
+                            <div class="skill-item">Java</div>
+                        </div>
                     </div>
                 </div>
-                <div class="competency-category">
-                    <h4 class="category-title">Programming</h4>
-                    <div class="skills-list">
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">SQL</div>
-                        <div class="skill-item">C#</div>
-                        <div class="skill-item">HTML/CSS</div>
-                        <div class="skill-item">Java</div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     </section>
 
@@ -291,6 +293,24 @@
 
             <div class="project-card">
                 <div class="project-card-image">
+                    <img src="NYUtTandon-StackedLogo-Color.png" alt="NYU Tandon Color Logo">
+                </div>
+                <div class="project-card-content">
+                    <div class="project-card-category">Application Security</div>
+                    <h3 class="project-card-title">Web, Mobile, Container, and Binary App Security</h3>
+                    <div class="project-card-description">
+                        <ul>
+                            <li><b>Web App Security Assessment:</b> Identified and remediated 4 critical vulnerabilities (XSS, CSRF, SQL Injection, command injection) in Django web application; implemented comprehensive security fixes and automated regression testing via GitHub Actions.</li>
+                            <li><b>Mobile App Security:</b> Conducted security audit of Android gift card application, fixing Intent vulnerabilities, implementing HTTPS encryption for REST API communications, and removing privacy-invasive monitoring code.</li>
+                            <li><b>Container & Kubernetes Security:</b> Secured containerized application deployment by implementing Kubernetes Sealed Secrets for credential management, configured Prometheus monitoring with custom security metrics, and established CI/CD pipeline with automated security testing.</li>
+                            <li><b>Binary Security & Fuzzing:</b> Identified and fixed 6 buffer overflow and memory corruption vulnerabilities, achieving an 85%+ code coverage through systematic case development by performing a vulnerability assessment on legacy C application using AFL++ fuzzer and coverage analysis.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-image">
                     <img src="./images/ftk-imager.png" alt="Screenshot of FTK Imager with System Image">
                 </div>
                 <div class="project-card-content">
@@ -306,7 +326,7 @@
             </div>
 
             <div class="project-card">
-                
+
                 <div class="project-card-image">
                     <img src="./images/nbn-pentest-terminal.png" alt="Screenshot of NBN Penetration Test Terminal When Logged In to SSH as User">
                 </div>
@@ -323,7 +343,7 @@
             </div>
 
             <div class="project-card">
-                
+
                 <div class="project-card-image">
                     <div class="project-placeholder">Project Image</div>
                 </div>
