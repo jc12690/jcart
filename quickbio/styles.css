@@ -112,6 +112,7 @@ html, body {
     text-decoration: none;
     color: var(--text);
     transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    overflow: hidden;
 }
 
 .social-icon-btn:hover {
@@ -128,8 +129,8 @@ html, body {
 }
 
 .social-icon-btn img {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
 }
 
 .card-icon img {
