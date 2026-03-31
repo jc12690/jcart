@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jarred Carter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0e0e0e;
+            --surface: #1a1a1a;
+            --border: rgba(255,255,255,0.08);
+            --text: #f0ece4;
+            --muted: rgba(240,236,228,0.5);
+            --accent: #d4a96a;
+            --accent2: #e8c99a;
+        }
+
+        html, body {
+            min-height: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .hero-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+        }
+
+        /*
+          =============================================
+          REPLACE PHOTO: swap src="YOUR_PHOTO.jpg" with
+          the actual filename of your profile photo.
+          Place the image file in the same folder as
+          this index.html.
+          =============================================
+        */
+        .hero-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        /* gradient fade from photo into page bg */
+        .hero-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                    to bottom,
+                    transparent 40%,
+                    rgba(14,14,14,0.55) 65%,
+                    var(--bg) 100%
+            );
+            pointer-events: none;
+        }
+
+        /* name + title overlay at bottom of hero */
+        .hero-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 0 28px 32px;
+            text-align: center;
+        }
+
+        .hero-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 10vw, 3.8rem);
+            letter-spacing: 0.06em;
+            line-height: 1;
+            color: var(--text);
+            text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+        }
+
+        .hero-title {
+            margin-top: 6px;
+            font-size: 0.78rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent2);
+            opacity: 0.9;
+        }
+
+        /* ── BODY ── */
+        .page-body {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        /* social icon row */
+        .socials-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 8px 0 36px;
+        }
+
+        .social-icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+        }
+
+        .social-icon-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0e0e0e;
+            transform: scale(1.08);
+        }
+
+        .social-icon-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ── SECTION ── */
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+            padding-left: 2px;
+        }
+
+        .section + .section {
+            margin-top: 28px;
+        }
+
+        /* ── LINK CARD ── */
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 60%, rgba(212,169,106,0.06));
+            pointer-events: none;
+        }
+
+        .link-card:hover {
+            background: #222;
+            border-color: rgba(212,169,106,0.35);
+            transform: translateY(-2px);
+        }
+
+        .link-card:active {
+            transform: translateY(0);
+        }
+
+        .card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+        }
+
+        /* playlist thumbnail override */
+        .card-icon.thumb {
+            background: #1c1c1e;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .card-icon.thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-size: 0.92rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-sub {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .card-arrow {
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        .card-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 32px 0;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            text-align: center;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: rgba(240,236,228,0.18);
+            padding-top: 8px;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero        { animation: fadeUp 0.6s ease both; }
+        .socials-row { animation: fadeUp 0.6s 0.15s ease both; }
+        .section:nth-child(1) { animation: fadeUp 0.6s 0.25s ease both; }
+        .section:nth-child(2) { animation: fadeUp 0.6s 0.35s ease both; }
+        .section:nth-child(3) { animation: fadeUp 0.6s 0.45s ease both; }
+    </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+    <div class="hero-img-wrap">
+        <!-- REPLACE src below with your photo filename -->
+        <img src="/images/jcart-cowboy.jpg" alt="Jarred Carter" />
+    </div>
+    <div class="hero-text">
+        <div class="hero-name">Jarred Carter</div>
+        <div class="hero-title">Lagree Instructor &nbsp;·&nbsp; Cybersecurity Analyst</div>
+    </div>
+</div>
+
+<!-- ══ BODY ══ -->
+<div class="page-body">
+
+    <!-- social icon row -->
+    <div class="socials-row">
+        <!-- Instagram -->
+        <a href="https://instagram.com/j__cart" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+        <!-- Apple Music -->
+        <a href="#" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Apple Music">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208c-.192.448-.292.925-.34 1.408-.028.312-.047.627-.05.945v13.28c.013.385.04.769.105 1.149.29 1.695 1.187 2.97 2.67 3.806.608.34 1.274.52 1.96.592.433.047.87.063 1.308.066h12.366c.433-.004.867-.02 1.298-.064.907-.09 1.75-.345 2.5-.905 1.074-.803 1.74-1.87 1.98-3.185.06-.358.085-.72.097-1.082.013-.392.013-13.76 0-14.122zM12 3.5c.055 0 .11.003.162.008A8.5 8.5 0 0 1 20.5 12c0 4.694-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zm0 1.5a7 7 0 1 0 0 14A7 7 0 0 0 12 5zm0 2.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- ── PLAYLISTS ── -->
+    <div class="section">
+        <div class="section-label">Playlists</div>
+        <a href="https://music.apple.com/us/playlist/slt-2/pl.u-jV89Dk9tqy1yqv" class="link-card" target="_blank" rel="noopener">
+            <div class="card-icon">
+                <!-- Apple Music icon -->
+                <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208c-.192.448-.292.925-.34 1.408-.028.312-.047.627-.05.945v13.28c.013.385.04.769.105 1.149.29 1.695 1.187 2.97 2.67 3.806.608.34 1.274.52 1.96.592.433.047.87.063 1.308.066h12.366c.433-.004.867-.02 1.298-.064.907-.09 1.75-.345 2.5-.905 1.074-.803 1.74-1.87 1.98-3.185.06-.358.085-.72.097-1.082.013-.392.013-13.76 0-14.122zM12 3.5c.055 0 .11.003.162.008A8.5 8.5 0 0 1 20.5 12c0 4.694-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zm0 1.5a7 7 0 1 0 0 14A7 7 0 0 0 12 5zm0 2.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+            </div>
+            <div class="card-text">
+                <div class="card-title">This Week's Playlist</div>
+                <div class="card-sub">Apple Music · Playlist</div>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+        </a>
+        <a href="https://music.apple.com/us/playlist/slt-1/pl.u-GgA5zRVs8K1K8R" class="link-card" target="_blank" rel="noopener">
+            <div class="card-icon">
+                <!-- Apple Music icon -->
+                <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208c-.192.448-.292.925-.34 1.408-.028.312-.047.627-.05.945v13.28c.013.385.04.769.105 1.149.29 1.695 1.187 2.97 2.67 3.806.608.34 1.274.52 1.96.592.433.047.87.063 1.308.066h12.366c.433-.004.867-.02 1.298-.064.907-.09 1.75-.345 2.5-.905 1.074-.803 1.74-1.87 1.98-3.185.06-.358.085-.72.097-1.082.013-.392.013-13.76 0-14.122zM12 3.5c.055 0 .11.003.162.008A8.5 8.5 0 0 1 20.5 12c0 4.694-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zm0 1.5a7 7 0 1 0 0 14A7 7 0 0 0 12 5zm0 2.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+            </div>
+            <div class="card-text">
+                <div class="card-title">Last Week's Playlist</div>
+                <div class="card-sub">Apple Music · Playlist</div>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+        </a>
+    </div>
+
+    <!-- ── BOOK A CLASS ── -->
+    <div class="section">
+        <div class="section-label">Book a Class</div>
+
+        <a href="https://sltnyc.com/studio/w-14/" class="link-card" target="_blank" rel="noopener">
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+            </div>
+            <div class="card-text">
+                <div class="card-title">Book with Jarred @ SLT</div>
+                <div class="card-sub">https://sltnyc.com/studio/w-14/</div>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+        </a>
+    </div>
+
+    <!-- ── SOCIALS ── -->
+    <div class="section">
+        <div class="section-label">Socials</div>
+
+        <a href="https://instagram.com/j__cart" class="link-card" target="_blank" rel="noopener">
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <div class="card-text">
+                <div class="card-title">Instagram</div>
+                <div class="card-sub">@j__cart</div>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+        </a>
+
+        <a href="https://www.sltnyc.com" class="link-card" target="_blank" rel="noopener">
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </div>
+            <div class="card-text">
+                <div class="card-title">SLT NYC</div>
+                <div class="card-sub">sltnyc.com</div>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="footer">jarredmcarter.com</div>
+
+</div>
+</body>
+</html>
