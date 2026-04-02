@@ -1,116 +1,114 @@
-// Header name visibility on scroll
-function updateHeaderName() {
-    const headerName = document.querySelector('.header-name');
-    const logoSection = document.querySelector('.logo-section');
-    const logoSectionBottom = logoSection.offsetTop + logoSection.offsetHeight;
+/* ═══ SCRIPTS ════════════════════════════════════════════════════ -->
 
-    if (window.scrollY > logoSectionBottom - 100) {
-        headerName.classList.add('visible');
+  ANIMATION SCRIPTS PLACEHOLDER
+When you have the JS animations, add these before your animation code:
+
+    <!-- GSAP + ScrollTrigger -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> -->
+
+<!-- SplitType (for text char animations) -->
+<!-- <script src="https://unpkg.com/split-type"></script> -->
+
+<!-- Lenis (smooth scroll) -->
+<!-- <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script> -->
+*/
+
+<script>
+/* ─── LIVE CLOCK (NYC time) ──────────────────────────────── */
+function updateClock() {
+    const now = new Date();
+    const opts = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', hour12: true };
+    const timeStr = now.toLocaleTimeString('en-US', opts).toUpperCase();
+    const dateStr = now.toLocaleDateString('en-US', {
+        timeZone: 'America/New_York', day: '2-digit', month: 'long', year: 'numeric'
+    });
+    const el = document.getElementById('navTime');
+    const de = document.getElementById('navDate');
+    if (el) el.textContent = timeStr;
+    if (de) de.textContent = dateStr.toUpperCase();
+}
+updateClock();
+setInterval(updateClock, 10000);
+
+// ─── NAV THEME SWITCHING ─────────────────────────────────────────
+// Switch nav appearance based on what section is visible
+const navEl = document.querySelector('.nav_wrap');
+const sections = document.querySelectorAll('[data-theme]');
+
+function updateNavTheme() {
+    // find which theme section is most visible in top half of viewport
+    let current = document.documentElement.getAttribute('data-theme') || 'light';
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 80 && rect.bottom > 80) {
+            const t = section.getAttribute('data-theme');
+            if (t && t !== 'inherit') current = t;
+        }
+    });
+    // set nav colors
+    if (current === 'dark') {
+        navEl.style.setProperty('--theme--background', 'var(--swatch--dark)');
+        navEl.style.setProperty('--theme--text', 'var(--swatch--light)');
+        navEl.style.color = 'var(--swatch--light)';
     } else {
-        headerName.classList.remove('visible');
+        navEl.style.setProperty('--theme--background', 'var(--swatch--light)');
+        navEl.style.setProperty('--theme--text', 'var(--swatch--dark)');
+        navEl.style.color = 'var(--swatch--dark)';
     }
 }
+window.addEventListener('scroll', updateNavTheme, { passive: true });
+updateNavTheme();
 
-// Active navigation highlighting
-function updateActiveNav() {
-    const navLinks = document.querySelectorAll('.nav-container a');
-    const sections = document.querySelectorAll('section');
-    let current = '';
-    const scrollOffset = 120;
+/* ─── WORK SECTION: simple scroll-driven panel reveal ────────────
+This is a simplified version. Replace with your GSAP animation when ready. */
+(function() {
+    const triggers = document.querySelectorAll('.work_trigger');
+    const panels = document.querySelectorAll('.work_item');
+    if (!triggers.length || !panels.length) return;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - scrollOffset) {
-            current = section.getAttribute('id');
-        }
-    });
+    function syncWork() {
+        const wrapTop = document.querySelector('.work_wrap').getBoundingClientRect().top;
+        const wrapH = document.querySelector('.work_wrap').offsetHeight;
+        const progress = Math.max(0, Math.min(1, -wrapTop / (wrapH - window.innerHeight)));
+        const count = panels.length;
+        const step = 1 / count;
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href').substring(1);
-        if (href === current) {
-            link.classList.add('active');
-        }
-    });
-}
+        panels.forEach((panel, i) => {
+            const start = i * step;
+            const end = (i + 1) * step;
+            const p = Math.max(0, Math.min(1, (progress - start) / step));
 
-// Combined scroll handler
-function handleScroll() {
-    updateHeaderName();
-    updateActiveNav();
-}
+            if (i === 0) {
+                // first panel always shows
+                panel.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)';
+                panel.style.pointerEvents = 'auto';
+            } else {
+                // panels slide up from bottom
+                const pct = Math.min(100, Math.round(p * 100));
+                panel.style.clipPath = `polygon(0% ${100 - pct}%, 100% ${100 - pct}%, 100% 100%, 0% 100%)`;
+                panel.style.pointerEvents = p >= 0.5 ? 'auto' : 'none';
+            }
+        });
+    }
+    window.addEventListener('scroll', syncWork, { passive: true });
+    syncWork();
+})();
 
-// Enhanced smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+// ─── MOBILE MENU TOGGLE ──────────────────────────────────────────
+document.querySelector('.menu_btn').addEventListener('click', function() {
+    const menu = document.querySelector('.mobile_menu');
+    if (menu) menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+
+// ─── SMOOTH SCROLL ───────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const navHeight = 50;
-            const offset = navHeight + 20;
-            const targetPosition = target.offsetTop - offset;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
-
-// Toggle menu on mobile
-const menuIcon = document.querySelector('.menu-icon');
-const headerLinks = document.querySelector('.header-links');
-
-menuIcon?.addEventListener('click', () => {
-    headerLinks.classList.toggle('active');
-});
-
-// Enhanced theme toggle
-const themeToggle = document.querySelector('.theme-toggle');
-
-themeToggle?.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-
-    if (document.body.classList.contains('light-mode')) {
-        themeToggle.textContent = '☀️';
-        localStorage.setItem('theme', 'light');
-    } else {
-        themeToggle.textContent = '🌙';
-        localStorage.setItem('theme', 'dark');
-    }
-});
-
-// Load saved theme preference
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    const themeToggle = document.querySelector('.theme-toggle');
-
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
-        if (themeToggle) themeToggle.textContent = '☀️';
-    }
-
-    // Initialize scroll handlers
-    updateHeaderName();
-    updateActiveNav();
-});
-
-// Add to your JS file (after existing functions)
-function updateHeaderName() {
-    const headerName = document.querySelector('.header-name');
-    const logoSectionBottom =
-        document.querySelector('.logo-section').offsetTop +
-        document.querySelector('.logo-section').offsetHeight;
-
-    if (window.scrollY > logoSectionBottom - 100) {
-        headerName.classList.add('visible');
-        document.querySelector('.main-nav').classList.add('visible');
-    } else {
-        headerName.classList.remove('visible');
-        document.querySelector('.main-nav').classList.remove('visible');
-    }
-}
-
-// Add scroll event listener
-window.addEventListener('scroll', handleScroll);
+</script>

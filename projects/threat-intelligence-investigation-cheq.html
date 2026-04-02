@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSec Playbook — Jarred Carter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-styles.css">
+</head>
+<body>
+<!-- Back to all projects link -->
+<a href="../index.html#work" class="back-link">← All Projects</a>
+
+<!-- Fixed Header -->
+<header class="header">
+    <div class="header-info" style="margin-left: auto;">
+        <div class="header-name">JARRED CARTER</div>
+        <div class="header-title">SECURITY ENGINEER • FITNESS INSTRUCTOR • MODEL</div>
+        <div class="header-time" id="current-time">--:-- [NY] --</div>
+    </div>
+</header>
+
+<!-- Project Page Content -->
+<main class="project-page">
+
+    <!-- Project Hero -->
+    <div class="project-hero">
+        <div class="project-info">
+            <h1 class="project-name">Threat Intelligence Investigation</h1>
+            <p class="project-description">
+                Automated bot traffic and ad fraud analysis across 126,959 e-commerce sessions for CHEQ, identifying
+                attack patterns, quantifying financial impact, and developing a prioritized mitigation strategy to
+                protect revenue-generating workflows and advertising spend.
+            </p>
+            <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
+
+            <div class="project-tags">
+                <span class="project-tag">Threat Intelligence</span>
+                <span class="project-tag">Bot Detection</span>
+                <span class="project-tag">Ad Fraud</span>
+                <span class="project-tag">E-Commerce Security</span>
+            </div>
+
+            <a href="/files/threat-intel-assignment.md" class="project-link-btn" target="_blank">
+                View Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+
+                <div class="project-images">
+                    <img src="../images/cheq-logo-lg.png" alt="CHEQ Logo" class="project-main-image">
+                </div>
+
+        <!-- Large vertical title in background -->
+        <div class="project-title-vertical">Playbook</div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="project-content">
+
+        <div class="content-section">
+            <h2>The Problem</h2>
+            <p>
+                E-commerce platforms are a high-value target for automated abuse, and most of it is invisible at first
+                glance. Bots mimicking legitimate user behavior inflate traffic metrics, drain advertising budgets,
+                hoard inventory, and stuff credential databases, all while flying under the radar of conventional
+                monitoring. CHEQ needed a rigorous behavioral analysis of their session data to answer a question that's
+                harder than it sounds: which of these 126,959 sessions are actually human?
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What's Included</h2>
+            <ul>
+                <li>Behavioral signal analysis across 126,959 e-commerce sessions to identify automated bot traffic</li>
+                <li>Multi-signal correlation including datacenter ASNs, headless browser indicators, timezone mismatches,
+                    and interaction speed analysis</li>
+                <li>Bot-driven attack pattern detection targeting checkout, login, and product endpoints</li>
+                <li>Ad fraud quantification across paid Google and Bing search traffic consumed by automated sessions</li>
+                <li>Prioritized mitigation strategy covering ASN blocking, device fingerprint detection, rate limiting,
+                    and MFA enforcement</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impact</h2>
+            <p>
+                Identified that 25.51% - or roughly 1 in 4 visitors - of all sessions were automated bot traffic. That
+                finding alone reframes how CHEQ interprets their analytics, allocates ad spend, and designs abuse
+                protections. The investigation estimated $3,362 – $13,448 in wasted advertising spend attributable to bots
+                interacting with paid search campaigns, and surfaced active attack patterns consistent with two of the
+                most revenue-critical endpoints on any e-commerce platform: inventory  hoarding and credential stuffing
+                at the checkout and login layers.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Full Width Image -->
+    <div class="project-full-image">
+        <img src="../images/cheq-analytics.png" alt="Security documentation">
+    </div>
+
+    <!-- Image Grid
+    <div class="project-image-grid">
+        <img src="../images/project_thumb_1.jpg" alt="Playbook detail 1">
+        <img src="../images/project_thumb_2.jpg" alt="Playbook detail 2">
+    </div>
+-->
+    <!-- Technical Details -->
+    <div class="project-content">
+        <div class="content-section">
+            <h2>Technical Stack</h2>
+            <ul>
+                <li><strong>Python:</strong> session data analysis and signal correlation scripting</li>
+                <li><strong>SQL:</strong> behavioral data querying and aggregation</li>
+                <li><strong>CHEQ dataset:</strong> 126,959 labeled e-commerce sessions with behavioral metadata</li>
+                <li><strong>ASN intelligence:</strong> datacenter and infrastructure source identification</li>
+                <li><strong>Device fingerprinting:</strong> reuse detection across automated sessions</li>
+                <li><strong>Google & Bing Ads data:</strong> paid traffic analysis for ad fraud quantification</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="next-project">
+        <p class="next-label">[NEXT]</p>
+        <a href="information-systems-specialist-wfwv" class="next-project-link">
+            <h2 class="next-project-title">Penetration Testing Engineer</h2>
+            <span class="next-project-arrow">→</span>
+        </a>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <span class="footer-text">JARRED CARTER — SECURITY. FITNESS. STYLE.</span>
+    <span class="footer-year">© 2026</span>
+</footer>
+
+<script src="project-app.js"></script>
+</body>
+</html>

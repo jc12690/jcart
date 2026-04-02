@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSec Playbook — Jarred Carter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="experience-styles.css">
+</head>
+<body>
+<!-- Back to all projects link -->
+<a href="../index.html#work" class="back-link">← All Projects</a>
+
+<!-- Fixed Header -->
+<header class="header">
+    <div class="header-info" style="margin-left: auto;">
+        <div class="header-name">JARRED CARTER</div>
+        <div class="header-title">SECURITY ENGINEER • FITNESS INSTRUCTOR • MODEL</div>
+        <div class="header-time" id="current-time">--:-- [NY] --</div>
+    </div>
+</header>
+
+<!-- Project Page Content -->
+<main class="project-page">
+
+    <!-- Project Hero -->
+    <div class="project-hero">
+        <div class="project-info">
+            <h1 class="project-name">Security Analyst</h1>
+            <p class="project-description">
+                The Open Law Platform empowers people to focus on high-value tasks, auto-updates the legal code as laws
+                become effective, and improves how people connect with citizens. Draft, codify, and publish better laws
+                without onerous copyright restrictions and reduce repetitive tasks in the process.
+            </p>
+            <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
+
+            <div class="project-tags">
+                <span class="project-tag">Security</span>
+                <span class="project-tag">Documentation</span>
+                <span class="project-tag">Automation</span>
+                <span class="project-tag">Verification</span>
+            </div>
+
+            <a href="https://github.com/openlawlibrary/taf" class="project-link-btn" target="_blank">
+                View on GitHub
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="project-images">
+            <img src="../images/open-law-library-codify.png" alt="Open Law Library Codify" class="project-main-image">
+        </div>
+
+        <!-- Large vertical title in background -->
+        <div class="project-title-vertical">Playbook</div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="project-content">
+
+        <div class="content-section">
+            <h2>The Problem</h2>
+            <p>
+                Public law infrastructure has a trust problem: when governments publish legal documents online, there's
+                no guarantee that the content hasn't been tampered with by bad actors, accidental overwrites, or
+                repository changes. Open Law Library's <i>TAF</i> (The Archive Framework) adds a Python-based layer over
+                <i>TUF</i> (The Update Framework) to cryptographically authenticate law repositories hosted on GitHub.
+            </p>
+            <p>
+                The challenge is that engineering and operations teams weren't consistently using the security tooling,
+                and the vulnerability process management lacked the structure needed to catch and remediate issues before
+                they reached production, thus putting the integrity of law served to 40,000+ users at risk.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What's Included</h2>
+            <ul>
+                <li>Documentation and reporting workflows designed to drive adoption of security tooling across
+                    engineering and operations teams</li>
+                <li>Operational security tooling maintenance ensuring continuous verification of code commits on public
+                    law hosting infrastructure</li>
+                <li>Vulnerability triage and remediation tracking aligned to internal SLAs</li>
+                <li>Risk assessment reporting built from aggregated vulnerability and system data across application and
+                    infrastructure environments</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impact</h2>
+            <p>
+                Supported security operations for a platform serving 40,000+ users where the stakes are unusually high:
+                the content being protected is public law, and any undetected tampering would undermine civic trust in
+                legal information. By improving documentation workflows and tightening the vulnerability management
+                process, engineering teams gained clearer remediation paths and faster turnaround on findings, directly
+                supporting the integrity of authenticated law repositories used by government partners including the City
+                of San Mateo.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Full Width Image
+    <div class="project-full-image">
+        <img src="../images/security_portrait.jpg" alt="Security documentation">
+    </div>
+-->
+    <!-- Image Grid
+    <div class="project-image-grid">
+        <img src="../images/project_thumb_1.jpg" alt="Playbook detail 1">
+        <img src="../images/project_thumb_2.jpg" alt="Playbook detail 2">
+    </div>
+-->
+    <!-- Technical Details -->
+    <div class="project-content">
+        <div class="content-section">
+            <h2>Technical Stack</h2>
+            <ul>
+                <li><strong>Python:</strong> primary language for TAF development and tooling contributions</li>
+                <li><strong>TAF (The Archive Framework):</strong> Python-based framework built on top of TUF for authenticating</li>
+                <li><strong>TUF (The Update Framework):</strong> underlying cryptographic signing and metadata validation standard</li>
+                <li><strong>GitHub:</strong> repository hosting for both law content (XML, HTML, PDF) and authentication metadata</li>
+                <li><strong>Shell:</strong> Command line interface options developed to extend TAF's usability and updater functionality</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Next Project -->
+    <div class="next-project">
+        <p class="next-label">[NEXT]</p>
+        <a href="penetration-testing-engineer-cnb.html" class="next-project-link">
+            <h2 class="next-project-title">Penetration Testing Engineer</h2>
+            <span class="next-project-arrow">→</span>
+        </a>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <span class="footer-text">JARRED CARTER — SECURITY. FITNESS. STYLE.</span>
+    <span class="footer-year">© 2026</span>
+</footer>
+
+<script src="experience-app.js"></script>
+</body>
+</html>
