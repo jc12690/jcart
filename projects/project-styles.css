@@ -212,6 +212,7 @@ body {
 /* Hero image */
 .project-images {
   position: relative;
+  object-fit: contain;
   z-index: 1;
 }
 
@@ -300,7 +301,7 @@ body {
 .project-full-image img {
   width: 100%;
   aspect-ratio: 16/9;
-  object-fit: cover;
+  object-fit: contain;
   filter: grayscale(100%);
   transition: filter 0.4s ease;
 }
