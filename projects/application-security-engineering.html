@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSec Playbook — Jarred Carter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-styles.css">
+</head>
+<body>
+<!-- Back to all projects link -->
+<a href="../index.html#archive" class="back-link">← All Projects</a>
+
+<!-- Fixed Header -->
+<header class="header">
+    <div class="header-info" style="margin-left: auto;">
+        <div class="header-name">JARRED CARTER</div>
+        <div class="header-title">SECURITY ENGINEER • FITNESS INSTRUCTOR • MODEL</div>
+        <div class="header-time" id="current-time">--:-- [NY] --</div>
+    </div>
+</header>
+
+<!-- Project Page Content -->
+<main class="project-page">
+
+    <!-- Project Hero -->
+    <div class="project-hero">
+        <div class="project-info">
+            <h1 class="project-name">Application Security Engineering</h1>
+            <p class="project-description">
+                A suite of five applied security engineering projects spanning web application security, mobile security,
+                container hardening, binary exploitation, and API protection, with each targeting a distinct layer of the
+                modern application stack with hands-on assessment, remediation, and monitoring.
+            </p>
+            <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
+
+            <div class="project-tags">
+                <span class="project-tag">Application Security</span>
+                <span class="project-tag">Vulnerability Remediation</span>
+                <span class="project-tag">Secure Development</span>
+                <span class="project-tag">AI/ML Security</span>
+            </div>
+
+            <a href="https://github.com/jc12690" class="project-link-btn" target="_blank">
+                View Projects
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+
+                <div class="project-images">
+                    <img src="../images/tandon-born-anywhere-stamp.png" alt="CHEQ Logo" class="project-main-image">
+                </div>
+
+        <!-- Large vertical title in background -->
+        <div class="project-title-vertical">Playbook</div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="project-content">
+
+        <div class="content-section">
+            <h2>The Problem</h2>
+            <p>
+                Modern applications don't have a single attack surface — they have many. A web app can be hardened while
+                the API it talks to leaks data. A container can be locked down while the mobile client it serves has
+                unencrypted communications. Application security engineering means understanding the full stack and
+                knowing where each layer breaks down under adversarial pressure. These five projects were designed to
+                build exactly that: comprehensive, layer-by-layer security intuition grounded in real remediation work.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What's Included</h2>
+
+            <h3>AI-Ready Security Assessment</h3>
+            <ul>
+                <li>Identified and remediated 4 critical vulnerabilities (XSS, CSRF, SQL Injection, command injection) in a Django web application</li>
+                <li>Implemented automated detection rules and security controls applicable to AI/ML API environments</li>
+            </ul>
+
+            <h3>Mobile App Security</h3>
+            <ul>
+                <li>Security audit of an Android gift card application</li>
+                <li>Fixed Intent vulnerabilities and implemented HTTPS encryption for REST API communications</li>
+                <li>Removed privacy-invasive monitoring code</li>
+            </ul>
+
+            <h3>Container Security for ML Environments</h3>
+            <ul>
+                <li>Secured containerized applications using Kubernetes</li>
+                <li>Implemented automated monitoring with Prometheus</li>
+                <li>Established security controls applicable to AI/ML model serving environments</li>
+            </ul>
+
+            <h3>Binary Security & Fuzzing</h3>
+            <ul>
+                <li>Identified and fixed 6 buffer overflow and memory corruption vulnerabilities in a legacy C application</li>
+                <li>Achieved 85%+ code coverage through systematic test case development using AFL++ fuzzer</li>
+            </ul>
+
+            <h3>API Security & Monitoring</h3>
+            <ul>
+                <li>Implemented comprehensive API security controls and monitoring solutions</li>
+                <li>Established foundation for securing AI model APIs and detecting anomalous usage patterns</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impact</h2>
+            <p>
+                Across five projects, every major layer of the modern application stack got put under adversarial
+                pressure — and fixed. From a Django app leaking to SQL injection, to an Android client with unencrypted
+                API traffic, to a legacy C binary hiding buffer overflows, the through-line is the same: find the weakness,
+                understand why it exists, and close it. The AI/ML security angle across multiple projects is particularly
+                relevant as organizations rush to ship model-serving infrastructure without fully understanding its
+                attack surface.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Full Width Image -->
+    <div class="project-full-image">
+        <img src="../images/nyu-tandon-6-metrotech.jpg" alt="Security documentation">
+    </div>
+
+    <!-- Image Grid
+    <div class="project-image-grid">
+        <img src="../images/project_thumb_1.jpg" alt="Playbook detail 1">
+        <img src="../images/project_thumb_2.jpg" alt="Playbook detail 2">
+    </div>
+-->
+    <!-- Technical Details -->
+    <div class="project-content">
+        <div class="content-section">
+            <h2>Technical Stack</h2>
+            <ul>
+                <li><strong>Django:</strong> web application framework for security assessment and remediation</li>
+                <li><strong>Burp Suite:</strong> web application testing for XSS, CSRF, SQLi, and command injection</li>
+                <li><strong>Android SDK:</strong> mobile application security audit and Intent vulnerability analysis</li>
+                <li><strong>Kubernetes:</strong> container orchestration and security hardening</li>
+                <li><strong>Prometheus:</strong> automated monitoring and anomaly detection for containerized environments</li>
+                <li><strong>AFL++:</strong> coverage-guided fuzzer for binary vulnerability discovery</li>
+                <li><strong>GDB:</strong> dynamic analysis and memory corruption debugging</li>
+                <li><strong>Python:</strong> security control implementation and monitoring automation</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="next-project">
+        <p class="next-label">[NEXT]</p>
+        <a href="information-systems-specialist-wfwv" class="next-project-link">
+            <h2 class="next-project-title">Penetration Testing Engineer</h2>
+            <span class="next-project-arrow">→</span>
+        </a>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <span class="footer-text">JARRED CARTER — SECURITY. FITNESS. STYLE.</span>
+    <span class="footer-year">© 2026</span>
+</footer>
+
+<script src="project-app.js"></script>
+</body>
+</html>

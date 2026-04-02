@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSec Playbook — Jarred Carter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-styles.css">
+</head>
+<body>
+<!-- Back to all projects link -->
+<a href="../index.html#archive" class="back-link">← All Projects</a>
+
+<!-- Fixed Header -->
+<header class="header">
+    <div class="header-info" style="margin-left: auto;">
+        <div class="header-name">JARRED CARTER</div>
+        <div class="header-title">SECURITY ENGINEER • FITNESS INSTRUCTOR • MODEL</div>
+        <div class="header-time" id="current-time">--:-- [NY] --</div>
+    </div>
+</header>
+
+<!-- Project Page Content -->
+<main class="project-page">
+
+    <!-- Project Hero -->
+    <div class="project-hero">
+        <div class="project-info">
+            <h1 class="project-name">Digital Forensics Analysis</h1>
+            <p class="project-description">
+                End-to-end digital forensics investigation simulating a real-world incident: analyzing phishing and
+                business email compromise attack vectors, recovering deleted evidence from system images,
+                and reverse engineering malware to reconstruct attack chains and identify threat actor TTPs.
+            </p>
+            <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
+
+            <div class="project-tags">
+                <span class="project-tag">Digital Forensics</span>
+                <span class="project-tag">Malware Analysis</span>
+                <span class="project-tag">Incident Response</span>
+                <span class="project-tag">Reverse Engineering</span>
+            </div>
+
+            <a href="/files/threat-intel-assignment.md" class="project-link-btn" target="_blank">
+                View Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+<!--
+                <div class="project-images">
+                    <img src="../images/ftk-imager.png" alt="CHEQ Logo" class="project-main-image">
+                </div>
+-->
+        <!-- Large vertical title in background -->
+        <div class="project-title-vertical">Playbook</div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="project-content">
+
+        <div class="content-section">
+            <h2>The Problem</h2>
+            <p>
+                When an incident happens, the evidence doesn't wait for you. Files get deleted, logs get overwritten,
+                and attackers obfuscate their tracks. A forensic investigator's job is to reconstruct what happened from
+                whatever survives (email headers, memory artifacts, fragmented file systems, compiled binaries, et cetera)
+                that weren't meant to be read. This project simulated exactly that scenario: starting with 8 compromised
+                system images and working backwards to surface the full attack chain.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What's Included</h2>
+            <ul>
+                <li>Phishing and BEC attack vector investigation including email header, attachment, and link analysis</li>
+                <li>Recovery of deleted and obfuscated evidence across 8 system images including hashes, user accounts, logs, documents, and metadata</li>
+                <li>Reverse engineering of 20+ malware samples to identify threat actor TTPs and email-based attack chains</li>
+                <li>Threat intelligence correlation across reassembled evidence to identify attack patterns</li>
+                <li>Identification of 80+ functions, libraries, and security vulnerabilities through unknown executable analysis</li>
+                <li>Forensic image and file system creation and inspection using Procmon and PeStudio</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impact</h2>
+            <p>
+                Reassembling a fragmented attack chain across 8 system images — recovering deleted files, correlating
+                metadata, and reverse engineering the malware that started it all — mirrors exactly what incident
+                responders face after a real breach. The ability to identify 80+ functions and libraries in unknown
+                executables, and map them back to attacker behavior, is the difference between knowing an incident
+                happened and understanding how, why, and what to do next.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Full Width Image -->
+    <div class="project-full-image">
+        <img src="../images/ftk-imager.png" alt="FTK Imager Screenshot">
+    </div>
+
+    <!-- Image Grid
+    <div class="project-image-grid">
+        <img src="../images/project_thumb_1.jpg" alt="Playbook detail 1">
+        <img src="../images/project_thumb_2.jpg" alt="Playbook detail 2">
+    </div>
+-->
+    <!-- Technical Details -->
+    <div class="project-content">
+        <div class="content-section">
+            <h2>Technical Stack</h2>
+            <ul>
+                <li><strong>Scalpel:</strong> file carving and deleted evidence recovery from system images</li>
+                <li><strong>FTK Imager:</strong> forensic image acquisition and file system inspection</li>
+                <li><strong>Ghidra:</strong> reverse engineering and binary analysis of unknown executables</li>
+                <li><strong>Binary Ninja:</strong> malware disassembly and TTP identification</li>
+                <li><strong>Autopsy:</strong> digital forensics platform for evidence analysis and correlation</li>
+                <li><strong>Procmon:</strong> process monitoring and forensic image inspection</li>
+                <li><strong>PeStudio:</strong> static malware analysis and executable inspection</li>
+                <li><strong>MITRE ATT&CK:</strong> TTP mapping and threat actor behavior classification</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="next-project">
+        <p class="next-label">[NEXT]</p>
+        <a href="/projects/application-security-engineering.html" class="next-project-link">
+            <h2 class="next-project-title">Application Security Engineering</h2>
+            <span class="next-project-arrow">→</span>
+        </a>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <span class="footer-text">JARRED CARTER — SECURITY. FITNESS. STYLE.</span>
+    <span class="footer-year">© 2026</span>
+</footer>
+
+<script src="project-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSec Playbook — Jarred Carter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project-styles.css">
+</head>
+<body>
+<!-- Back to all projects link -->
+<a href="../index.html#archive" class="back-link">← All Projects</a>
+
+<!-- Fixed Header -->
+<header class="header">
+    <div class="header-info" style="margin-left: auto;">
+        <div class="header-name">JARRED CARTER</div>
+        <div class="header-title">SECURITY ENGINEER • FITNESS INSTRUCTOR • MODEL</div>
+        <div class="header-time" id="current-time">--:-- [NY] --</div>
+    </div>
+</header>
+
+<!-- Project Page Content -->
+<main class="project-page">
+
+    <!-- Project Hero -->
+    <div class="project-hero">
+        <div class="project-info">
+            <h1 class="project-name">Offensive Security Engineering</h1>
+            <p class="project-description">
+                Hands-on offensive security challenges tackling 20+ real-world malware samples and security vulnerabilities
+                that combine reverse engineering, memory corruption analysis, and web application exploitation to develop
+                adversarial intuition and enterprise-grade remediation skills.
+            </p>
+            <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
+
+            <div class="project-tags">
+                <span class="project-tag">Reverse Engineering</span>
+                <span class="project-tag">Malware Analysis</span>
+                <span class="project-tag">Exploit Development</span>
+                <span class="project-tag">CTF</span>
+            </div>
+
+            <a href="https://www.notion.so/217ae3b5fff38001b2eecd49fe4da780?v=217ae3b5fff3818f830d000c6340b063&source=copy_link" class="project-link-btn" target="_blank">
+                View Writeups
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+
+                <div class="project-images">
+                    <img src="../images/terminal-disassembly.png" alt="CHEQ Logo" class="project-main-image">
+                </div>
+
+        <!-- Large vertical title in background -->
+        <div class="project-title-vertical">Playbook</div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="project-content">
+
+        <div class="content-section">
+            <h2>The Problem</h2>
+            <p>
+                Textbook security knowledge only goes so far. CTF challenges force you to think like an attacker: working
+                backwards from a compiled binary, a memory dump, or a broken web application to understand exactly how
+                and why something is exploitable. The goal here wasn't just to capture flags; it was to build the kind of
+                adversarial reasoning that translates directly into better defensive and remediation work in enterprise
+                environments.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>What's Included</h2>
+            <ul>
+                <li>Reverse engineering of 20+ malware samples to identify threat actor TTPs and attack chains</li>
+                <li>Root cause analysis across 20+ security vulnerabilities spanning memory corruption and application security</li>
+                <li>Binary analysis using Binary Ninja to deconstruct unknown executables and identify exploitation paths</li>
+                <li>Web application vulnerability assessment with documented findings and remediation recommendations</li>
+                <li>Findings translated into formats suitable for both technical teams and senior leadership</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Impact</h2>
+            <p>
+                Working through 20+ malware samples and an equal number of vulnerabilities back-to-back builds a pattern
+                recognition that's hard to get any other way. Each reverse engineering session deepened the ability to
+                map unknown binaries to known TTPs and develop bespoke exploits, and each vulnerability root cause analysis
+                sharpened the instinct for where code breaks down under adversarial pressure — skills that show up
+                directly in penetration testing, incident response, and security code review.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Full Width Image -->
+    <div class="project-full-image">
+        <img src="../images/binja-disass-pseudoc.png" alt="Security documentation">
+    </div>
+
+    <!-- Image Grid
+    <div class="project-image-grid">
+        <img src="../images/project_thumb_1.jpg" alt="Playbook detail 1">
+        <img src="../images/project_thumb_2.jpg" alt="Playbook detail 2">
+    </div>
+-->
+    <!-- Technical Details -->
+    <div class="project-content">
+        <div class="content-section">
+            <h2>Technical Stack</h2>
+            <ul>
+                <li><strong>Ghidra:</strong> NSA-developed reverse engineering and binary analysis framework</li>
+                <li><strong>Binary Ninja:</strong> binary analysis and disassembly for malware inspection</li>
+                <li><strong>Burp Suite:</strong> web application vulnerability testing and exploitation</li>
+                <li><strong>GDB:</strong> GNU debugger for dynamic binary analysis and memory inspection</li>
+                <li><strong>MITRE ATT&CK:</strong> TTP mapping and threat actor behavior classification</li>
+                <li><strong>Python:</strong> bespoke solver scripts for binary exploitation and unintended program behavior</li>
+                <li><strong>pwntools:</strong> CTF exploit development framework for crafting and automating binary exploits</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="next-project">
+        <p class="next-label">[NEXT]</p>
+        <a href="digital-forensics-analysis.html" class="next-project-link">
+            <h2 class="next-project-title">Digital Forensics Analysis</h2>
+            <span class="next-project-arrow">→</span>
+        </a>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <span class="footer-text">JARRED CARTER — SECURITY. FITNESS. STYLE.</span>
+    <span class="footer-year">© 2026</span>
+</footer>
+
+<script src="project-app.js"></script>
+</body>
+</html>

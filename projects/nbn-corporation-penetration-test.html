@@ -11,7 +11,7 @@
 </head>
 <body>
 <!-- Back to all projects link -->
-<a href="../index.html#work" class="back-link">← All Projects</a>
+<a href="../index.html#archive" class="back-link">← All Projects</a>
 
 <!-- Fixed Header -->
 <header class="header">
@@ -28,33 +28,33 @@
     <!-- Project Hero -->
     <div class="project-hero">
         <div class="project-info">
-            <h1 class="project-name">Threat Intelligence Investigation</h1>
+            <h1 class="project-name">NBN Corporation Penetration Test</h1>
             <p class="project-description">
-                Automated bot traffic and ad fraud analysis across 126,959 e-commerce sessions for CHEQ, identifying
-                attack patterns, quantifying financial impact, and developing a prioritized mitigation strategy to
-                protect revenue-generating workflows and advertising spend.
+                Comprehensive penetration test of NBN Corporation's infrastructure uncovering critical vulnerabilities
+                across web applications and servers, scoring findings against NIST CVSS v3, and delivering prioritized
+                remediation recommendations to reduce systemic risk.
             </p>
             <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
 
             <div class="project-tags">
-                <span class="project-tag">Threat Intelligence</span>
-                <span class="project-tag">Bot Detection</span>
-                <span class="project-tag">Ad Fraud</span>
-                <span class="project-tag">E-Commerce Security</span>
+                <span class="project-tag">Penetration Testing</span>
+                <span class="project-tag">Vulnerability Assessment</span>
+                <span class="project-tag">Web Application Security</span>
+                <span class="project-tag">Risk Scoring</span>
             </div>
 
-            <a href="/files/threat-intel-assignment.md" class="project-link-btn" target="_blank">
+            <a href="/files/pentesting-final-project-writeup.pdf" class="project-link-btn" target="_blank">
                 View Project
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M7 17L17 7M17 7H7M17 7V17"/>
                 </svg>
             </a>
         </div>
-
+<!--
                 <div class="project-images">
                     <img src="../images/cheq-logo-lg.png" alt="CHEQ Logo" class="project-main-image">
                 </div>
-
+-->
         <!-- Large vertical title in background -->
         <div class="project-title-vertical">Playbook</div>
     </div>
@@ -65,36 +65,31 @@
         <div class="content-section">
             <h2>The Problem</h2>
             <p>
-                E-commerce platforms are a high-value target for automated abuse, and most of it is invisible at first
-                glance. Bots mimicking legitimate user behavior inflate traffic metrics, drain advertising budgets,
-                hoard inventory, and stuff credential databases, all while flying under the radar of conventional
-                monitoring. CHEQ needed a rigorous behavioral analysis of their session data to answer a question that's
-                harder than it sounds: which of these 126,959 sessions are actually human?
+                NBN Corporation's infrastructure had never been put under adversarial pressure. Without a comprehensive
+                penetration test, the organization had assumptions, not a reliable picture of its actual attack surface.
+                The goal was to find out what a real attacker would find, score the severity of every finding objectively,
+                and hand back a remediation roadmap that was actionable rather than just alarming.
             </p>
         </div>
 
         <div class="content-section">
             <h2>What's Included</h2>
             <ul>
-                <li>Behavioral signal analysis across 126,959 e-commerce sessions to identify automated bot traffic</li>
-                <li>Multi-signal correlation including datacenter ASNs, headless browser indicators, timezone mismatches,
-                    and interaction speed analysis</li>
-                <li>Bot-driven attack pattern detection targeting checkout, login, and product endpoints</li>
-                <li>Ad fraud quantification across paid Google and Bing search traffic consumed by automated sessions</li>
-                <li>Prioritized mitigation strategy covering ASN blocking, device fingerprint detection, rate limiting,
-                    and MFA enforcement</li>
+                <li>Comprehensive penetration test across NBN Corporation's web applications and server infrastructure</li>
+                <li>Identification of critical vulnerabilities including XSS, SQL Injection, Local File Inclusion, and unauthorized server access</li>
+                <li>NIST CVSS Version 3 scoring for all findings with an average criticality score of 8.86</li>
+                <li>Root access achieved across all systems, validating full compromise scenarios</li>
+                <li>Prioritized remediation recommendations including input sanitization, system updates, enhanced password policies, and microservice architecture to isolate network assets</li>
             </ul>
         </div>
 
         <div class="content-section">
             <h2>Impact</h2>
             <p>
-                Identified that 25.51% - or roughly 1 in 4 visitors - of all sessions were automated bot traffic. That
-                finding alone reframes how CHEQ interprets their analytics, allocates ad spend, and designs abuse
-                protections. The investigation estimated $3,362 – $13,448 in wasted advertising spend attributable to bots
-                interacting with paid search campaigns, and surfaced active attack patterns consistent with two of the
-                most revenue-critical endpoints on any e-commerce platform: inventory  hoarding and credential stuffing
-                at the checkout and login layers.
+                An average CVSS score of 8.86 across findings tells the story clearly: this wasn't a theoretical risk
+                assessment, it was a near-total compromise. Achieving root access on all systems demonstrated that the
+                attack surface wasn't just wide, it was deep. The resulting remediation roadmap gave NBN Corporation a
+                prioritized, evidence-based path to closing those gaps before a real attacker could follow the same steps.
             </p>
         </div>
 
@@ -102,7 +97,7 @@
 
     <!-- Full Width Image -->
     <div class="project-full-image">
-        <img src="../images/cheq-analytics.png" alt="Security documentation">
+        <img src="../images/nbn-pentest-terminal.png" alt="Security documentation">
     </div>
 
     <!-- Image Grid
@@ -116,12 +111,11 @@
         <div class="content-section">
             <h2>Technical Stack</h2>
             <ul>
-                <li><strong>Python:</strong> session data analysis and signal correlation scripting</li>
-                <li><strong>SQL:</strong> behavioral data querying and aggregation</li>
-                <li><strong>CHEQ dataset:</strong> 126,959 labeled e-commerce sessions with behavioral metadata</li>
-                <li><strong>ASN intelligence:</strong> datacenter and infrastructure source identification</li>
-                <li><strong>Device fingerprinting:</strong> reuse detection across automated sessions</li>
-                <li><strong>Google & Bing Ads data:</strong> paid traffic analysis for ad fraud quantification</li>
+                <li><strong>Metasploit:</strong> exploitation framework for vulnerability validation and root access</li>
+                <li><strong>Nmap:</strong> network reconnaissance and service enumeration</li>
+                <li><strong>Burp Suite:</strong> web application testing for XSS, SQLi, and LFI</li>
+                <li><strong>Nessus:</strong> automated vulnerability scanning</li>
+                <li><strong>NIST CVSS v3:</strong> standardized vulnerability scoring and risk classification</li>
             </ul>
         </div>
     </div>
@@ -129,7 +123,7 @@
     <div class="next-project">
         <p class="next-label">[NEXT]</p>
         <a href="information-systems-specialist-wfwv" class="next-project-link">
-            <h2 class="next-project-title">Penetration Testing Engineer</h2>
+            <h2 class="next-project-title">NBN Corporation Penetration Test</h2>
             <span class="next-project-arrow">→</span>
         </a>
     </div>
