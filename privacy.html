@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Retrac Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+
+        /* ── TOKENS (matches main site) ────── */
+        :root {
+            --bg-color:      #F3F4EF;
+            --text-color:    #1A1A1A;
+            --text-muted:    #8A8A8A;
+            --text-secondary:#4A4A4A;
+            --accent-color:  #7C6BFF;
+            --border-color:  rgba(26, 26, 26, 0.1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        ::selection { background-color: rgba(124, 107, 255, 0.25); }
+
+        /* ── CURSOR ─────────────────────────── */
+        .cursor,
+        .cursor-follower {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+        .cursor {
+            width: 6px; height: 6px;
+            background: var(--accent-color);
+            transition: width 0.15s, height 0.15s;
+        }
+        .cursor-follower {
+            width: 28px; height: 28px;
+            border: 1px solid rgba(124, 107, 255, 0.4);
+            opacity: 0.7;
+            transition: transform 0.1s cubic-bezier(0.16,1,0.3,1),
+            width 0.3s cubic-bezier(0.16,1,0.3,1),
+            height 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+        body.cursor-hover .cursor { width: 10px; height: 10px; }
+        body.cursor-hover .cursor-follower { width: 46px; height: 46px; opacity: 0.3; }
+        @media (hover: none) {
+            .cursor, .cursor-follower { display: none; }
+            body { cursor: auto; }
+        }
+
+        /* ── BACK LINK ──────────────────────── */
+        .back-link {
+            position: fixed;
+            left: 32px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: left center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            white-space: nowrap;
+            transition: color 0.2s;
+            z-index: 50;
+        }
+        .back-link:hover { color: var(--accent-color); }
+
+        /* ── HEADER ─────────────────────────── */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: flex-end;
+            pointer-events: none;
+        }
+        .header-info {
+            text-align: right;
+            pointer-events: auto;
+        }
+        .header-name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+        .header-name a {
+            color: inherit;
+            transition: color 0.2s;
+        }
+        .header-name a:hover { color: var(--accent-color); }
+        .header-sub {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── PAGE LAYOUT ────────────────────── */
+        .page {
+            min-height: 100vh;
+            padding: 120px 60px 100px 140px;
+            max-width: 1100px;
+            position: relative;
+        }
+
+        /* Big decorative background word */
+        .bg-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 22vw;
+            color: var(--text-color);
+            opacity: 0.03;
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        /* ── PAGE HEADER ────────────────────── */
+        .page-header {
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .eyebrow-dot {
+            display: inline-block;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .page-title {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: clamp(48px, 7vw, 96px);
+            font-weight: 400;
+            line-height: 1;
+            color: var(--text-color);
+            margin-bottom: 16px;
+        }
+
+        .page-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        /* ── POLICY INTRO ───────────────────── */
+        .policy-intro {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 80px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .policy-intro em {
+            font-style: italic;
+            color: var(--text-color);
+            font-weight: 400;
+        }
+
+        /* ── POLICY SECTIONS ────────────────── */
+        .policy-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+            transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .policy-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding-top: 4px;
+            position: sticky;
+            top: 80px;
+            align-self: start;
+        }
+
+        .section-label .section-num {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 6px;
+            font-size: 10px;
+        }
+
+        .section-body { max-width: 580px; }
+
+        .section-scope {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 16px;
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid rgba(124, 107, 255, 0.2);
+        }
+
+        .section-headline {
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--text-color);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        /* The "Nothing." statement — given weight */
+        .nothing-statement {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 36px;
+            color: var(--text-color);
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+
+        .section-body p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .section-body p:last-child { margin-bottom: 0; }
+
+        /* Bullet list */
+        .policy-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .policy-list li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            padding: 8px 0 8px 20px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .policy-list li:first-child { border-top: 1px solid var(--border-color); }
+
+        .policy-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 12px;
+        }
+
+        /* ── CONTACT SECTION ────────────────── */
+        .contact-section {
+            padding: 80px 0 0;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+            transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .contact-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .contact-email {
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-email::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent-color);
+            transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .contact-email:hover { color: var(--accent-color); }
+        .contact-email:hover::after { width: 100%; }
+
+        .contact-site {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .contact-site:hover { color: var(--accent-color); }
+
+        /* ── FOOTER ─────────────────────────── */
+        footer {
+            margin-top: 100px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-text,
+        .footer-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        /* ── RESPONSIVE ─────────────────────── */
+        @media (max-width: 1024px) {
+            .page { padding: 100px 24px 80px; }
+            .back-link { display: none; }
+            .policy-section { grid-template-columns: 1fr; gap: 16px; }
+            .section-label { position: static; }
+            footer { flex-direction: column; gap: 8px; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<div class="bg-text">Privacy</div>
+
+<a href="/" class="back-link">← jarredmcarter.com</a>
+
+<header class="header">
+    <div class="header-info">
+        <div class="header-name">
+            <a href="/">JARRED CARTER</a>
+        </div>
+        <div class="header-sub">Retrac Labs</div>
+    </div>
+</header>
+
+<main class="page">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div class="page-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Legal
+        </div>
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="page-meta">Retrac Labs · Last updated: May 1, 2026</p>
+    </div>
+
+    <!-- INTRO -->
+    <p class="policy-intro">
+        At Retrac Labs, we believe privacy is a <em>right</em>, not a feature.
+        This page describes the privacy practices for jarredmcarter.com
+        and all apps published under the Retrac Labs name.
+    </p>
+
+    <!-- 01 — JARREDMCARTER.COM -->
+    <div class="policy-section">
+        <div class="section-label">
+            <span class="section-num">[01]</span>
+            Website
+        </div>
+        <div class="section-body">
+            <span class="section-scope">jarredmcarter.com</span>
+            <p class="nothing-statement">Nothing.</p>
+            <p>
+                This website does not use cookies, tracking pixels, analytics
+                software, or any form of user tracking. We do not collect names,
+                email addresses, IP addresses, or any other personal information.
+                No data is stored, sold, or shared with third parties.
+            </p>
+        </div>
+    </div>
+
+    <!-- 02 — SNIPPYSTACK -->
+    <div class="policy-section">
+        <div class="section-label">
+            <span class="section-num">[02]</span>
+            macOS App
+        </div>
+        <div class="section-body">
+            <span class="section-scope">SnippyStack</span>
+            <p class="nothing-statement">Nothing.</p>
+            <p>
+                SnippyStack stores your clipboard history exclusively on your
+                own Mac using Apple's standard local storage (UserDefaults).
+                This data never leaves your device.
+            </p>
+            <ul class="policy-list">
+                <li>Does not connect to the internet</li>
+                <li>Does not transmit data to Retrac Labs or any third party</li>
+                <li>Does not require an account or sign-in</li>
+                <li>Does not use analytics or crash reporting</li>
+                <li>Does not display advertising</li>
+            </ul>
+            <p>
+                You are in full control of your data at all times. You can view,
+                pin, delete, or clear your entire clipboard history from within
+                the app at any time.
+            </p>
+        </div>
+    </div>
+
+    <!-- 03 — YOUR RIGHTS -->
+    <div class="policy-section">
+        <div class="section-label">
+            <span class="section-num">[03]</span>
+            Your Rights
+        </div>
+        <div class="section-body">
+            <p>
+                Because we collect no data, there is nothing to access, correct,
+                export, or delete on our end. Your data lives on your device and
+                is entirely under your control.
+            </p>
+        </div>
+    </div>
+
+    <!-- 04 — CHANGES -->
+    <div class="policy-section">
+        <div class="section-label">
+            <span class="section-num">[04]</span>
+            Changes
+        </div>
+        <div class="section-body">
+            <p>
+                If our practices change, we will update this page and revise
+                the date at the top. We will never introduce data collection
+                without clearly disclosing it here first.
+            </p>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+        <p class="contact-label">Questions about this policy?</p>
+        <a href="mailto:jc12690@nyu.edu" class="contact-email">
+            jc12690@nyu.edu
+        </a>
+        <a href="https://jarredmcarter.com" class="contact-site">
+            jarredmcarter.com
+        </a>
+    </div>
+
+    <footer>
+        <span class="footer-text">RETRAC LABS — PRIVACY POLICY</span>
+        <span class="footer-year">Copyright © 2026 JARRED M. CARTER</span>
+    </footer>
+
+</main>
+
+<script>
+    // ── CURSOR ────────────────────────────
+    const cursor   = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        if (cursor) { cursor.style.left = mouseX + 'px'; cursor.style.top = mouseY + 'px'; }
+    });
+
+    (function animateCursor() {
+        followerX += (mouseX - followerX) * 0.11;
+        followerY += (mouseY - followerY) * 0.11;
+        if (follower) { follower.style.left = followerX + 'px'; follower.style.top = followerY + 'px'; }
+        requestAnimationFrame(animateCursor);
+    })();
+
+    document.querySelectorAll('a').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // ── SCROLL REVEAL ─────────────────────
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                entry.target.style.transitionDelay = `${i * 0.05}s`;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
+
+    document.querySelectorAll('.policy-section, .contact-section').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
