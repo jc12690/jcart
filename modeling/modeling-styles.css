@@ -432,6 +432,12 @@ body.nav-hidden .ig-link { transform: translateY(-64px); }
 }
 .collection-img:hover { opacity: 0.8; }
 
+/* Videos in the grid — no zoom cursor, no hover dim */
+.collection-video {
+  cursor: default;
+}
+.collection-video:hover { opacity: 1; }
+
 
 /* ══════════════════════════════════════
    CREDITS

@@ -14,6 +14,7 @@ const BRANDS = {
       {
         label: 'Spring / Summer · 2024',
         images: [
+          '../images/modeling-media/renacio-reyes-walk.mp4',
           '../images/modeling-media/renacio-1.jpg',
           '../images/modeling-media/renacio-2.jpg',
           '../images/modeling-media/renacio-3.jpg',
@@ -30,6 +31,7 @@ const BRANDS = {
       {
         label: 'WESLAH × LEAK · 2026',
         images: [
+          '../images/modeling-media/leak-weslah-bts.mp4',
           '../images/modeling-media/weslah-leak-2.jpeg',
           '../images/modeling-media/weslah-leak-3.jpeg',
           '../images/modeling-media/weslah-leak-4.jpeg',
@@ -41,6 +43,7 @@ const BRANDS = {
       {
         label: 'Willie Norris Workshop × LEAK · 2025',
         images: [
+          '../images/modeling-media/leak-bts-1.mp4',
           '../images/modeling-media/leak-02.jpg',
           '../images/modeling-media/leak-03.jpg',
           '../images/modeling-media/leak-04.png',
@@ -67,6 +70,7 @@ const BRANDS = {
       {
         label: 'Spring / Summer · 2025',
         images: [
+          '../images/modeling-media/boysmells-citrush-bts.mp4',
           '../images/modeling-media/boysmells-1.jpeg',
           '../images/modeling-media/boysmells-2.jpeg',
           '../images/modeling-media/boysmells-3.jpeg',
@@ -85,6 +89,8 @@ const BRANDS = {
             {
                 label: 'Spring / Summer · 2026',
                 images: [
+                    '../images/modeling-media/sean-val-bts-1.mp4',
+                    '../images/modeling-media/sean-val-bts-2.mp4',
                     '../images/modeling-media/sean-val-6.jpeg',
                     '../images/modeling-media/sean-val-2.jpeg',
                     '../images/modeling-media/sean-val-4.jpeg',
@@ -105,26 +111,29 @@ const panelBrand = document.getElementById('gallery-panel-brand');
 const panelBody  = document.getElementById('gallery-panel-body');
 const panelClose = document.getElementById('gallery-panel-close');
 
+// Renders an <img> or <video> depending on file extension
+function mediaTag(src, alt) {
+  if (/\.(mp4|mov|webm)$/i.test(src)) {
+    return `<video
+      class="collection-img collection-video"
+      autoplay muted loop playsinline
+    ><source src="${src}" type="video/mp4"></video>`;
+  }
+  return `<img src="${src}" alt="${alt}" class="collection-img" loading="lazy">`;
+}
+
 function buildCollectionHTML(brand) {
   return brand.collections
     .map((col) => {
-      const imgTags = col.images
-        .map(
-          (src) =>
-            `<img
-              src="${src}"
-              alt="${brand.name} — ${col.label}"
-              class="collection-img"
-              loading="lazy"
-            >`,
-        )
+      const tags = col.images
+        .map((src) => mediaTag(src, `${brand.name} — ${col.label}`))
         .join('');
 
       return `
         <div class="collection-block">
           <p class="collection-label">${col.label}</p>
           <div class="collection-grid">
-            ${imgTags}
+            ${tags}
           </div>
         </div>
       `;
@@ -214,10 +223,10 @@ lightboxBackdrop.addEventListener('click', closeLightbox);
 lightboxPrev.addEventListener('click', () => lightboxStep(-1));
 lightboxNext.addEventListener('click', () => lightboxStep(1));
 
-// Click delegation — images inside the gallery body
+// Click delegation — images inside the gallery body (videos are excluded)
 document.getElementById('gallery-panel-body').addEventListener('click', (e) => {
   const img = e.target.closest('.collection-img');
-  if (!img) return;
+  if (!img || img.tagName === 'VIDEO') return;
 
   // Collect all images in this collection block for prev/next
   const block  = img.closest('.collection-block');
