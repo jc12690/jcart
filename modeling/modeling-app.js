@@ -79,7 +79,22 @@ const BRANDS = {
       },
     ],
   },
-
+    seanandval: {
+        name: 'Sean & Val',
+        collections: [
+            {
+                label: 'Spring / Summer · 2026',
+                images: [
+                    '../images/modeling-media/sean-val-6.jpeg',
+                    '../images/modeling-media/sean-val-2.jpeg',
+                    '../images/modeling-media/sean-val-4.jpeg',
+                    '../images/modeling-media/sean-val-1.jpeg',
+                    '../images/modeling-media/sean-val-3.jpeg',
+                    '../images/modeling-media/sean-val-5.jpeg',
+                ],
+            },
+        ],
+    },
 };
 
 
