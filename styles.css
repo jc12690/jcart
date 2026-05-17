@@ -125,6 +125,15 @@ body {
   margin-bottom: 8px;
 }
 
+.header-model-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.header-model-link:hover {
+  color: var(--text-color);
+}
+
 .header-time {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
