@@ -4,7 +4,7 @@
 
 // ── BRAND DATA ────────────────────────────
 // Add / remove images here. Collections display in order.
-// All paths relative to modeling/modeling-index.html → ../images/modeling-media/
+// All paths relative to modeling/index.html → ../images/modeling-media/
 
 const BRANDS = {
 
