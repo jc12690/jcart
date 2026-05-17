@@ -1,0 +1,156 @@
+/* ========================================
+   ADD TO styles.css — CURSOR + SUGGESTIONS
+   ========================================
+
+   1. Paste the CURSOR block into styles.css
+      (anywhere near the top, after :root).
+
+   2. Add the two cursor divs to index.html
+      just after <body>:
+
+      <div class="cursor" id="cursor"></div>
+      <div class="cursor-follower" id="cursor-follower"></div>
+
+   3. Replace app.js with the new main-app.js
+      (it includes all the old logic + cursor).
+
+   4. See SUGGESTIONS at the bottom for optional
+      index improvements.
+   ======================================== */
+
+
+/* ── CURSOR ─────────────────────────────── */
+
+body {
+  cursor: none; /* ADD this to existing body rule */
+}
+
+.cursor,
+.cursor-follower {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* Small dot — snappy, follows mouse directly */
+.cursor {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-color); /* #7C6BFF — matches your existing accent */
+  transition: width 0.15s ease, height 0.15s ease, opacity 0.2s ease;
+}
+
+/* Larger ring — lags behind for contrast */
+.cursor-follower {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(124, 107, 255, 0.4);
+  opacity: 0.7;
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+}
+
+/* Enlarge on hover over interactive elements */
+body.cursor-hover .cursor {
+  width: 10px;
+  height: 10px;
+}
+
+body.cursor-hover .cursor-follower {
+  width: 48px;
+  height: 48px;
+  opacity: 0.35;
+}
+
+/* Disable custom cursor on touch devices */
+@media (hover: none) {
+  .cursor,
+  .cursor-follower {
+    display: none;
+  }
+
+  body {
+    cursor: auto;
+  }
+}
+
+
+/* ========================================
+   SUGGESTIONS FOR index.html + styles.css
+   (optional — implement whenever you want)
+   ========================================
+
+   [1] HERO SECTION — add a subtle hover to the
+       logo images. Right now they go grayscale →
+       color on hover, which is good. Consider
+       adding a slight scale too:
+
+       .hero-img:hover {
+         filter: grayscale(0%);
+         transform: scale(1.03);   ← add this
+       }
+
+   [2] EXPERIENCE ROWS — the arrow (→) on hover
+       could translate rightward for a micro
+       interaction that signals navigation:
+
+       .experience-row:hover .experience-arrow {
+         transform: translateX(6px);
+         transition: transform 0.25s ease;
+       }
+
+   [3] NAV ACTIVE STATE — the purple dot is clean.
+       Consider adding a very subtle fade-in instead
+       of it just appearing:
+
+       .nav-link.active::before {
+         animation: dotFadeIn 0.3s ease forwards;
+       }
+       @keyframes dotFadeIn {
+         from { opacity: 0; transform: translateY(-50%) scale(0); }
+         to   { opacity: 1; transform: translateY(-50%) scale(1); }
+       }
+
+   [4] CONTACT EMAIL — the email is 36px and just
+       color-transitions on hover. A small
+       underline draw effect would make it feel
+       more premium:
+
+       .contact-email {
+         position: relative;
+         display: inline-block;  ← change from block
+       }
+       .contact-email::after {
+         content: '';
+         position: absolute;
+         bottom: -2px; left: 0;
+         width: 0; height: 1px;
+         background: var(--accent-color);
+         transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+       }
+       .contact-email:hover::after { width: 100%; }
+
+   [5] SECTION LINKS (Work / Archive) — consider
+       adding links from the /fitness/ and
+       /modeling-media/ sub-sites to the Fitness [02]
+       and (eventually) a [03] Modeling service row
+       instead of the password modal button.
+       The modal UX is a bit clunky for fitness
+       content that's now public.
+
+   [6] PAGE TITLE — <title> currently reads
+       "Jarred Carter — Security. Fitness. Style."
+       Consider adding an OG meta image + description
+       for better link previews on LinkedIn/iMessage:
+
+       <meta name="description" content="Jarred Carter —
+         Security engineer, Pilates instructor, and model
+         based in New York City.">
+       <meta property="og:title" content="Jarred Carter">
+       <meta property="og:description" content="...">
+       <meta property="og:image" content="/images/og-cover.jpg">
+*/

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilates — Jarred Carter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fitness-styles.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <a href="../index.html" class="back-nav">
+    <span class="back-arrow">←</span>
+    <span class="back-text">Jarred Carter</span>
+  </a>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg-word">MOVE</div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Pilates Instructor · SLT New York
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line-wrap"><em class="italic-word">The</em> body</span>
+        <span class="line-wrap">in motion</span>
+      </h1>
+
+      <p class="hero-sub">
+        50 minutes of heart pumping, muscle quivering, total body </br>
+          strengthening, lengthening, and toning in a small group </br>
+          setting. This is your all-in-one workout combining cardio, </br>
+          strength training, and the most challenging elements of </br>
+          Pilates.
+      </p>
+
+      <div class="hero-scroll-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <!-- Swap these for your SLT headshots when ready May 1 -->
+    <div class="hero-strip">
+      <div class="strip-img" style="background-image: url('../images/fitness/hero-01.jpg');" data-label="SLT NYC"></div>
+      <div class="strip-img" style="background-image: url('../images/fitness/hero-02.jpg');" data-label="In session"></div>
+      <div class="strip-img" style="background-image: url('../images/fitness/hero-03.jpg');" data-label="Form"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TICKER
+  ══════════════════════════════════════ -->
+  <section class="about-strip">
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker">
+        <span>Strength</span><span class="sep">·</span>
+        <span>Precision</span><span class="sep">·</span>
+        <span>Presence</span><span class="sep">·</span>
+        <span>Reform</span><span class="sep">·</span>
+        <span>Resistance</span><span class="sep">·</span>
+        <span>Control</span><span class="sep">·</span>
+        <span>Strength</span><span class="sep">·</span>
+        <span>Precision</span><span class="sep">·</span>
+        <span>Presence</span><span class="sep">·</span>
+        <span>Reform</span><span class="sep">·</span>
+        <span>Resistance</span><span class="sep">·</span>
+        <span>Control</span><span class="sep">·</span>
+        <span>Strength</span><span class="sep">·</span>
+        <span>Precision</span><span class="sep">·</span>
+        <span>Presence</span><span class="sep">·</span>
+        <span>Reform</span><span class="sep">·</span>
+        <span>Resistance</span><span class="sep">·</span>
+        <span>Control</span><span class="sep">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       STATEMENT
+  ══════════════════════════════════════ -->
+  <section class="statement">
+    <div class="statement-num">01</div>
+    <div class="statement-body">
+      <p class="statement-text">
+        Every class is built around <em>you</em> — your range, your resistance, your ceiling. High energy, hands-on, no coasting.
+      </p>
+      <p class="statement-detail">
+        Based at SLT (Strengthen Lengthen Tone) in New York City, I teach megaformer Pilates that integrates slow, controlled resistance work with athletic conditioning. No two bodies move the same way, and no two corrections are the same either.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FULL BLEED IMAGE
+  ══════════════════════════════════════ -->
+  <section class="full-bleed">
+    <div class="full-bleed-img" style="background-image: url('../images/fitness/full-bleed-01.jpg');">
+      <div class="full-bleed-caption">
+        <span class="caption-num">[002]</span>
+        <span class="caption-text">On the megaformer · SLT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       VIDEO — Class footage
+  ══════════════════════════════════════ -->
+  <section class="video-section">
+    <div class="video-section-header">
+      <div class="video-num">02</div>
+      <h2 class="video-title">In Motion</h2>
+    </div>
+
+    <div class="video-grid">
+      <div class="video-wrap">
+        <video
+          class="video-item"
+          src="../videos/fitness/slt-01.mp4"
+          poster="../images/fitness-media/slt-noho.JPG"
+          muted loop playsinline
+          data-autoplay-on-scroll
+        ></video>
+        <div class="video-caption">SLT · Noho Studio</div>
+      </div>
+
+      <div class="video-wrap">
+        <video
+          class="video-item"
+          src="../videos/fitness/slt-02.mp4"
+          poster="../images/fitness/video-poster-02.jpg"
+          muted loop playsinline
+          data-autoplay-on-scroll
+        ></video>
+        <div class="video-caption">SLT · On the megaformer</div>
+      </div>
+
+      <!--
+        Prefer Instagram reels? Swap a video-wrap for:
+        <div class="video-wrap ig-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/YOUR_REEL_ID/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+        <script async src="//www.instagram.com/embed.js"></script>
+      -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       MARQUEE — photo strip
+  ══════════════════════════════════════ -->
+  <section class="photo-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-img" style="background-image: url('../images/fitness-media/slt-w14.jpeg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-02.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-03.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-04.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-05.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-06.jpg');"></div>
+      <!-- duplicated for seamless loop -->
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-01.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-02.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-03.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-04.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-05.jpg');"></div>
+      <div class="marquee-img" style="background-image: url('../images/fitness/strip-06.jpg');"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       BOOK / CONTACT CTA
+  ══════════════════════════════════════ -->
+  <section class="book-cta">
+    <div class="book-num">03</div>
+    <div class="book-body">
+      <p class="book-text">Book a class at SLT</p>
+      <p class="book-detail">
+        Find me on the SLT schedule at locations across New York City.
+        Private sessions and group bookings available on request.
+      </p>
+      <div class="book-links">
+        <a href="https://sltnyc.com/book-a-class/?_mt=%2Fschedule%2Fdaily%2F48541%3FactiveDate%3D2026-05-15%26locations%3D48725&region_id=12&studio_id=179793" target="_blank" class="book-btn">
+          SLT Schedule
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+        <a href="mailto:privates@sltnyc.com" class="book-btn book-btn--ghost">
+          Private inquiry
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-left">
+      <a href="../index.html" class="footer-home">JARRED CARTER</a>
+      <span class="footer-sep">·</span>
+      <span class="footer-tagline">Security. Fitness. Style.</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://instagram.com/jarredcarter" target="_blank" class="footer-ig">@jarredcarter</a>
+      <span class="footer-copy">© 2026</span>
+    </div>
+  </footer>
+
+  <script src="fitness-app.js"></script>
+</body>
+</html>
