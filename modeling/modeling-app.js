@@ -3,8 +3,8 @@
 // ========================================
 
 // ── BRAND DATA ────────────────────────────
-// Add / remove images here. Collections display in order.
-// All paths relative to modeling/index.html → ../images/modeling-media/
+// Add / remove media here. Collections display in order.
+// All paths relative to modeling/index.html → ../media/modeling-media/
 
 const BRANDS = {
 
@@ -14,12 +14,12 @@ const BRANDS = {
       {
         label: 'Spring / Summer · 2024',
         images: [
-          '../images/modeling-media/renacio-reyes-walk.mp4',
-          '../images/modeling-media/renacio-1.jpg',
-          '../images/modeling-media/renacio-2.jpg',
-          '../images/modeling-media/renacio-3.jpg',
-          '../images/modeling-media/renacio-7.jpg',
-          '../images/modeling-media/renacio-8.jpg',
+          '../media/modeling-media/renacio-reyes-walk.mp4',
+          '../media/modeling-media/renacio-1.jpg',
+          '../media/modeling-media/renacio-2.jpg',
+          '../media/modeling-media/renacio-3.jpg',
+          '../media/modeling-media/renacio-7.jpg',
+          '../media/modeling-media/renacio-8.jpg',
         ],
       },
     ],
@@ -31,35 +31,35 @@ const BRANDS = {
       {
         label: 'WESLAH × LEAK · 2026',
         images: [
-          '../images/modeling-media/leak-weslah-bts.mp4',
-          '../images/modeling-media/weslah-leak-2.jpeg',
-          '../images/modeling-media/weslah-leak-3.jpeg',
-          '../images/modeling-media/weslah-leak-4.jpeg',
-          '../images/modeling-media/weslah-leak-5.jpeg',
-          '../images/modeling-media/weslah-leak-6.jpeg',
-          '../images/modeling-media/weslah-leak-7.jpeg',
+          '../media/modeling-media/leak-weslah-bts.mp4',
+          '../media/modeling-media/weslah-leak-2.jpeg',
+          '../media/modeling-media/weslah-leak-3.jpeg',
+          '../media/modeling-media/weslah-leak-4.jpeg',
+          '../media/modeling-media/weslah-leak-5.jpeg',
+          '../media/modeling-media/weslah-leak-6.jpeg',
+          '../media/modeling-media/weslah-leak-7.jpeg',
         ],
       },
       {
         label: 'Willie Norris Workshop × LEAK · 2025',
         images: [
-          '../images/modeling-media/leak-bts-1.mp4',
-          '../images/modeling-media/leak-02.jpg',
-          '../images/modeling-media/leak-03.jpg',
-          '../images/modeling-media/leak-04.png',
-          '../images/modeling-media/leak-05.png',
-          '../images/modeling-media/leak-08.jpg',
+          '../media/modeling-media/leak-bts-1.mp4',
+          '../media/modeling-media/leak-02.jpg',
+          '../media/modeling-media/leak-03.jpg',
+          '../media/modeling-media/leak-04.png',
+          '../media/modeling-media/leak-05.png',
+          '../media/modeling-media/leak-08.jpg',
         ],
       }, 
       {
         label: 'LEAK · FALL 2024',
           images: [
-              '../images/modeling-media/leaknycjjchinatownapartment-6.jpg',
-              '../images/modeling-media/leaknycjjchinatownapartment-1.jpg',
-              '../images/modeling-media/leaknycjjchinatownapartment-2.jpg',
-              '../images/modeling-media/leaknycjjchinatownapartment-3.jpg',
-              '../images/modeling-media/leaknycjjchinatownapartment-4.jpg',
-              '../images/modeling-media/leaknycjjchinatownapartment-5.jpg',
+              '../media/modeling-media/leaknycjjchinatownapartment-6.jpg',
+              '../media/modeling-media/leaknycjjchinatownapartment-1.jpg',
+              '../media/modeling-media/leaknycjjchinatownapartment-2.jpg',
+              '../media/modeling-media/leaknycjjchinatownapartment-3.jpg',
+              '../media/modeling-media/leaknycjjchinatownapartment-4.jpg',
+              '../media/modeling-media/leaknycjjchinatownapartment-5.jpg',
           ]
       }  
     ],
@@ -70,15 +70,15 @@ const BRANDS = {
       {
         label: 'Spring / Summer · 2025',
         images: [
-          '../images/modeling-media/boysmells-citrush-bts.mp4',
-          '../images/modeling-media/boysmells-1.jpeg',
-          '../images/modeling-media/boysmells-2.jpeg',
-          '../images/modeling-media/boysmells-3.jpeg',
-          '../images/modeling-media/boysmells-4.jpeg',
-          '../images/modeling-media/boysmells-5.jpeg',
-          '../images/modeling-media/boysmells-6.jpeg',
-          '../images/modeling-media/boysmells-7.jpeg',
-          '../images/modeling-media/boysmells-8.jpeg',
+          '../media/modeling-media/boysmells-citrush-bts.mp4',
+          '../media/modeling-media/boysmells-1.jpeg',
+          '../media/modeling-media/boysmells-2.jpeg',
+          '../media/modeling-media/boysmells-3.jpeg',
+          '../media/modeling-media/boysmells-4.jpeg',
+          '../media/modeling-media/boysmells-5.jpeg',
+          '../media/modeling-media/boysmells-6.jpeg',
+          '../media/modeling-media/boysmells-7.jpeg',
+          '../media/modeling-media/boysmells-8.jpeg',
         ],
       },
     ],
@@ -89,14 +89,14 @@ const BRANDS = {
             {
                 label: 'Spring / Summer · 2026',
                 images: [
-                    '../images/modeling-media/sean-val-bts-1.mp4',
-                    '../images/modeling-media/sean-val-bts-2.mp4',
-                    '../images/modeling-media/sean-val-6.jpeg',
-                    '../images/modeling-media/sean-val-2.jpeg',
-                    '../images/modeling-media/sean-val-4.jpeg',
-                    '../images/modeling-media/sean-val-1.jpeg',
-                    '../images/modeling-media/sean-val-3.jpeg',
-                    '../images/modeling-media/sean-val-5.jpeg',
+                    '../media/modeling-media/sean-val-bts-1.mp4',
+                    '../media/modeling-media/sean-val-bts-2.mp4',
+                    '../media/modeling-media/sean-val-6.jpeg',
+                    '../media/modeling-media/sean-val-2.jpeg',
+                    '../media/modeling-media/sean-val-4.jpeg',
+                    '../media/modeling-media/sean-val-1.jpeg',
+                    '../media/modeling-media/sean-val-3.jpeg',
+                    '../media/modeling-media/sean-val-5.jpeg',
                 ],
             },
         ],
@@ -223,12 +223,12 @@ lightboxBackdrop.addEventListener('click', closeLightbox);
 lightboxPrev.addEventListener('click', () => lightboxStep(-1));
 lightboxNext.addEventListener('click', () => lightboxStep(1));
 
-// Click delegation — images inside the gallery body (videos are excluded)
+// Click delegation — media inside the gallery body (videos are excluded)
 document.getElementById('gallery-panel-body').addEventListener('click', (e) => {
   const img = e.target.closest('.collection-img');
   if (!img || img.tagName === 'VIDEO') return;
 
-  // Collect all images in this collection block for prev/next
+  // Collect all media in this collection block for prev/next
   const block  = img.closest('.collection-block');
   const images = [...block.querySelectorAll('.collection-img')].map((i) => i.src);
   const index  = images.indexOf(img.src);

@@ -85,7 +85,7 @@ body.cursor-hover .cursor-follower {
    ========================================
 
    [1] HERO SECTION — add a subtle hover to the
-       logo images. Right now they go grayscale →
+       logo media. Right now they go grayscale →
        color on hover, which is good. Consider
        adding a slight scale too:
 
@@ -152,5 +152,5 @@ body.cursor-hover .cursor-follower {
          based in New York City.">
        <meta property="og:title" content="Jarred Carter">
        <meta property="og:description" content="...">
-       <meta property="og:image" content="/images/og-cover.jpg">
+       <meta property="og:image" content="/media/og-cover.jpg">
 */
