@@ -1,0 +1,458 @@
+{
+  "_README": "Every word, link, and image on the site lives in this file. Edit it, then run: python3 tools/build.py  — see EDITING.md for the full guide.",
+  "site": {
+    "title": "Jarred Carter",
+    "domain": "jarredmcarter.com",
+    "analytics_id": "G-14FCSXK4BK"
+  },
+  "hero": {
+    "script": "hello, world!",
+    "name": "i’m jarred carter",
+    "gate_lead": "Two things I do"
+  },
+  "roles": [
+    {
+      "title": "Security Engineer",
+      "sub": "Résumé, projects, & internships",
+      "color": "sec",
+      "href": "#resume",
+      "enabled": true
+    },
+    {
+      "title": "Pilates Instructor",
+      "sub": "SLT New York · own site in progress",
+      "color": "slt",
+      "href": null,
+      "enabled": false,
+      "badge": "SOON"
+    }
+  ],
+  "resume": {
+    "eyebrow": "Security Engineer",
+    "headline": "Secure systems that protect what matters.",
+    "lede": "Penetration testing, vulnerability management, and threat intelligence — across public law infrastructure, regional banking, and e-commerce. I do the technical work, then **translate it into risk language executives can act on**.",
+    "image": "bobst",
+    "image_caption": "BOBST LIBRARY / NYU",
+    "image_alt": "Jarred Carter in the stacks at NYU Bobst Library",
+    "education": {
+      "degree": "M.S. Cybersecurity",
+      "school": "NYU Tandon School of Engineering"
+    },
+    "metrics": [
+      {
+        "value": "126,959",
+        "label": "Sessions analyzed for bot fraud"
+      },
+      {
+        "value": "40,000+",
+        "label": "Users on law infra secured"
+      },
+      {
+        "value": "$150K",
+        "label": "Tooling cost eliminated"
+      },
+      {
+        "value": "18",
+        "label": "Gov. centers under management"
+      }
+    ],
+    "resume_pdf": "/files/site-resume-v3.pdf"
+  },
+  "capabilities": [
+    "Penetration Testing",
+    "Vulnerability Management",
+    "Threat Intelligence",
+    "Digital Forensics",
+    "Malware Analysis",
+    "Reverse Engineering",
+    "Incident Response",
+    "MITRE ATT&CK",
+    "GRC & Compliance",
+    "Application Security",
+    "Container Security",
+    "API Security"
+  ],
+  "pilates": {
+    "eyebrow": "Off the keyboard",
+    "headline": "I also teach fifty of the hardest minutes in New York.",
+    "lede": "Megaformer instructor at **SLT**. Which is really a job about people: reading a room of fifteen strangers, correcting form without killing confidence, and keeping the energy up when everyone’s shaking. _Security work needs the same skill — the finding only matters if you can get someone to act on it._",
+    "image": "slt-noho",
+    "image_caption": "SLT / NOHO",
+    "image_alt": "The SLT NoHo studio floor",
+    "button_label": "Learn more",
+    "button_href": null,
+    "button_note": "SITE IN PROGRESS"
+  },
+  "connect": {
+    "script": "let’s connect",
+    "sub": "You made it to the bottom, which means you either want to hire me or you’re very thorough. Both are good signs.",
+    "email_user": "jc12690",
+    "email_domain": "nyu.edu",
+    "linkedin": "https://linkedin.com/in/jarred-carter"
+  },
+  "colophon": {
+    "paragraphs": [
+      "**Die-hard Apple fan since my pre-teen years** — so this whole thing is a love letter to **System 7** (1991). The menu bar, the bitmap type, the hard-edged panels, and the 1-bit imagery are all borrowed from it.",
+      "That image treatment is **Atkinson dithering**, named for Bill Atkinson, who wrote QuickDraw for the original Macintosh. It pushes only 6/8 of the quantization error into neighboring pixels, which is why it reads crisp instead of muddy — and why the dots can melt back into a photograph when you open one."
+    ],
+    "specs": [
+      [
+        "Display",
+        "Pacifico"
+      ],
+      [
+        "Text",
+        "Space Grotesk"
+      ],
+      [
+        "Data",
+        "Geist Mono"
+      ],
+      [
+        "Chrome",
+        "Silkscreen"
+      ],
+      [
+        "Halftone",
+        "Atkinson, 1-bit"
+      ],
+      [
+        "Homage",
+        "System 7, 1991"
+      ]
+    ],
+    "footer_left": "JARRED CARTER — SECURITY. FITNESS.",
+    "footer_right": "MADE WITH L♥VE IN NEW YORK CITY"
+  },
+  "entries": [
+    {
+      "slug": "threat-intel",
+      "kind": "project",
+      "title": "Threat Intelligence Investigation",
+      "org": "CHEQ",
+      "when": "2026",
+      "summary": "Automated bot traffic and ad fraud analysis across 126,959 e-commerce sessions for CHEQ, identifying attack patterns, quantifying financial impact, and developing a prioritized mitigation strategy to protect revenue-generating workflows and advertising spend.",
+      "tags": [
+        "Threat Intelligence",
+        "Bot Detection",
+        "Ad Fraud",
+        "E-Commerce Security"
+      ],
+      "image": "cheq-analytics",
+      "image_caption": "CHEQ SESSION ANALYTICS",
+      "problem": [
+        "E-commerce platforms are a high-value target for automated abuse, and most of it is invisible at first glance. Bots mimicking legitimate user behavior inflate traffic metrics, drain advertising budgets, hoard inventory, and stuff credential databases, all while flying under the radar of conventional monitoring. CHEQ needed a rigorous behavioral analysis of their session data to answer a question that's harder than it sounds: which of these 126,959 sessions are actually human?"
+      ],
+      "included": [
+        "Behavioral signal analysis across 126,959 e-commerce sessions to identify automated bot traffic",
+        "Multi-signal correlation including datacenter ASNs, headless browser indicators, timezone mismatches, and interaction speed analysis",
+        "Bot-driven attack pattern detection targeting checkout, login, and product endpoints",
+        "Ad fraud quantification across paid Google and Bing search traffic consumed by automated sessions",
+        "Prioritized mitigation strategy covering ASN blocking, device fingerprint detection, rate limiting, and MFA enforcement"
+      ],
+      "impact": [
+        "Identified that 25.51% - or roughly 1 in 4 visitors - of all sessions were automated bot traffic. That finding alone reframes how CHEQ interprets their analytics, allocates ad spend, and designs abuse protections. The investigation estimated $3,362 – $13,448 in wasted advertising spend attributable to bots interacting with paid search campaigns, and surfaced active attack patterns consistent with two of the most revenue-critical endpoints on any e-commerce platform: inventory hoarding and credential stuffing at the checkout and login layers."
+      ],
+      "stack": [
+        "Python: session data analysis and signal correlation scripting",
+        "SQL: behavioral data querying and aggregation",
+        "CHEQ dataset: 126,959 labeled e-commerce sessions with behavioral metadata",
+        "ASN intelligence: datacenter and infrastructure source identification",
+        "Device fingerprinting: reuse detection across automated sessions",
+        "Google & Bing Ads data: paid traffic analysis for ad fraud quantification"
+      ],
+      "link": "/files/threat-intel-assignment.md",
+      "link_label": "View project"
+    },
+    {
+      "slug": "offensive-security",
+      "kind": "project",
+      "title": "Offensive Security Engineering",
+      "org": "NYU Tandon",
+      "when": "2025",
+      "summary": "Hands-on offensive security challenges tackling 20+ real-world malware samples and security vulnerabilities that combine reverse engineering, memory corruption analysis, and web application exploitation to develop adversarial intuition and enterprise-grade remediation skills.",
+      "tags": [
+        "Reverse Engineering",
+        "Malware Analysis",
+        "Exploit Development",
+        "CTF"
+      ],
+      "image": "binja-disassembly",
+      "image_caption": "BINARY NINJA / PSEUDO-C",
+      "problem": [
+        "Textbook security knowledge only goes so far. CTF challenges force you to think like an attacker: working backwards from a compiled binary, a memory dump, or a broken web application to understand exactly how and why something is exploitable. The goal here wasn't just to capture flags; it was to build the kind of adversarial reasoning that translates directly into better defensive and remediation work in enterprise environments."
+      ],
+      "included": [
+        "Reverse engineering of 20+ malware samples to identify threat actor TTPs and attack chains",
+        "Root cause analysis across 20+ security vulnerabilities spanning memory corruption and application security",
+        "Binary analysis using Binary Ninja to deconstruct unknown executables and identify exploitation paths",
+        "Web application vulnerability assessment with documented findings and remediation recommendations",
+        "Findings translated into formats suitable for both technical teams and senior leadership"
+      ],
+      "impact": [
+        "Working through 20+ malware samples and an equal number of vulnerabilities back-to-back builds a pattern recognition that's hard to get any other way. Each reverse engineering session deepened the ability to map unknown binaries to known TTPs and develop bespoke exploits, and each vulnerability root cause analysis sharpened the instinct for where code breaks down under adversarial pressure — skills that show up directly in penetration testing, incident response, and security code review."
+      ],
+      "stack": [
+        "Ghidra: NSA-developed reverse engineering and binary analysis framework",
+        "Binary Ninja: binary analysis and disassembly for malware inspection",
+        "Burp Suite: web application vulnerability testing and exploitation",
+        "GDB: GNU debugger for dynamic binary analysis and memory inspection",
+        "MITRE ATT&CK: TTP mapping and threat actor behavior classification",
+        "Python: bespoke solver scripts for binary exploitation and unintended program behavior",
+        "pwntools: CTF exploit development framework for crafting and automating binary exploits"
+      ],
+      "link": "https://www.notion.so/217ae3b5fff38001b2eecd49fe4da780?v=217ae3b5fff3818f830d000c6340b063&source=copy_link",
+      "link_label": "View writeups",
+      "image2": "terminal-disassembly",
+      "image2_caption": "TERMINAL DISASSEMBLY"
+    },
+    {
+      "slug": "nbn-pentest",
+      "kind": "project",
+      "title": "NBN Corporation Penetration Test",
+      "org": "Engagement",
+      "when": "2024",
+      "summary": "Comprehensive penetration test of NBN Corporation's infrastructure uncovering critical vulnerabilities across web applications and servers, scoring findings against NIST CVSS v3, and delivering prioritized remediation recommendations to reduce systemic risk.",
+      "tags": [
+        "Penetration Testing",
+        "Vulnerability Assessment",
+        "Web Application Security",
+        "Risk Scoring"
+      ],
+      "image": "nbn-terminal",
+      "image_caption": "ENGAGEMENT TERMINAL",
+      "problem": [
+        "NBN Corporation's infrastructure had never been put under adversarial pressure. Without a comprehensive penetration test, the organization had assumptions, not a reliable picture of its actual attack surface. The goal was to find out what a real attacker would find, score the severity of every finding objectively, and hand back a remediation roadmap that was actionable rather than just alarming."
+      ],
+      "included": [
+        "Comprehensive penetration test across NBN Corporation's web applications and server infrastructure",
+        "Identification of critical vulnerabilities including XSS, SQL Injection, Local File Inclusion, and unauthorized server access",
+        "NIST CVSS Version 3 scoring for all findings with an average criticality score of 8.86",
+        "Root access achieved across all systems, validating full compromise scenarios",
+        "Prioritized remediation recommendations including input sanitization, system updates, enhanced password policies, and microservice architecture to isolate network assets"
+      ],
+      "impact": [
+        "An average CVSS score of 8.86 across findings tells the story clearly: this wasn't a theoretical risk assessment, it was a near-total compromise. Achieving root access on all systems demonstrated that the attack surface wasn't just wide, it was deep. The resulting remediation roadmap gave NBN Corporation a prioritized, evidence-based path to closing those gaps before a real attacker could follow the same steps."
+      ],
+      "stack": [
+        "Metasploit: exploitation framework for vulnerability validation and root access",
+        "Nmap: network reconnaissance and service enumeration",
+        "Burp Suite: web application testing for XSS, SQLi, and LFI",
+        "Nessus: automated vulnerability scanning",
+        "NIST CVSS v3: standardized vulnerability scoring and risk classification"
+      ],
+      "link": "/files/pentesting-final-project-writeup.pdf",
+      "link_label": "Read the writeup (PDF)"
+    },
+    {
+      "slug": "forensics",
+      "kind": "project",
+      "title": "Digital Forensics Analysis",
+      "org": "NYU Tandon",
+      "when": "2024",
+      "summary": "End-to-end digital forensics investigation simulating a real-world incident: analyzing phishing and business email compromise attack vectors, recovering deleted evidence from system images, and reverse engineering malware to reconstruct attack chains and identify threat actor TTPs.",
+      "tags": [
+        "Digital Forensics",
+        "Malware Analysis",
+        "Incident Response",
+        "Reverse Engineering"
+      ],
+      "image": "ftk-imager",
+      "image_caption": "FTK IMAGER",
+      "problem": [
+        "When an incident happens, the evidence doesn't wait for you. Files get deleted, logs get overwritten, and attackers obfuscate their tracks. A forensic investigator's job is to reconstruct what happened from whatever survives (email headers, memory artifacts, fragmented file systems, compiled binaries, et cetera) that weren't meant to be read. This project simulated exactly that scenario: starting with 8 compromised system images and working backwards to surface the full attack chain."
+      ],
+      "included": [
+        "Phishing and BEC attack vector investigation including email header, attachment, and link analysis",
+        "Recovery of deleted and obfuscated evidence across 8 system images including hashes, user accounts, logs, documents, and metadata",
+        "Reverse engineering of 20+ malware samples to identify threat actor TTPs and email-based attack chains",
+        "Threat intelligence correlation across reassembled evidence to identify attack patterns",
+        "Identification of 80+ functions, libraries, and security vulnerabilities through unknown executable analysis",
+        "Forensic image and file system creation and inspection using Procmon and PeStudio"
+      ],
+      "impact": [
+        "Reassembling a fragmented attack chain across 8 system images — recovering deleted files, correlating metadata, and reverse engineering the malware that started it all — mirrors exactly what incident responders face after a real breach. The ability to identify 80+ functions and libraries in unknown executables, and map them back to attacker behavior, is the difference between knowing an incident happened and understanding how, why, and what to do next."
+      ],
+      "stack": [
+        "Scalpel: file carving and deleted evidence recovery from system images",
+        "FTK Imager: forensic image acquisition and file system inspection",
+        "Ghidra: reverse engineering and binary analysis of unknown executables",
+        "Binary Ninja: malware disassembly and TTP identification",
+        "Autopsy: digital forensics platform for evidence analysis and correlation",
+        "Procmon: process monitoring and forensic image inspection",
+        "PeStudio: static malware analysis and executable inspection",
+        "MITRE ATT&CK: TTP mapping and threat actor behavior classification"
+      ],
+      "link": "/files/threat-intel-assignment.md",
+      "link_label": "View project"
+    },
+    {
+      "slug": "appsec",
+      "kind": "project",
+      "title": "Application Security Engineering",
+      "org": "NYU Tandon",
+      "when": "2024",
+      "summary": "A suite of five applied security engineering projects spanning web application security, mobile security, container hardening, binary exploitation, and API protection, with each targeting a distinct layer of the modern application stack with hands-on assessment, remediation, and monitoring.",
+      "tags": [
+        "Application Security",
+        "Vulnerability Remediation",
+        "Secure Development",
+        "AI/ML Security"
+      ],
+      "image": "nyu-tandon",
+      "image_caption": "6 METROTECH / NYU TANDON",
+      "problem": [
+        "Modern applications don't have a single attack surface — they have many. A web app can be hardened while the API it talks to leaks data. A container can be locked down while the mobile client it serves has unencrypted communications. Application security engineering means understanding the full stack and knowing where each layer breaks down under adversarial pressure. These five projects were designed to build exactly that: comprehensive, layer-by-layer security intuition grounded in real remediation work."
+      ],
+      "included": [
+        "Identified and remediated 4 critical vulnerabilities (XSS, CSRF, SQL Injection, command injection) in a Django web application",
+        "Implemented automated detection rules and security controls applicable to AI/ML API environments",
+        "Security audit of an Android gift card application",
+        "Fixed Intent vulnerabilities and implemented HTTPS encryption for REST API communications",
+        "Removed privacy-invasive monitoring code",
+        "Secured containerized applications using Kubernetes",
+        "Implemented automated monitoring with Prometheus",
+        "Established security controls applicable to AI/ML model serving environments",
+        "Identified and fixed 6 buffer overflow and memory corruption vulnerabilities in a legacy C application",
+        "Achieved 85%+ code coverage through systematic test case development using AFL++ fuzzer",
+        "Implemented comprehensive API security controls and monitoring solutions",
+        "Established foundation for securing AI model APIs and detecting anomalous usage patterns"
+      ],
+      "impact": [
+        "Across five projects, every major layer of the modern application stack got put under adversarial pressure — and fixed. From a Django app leaking to SQL injection, to an Android client with unencrypted API traffic, to a legacy C binary hiding buffer overflows, the through-line is the same: find the weakness, understand why it exists, and close it. The AI/ML security angle across multiple projects is particularly relevant as organizations rush to ship model-serving infrastructure without fully understanding its attack surface."
+      ],
+      "stack": [
+        "Django: web application framework for security assessment and remediation",
+        "Burp Suite: web application testing for XSS, CSRF, SQLi, and command injection",
+        "Android SDK: mobile application security audit and Intent vulnerability analysis",
+        "Kubernetes: container orchestration and security hardening",
+        "Prometheus: automated monitoring and anomaly detection for containerized environments",
+        "AFL++: coverage-guided fuzzer for binary vulnerability discovery",
+        "GDB: dynamic analysis and memory corruption debugging",
+        "Python: security control implementation and monitoring automation"
+      ],
+      "link": "https://github.com/jc12690",
+      "link_label": "View on GitHub"
+    },
+    {
+      "slug": "open-law-library",
+      "kind": "role",
+      "title": "Security Analyst",
+      "org": "Open Law Library",
+      "when": "Jun–Sep 2024 · Internship",
+      "summary": "The Open Law Platform empowers people to focus on high-value tasks, auto-updates the legal code as laws become effective, and improves how people connect with citizens. Draft, codify, and publish better laws without onerous copyright restrictions and reduce repetitive tasks in the process.",
+      "tags": [
+        "Security",
+        "Documentation",
+        "Automation",
+        "Verification"
+      ],
+      "image": "open-law-platform",
+      "image_caption": "OPEN LAW PLATFORM",
+      "problem": [
+        "Public law infrastructure has a trust problem: when governments publish legal documents online, there's no guarantee that the content hasn't been tampered with by bad actors, accidental overwrites, or repository changes. Open Law Library's TAF (The Archive Framework) adds a Python-based layer over TUF (The Update Framework) to cryptographically authenticate law repositories hosted on GitHub.",
+        "The challenge is that engineering and operations teams weren't consistently using the security tooling, and the vulnerability process management lacked the structure needed to catch and remediate issues before they reached production, thus putting the integrity of law served to 40,000+ users at risk."
+      ],
+      "included": [
+        "Documentation and reporting workflows designed to drive adoption of security tooling across engineering and operations teams",
+        "Operational security tooling maintenance ensuring continuous verification of code commits on public law hosting infrastructure",
+        "Vulnerability triage and remediation tracking aligned to internal SLAs",
+        "Risk assessment reporting built from aggregated vulnerability and system data across application and infrastructure environments"
+      ],
+      "impact": [
+        "Supported security operations for a platform serving 40,000+ users where the stakes are unusually high: the content being protected is public law, and any undetected tampering would undermine civic trust in legal information. By improving documentation workflows and tightening the vulnerability management process, engineering teams gained clearer remediation paths and faster turnaround on findings, directly supporting the integrity of authenticated law repositories used by government partners including the City of San Mateo."
+      ],
+      "stack": [
+        "Python: primary language for TAF development and tooling contributions",
+        "TAF (The Archive Framework): Python-based framework built on top of TUF for authenticating",
+        "TUF (The Update Framework): underlying cryptographic signing and metadata validation standard",
+        "GitHub: repository hosting for both law content (XML, HTML, PDF) and authentication metadata",
+        "Shell: Command line interface options developed to extend TAF's usability and updater functionality"
+      ],
+      "link": "https://github.com/openlawlibrary/taf",
+      "link_label": "TAF on GitHub"
+    },
+    {
+      "slug": "city-national-bank",
+      "kind": "role",
+      "title": "Penetration Testing Engineer",
+      "org": "City National Bank",
+      "when": "Aug–Dec 2022 · Internship",
+      "summary": "",
+      "tags": [
+        "Penetration Testing",
+        "Vulnerability Assessment",
+        "Incident Response",
+        "Enterprise Security"
+      ],
+      "image": "cnb-hq",
+      "image_caption": "CITY NATIONAL BANK HQ",
+      "problem": [
+        "Enterprise infrastructure is only as secure as its weakest component. City National Bank needed adversarial eyes on its systems. Not just automated scans, but human-led penetration testing that could uncover the kinds of vulnerabilities that slip past conventional monitoring. The challenge wasn't just finding issues, it was translating deeply technical findings into risk-based language that both security teams and executive stakeholders could act on, while keeping vulnerability management continuous rather than episodic."
+      ],
+      "included": [
+        "Adversarial testing and vulnerability assessments across enterprise infrastructure",
+        "Risk-based remediation recommendations translated for both technical and executive audiences",
+        "Vulnerability scanning, detection, and monitoring system operations",
+        "Cross-functional prioritization of vulnerabilities by risk, exploitability, and asset criticality",
+        "Incident response and threat analysis including malware payload analysis and email investigation",
+        "MITRE ATT&CK-aligned TTP identification using Wireshark and supporting security tooling"
+      ],
+      "impact": [
+        "Served as the technical bridge between security and business units at a regional bank, where the cost of a missed vulnerability isn't abstract; rather, it's regulatory, financial, and reputational. By combining hands-on adversarial testing with clear stakeholder communication, findings moved faster from discovery to remediation, and the SOC, infrastructure, and IT ops teams had a shared prioritization framework they could actually work from."
+      ],
+      "stack": [
+        "Metasploit: exploitation framework for adversarial testing",
+        "Nmap: network scanning and reconnaissance",
+        "Nessus: vulnerability scanning",
+        "Wireshark: network traffic analysis and anomaly detection",
+        "MITRE ATT&CK: TTP mapping and threat analysis framework",
+        "Burp Suite: web application security testing"
+      ],
+      "link": null,
+      "link_label": null
+    },
+    {
+      "slug": "workforce-wv",
+      "kind": "role",
+      "title": "Information Systems Specialist I",
+      "org": "WorkForce West Virginia",
+      "when": "May 2018–Aug 2023",
+      "summary": "IT asset management, security compliance, and cross-functional systems support across 18 WorkForce West Virginia career centers statewide to build the visibility infrastructure and operational workflows that kept a large distributed government workforce running securely and efficiently.",
+      "tags": [
+        "IT Asset Management",
+        "Access Control",
+        "GRC & Compliance",
+        "Automation"
+      ],
+      "image": null,
+      "image_caption": null,
+      "problem": [
+        "Managing IT assets, software licensing, and user access across 18 geographically dispersed government career centers is a coordination problem as much as a technical one. Without centralized visibility, hardware went underutilized, licensing costs ballooned, and security and compliance standards were applied inconsistently across locations. There was no single source of truth for asset lifecycle, system usage, or access controls — making risk assessment, remediation, and reporting largely reactive."
+      ],
+      "included": [
+        "Live dashboards and KPIs for IT asset inventory, system usage, and lifecycle tracking across 18 centers",
+        "In-house systems for software licensing and hardware usage tracking",
+        "End-to-end IT asset lifecycle workflows including provisioning, de-provisioning, and end-of-life management",
+        "User access management and periodic access reviews for OSCAR, RAPIDS, WorkForce WV, DMV, and related applications",
+        "Standard operating procedures and user access documentation",
+        "Automated solutions for process improvement and federal/state compliance",
+        "Technical support and training for staff and management across all regional centers"
+      ],
+      "impact": [
+        "Increased cross-functional visibility by 70% across all 18 centers and cut approximately $150,000 in costs by replacing third-party tools with purpose-built in-house systems. Over five years, the work evolved from tactical IT support into a foundational compliance and risk infrastructure — one that gave a distributed government agency the asset visibility and access control documentation it needed to meet federal and state program requirements consistently."
+      ],
+      "stack": [
+        "Google Workspace: file sharing, access forms, and tracking systems",
+        "Microsoft Office: reporting, documentation, and workflow management",
+        "OSCAR: user access management and application maintenance",
+        "OnBase: document management and application support",
+        "Python: automation and process improvement scripting",
+        "SQL: data aggregation across asset inventory and identity systems",
+        ".NET: construction of in-house resume-building software"
+      ],
+      "link": "https://workforcewv.org/",
+      "link_label": "Visit site"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jarred Carter — Security. Fitness. Style.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-14FCSXK4BK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-14FCSXK4BK');
+  </script>
+</head>
+
+<body>
+  <!-- Fixed Header -->
+  <header class="header">
+    <!-- Left Navigation -->
+    <nav class="nav">
+      <a href="#info" class="nav-link active" data-section="info">
+        <span class="nav-num">01</span> Info
+      </a>
+      <a href="#work" class="nav-link" data-section="work">
+        <span class="nav-num">02</span> Work
+      </a>
+      <a href="#archive" class="nav-link" data-section="archive">
+        <span class="nav-num">03</span> Archive
+      </a>
+        <a href="/files/site-resume-v3.pdf" class="nav-link" data-section="resume">
+            <span class="nav-num">04</span> Resume
+        </a>
+      <a href="#contact" class="nav-link" data-section="contact">
+        <span class="nav-num">05</span> Contact
+      </a>
+    </nav>
+
+    <!-- Right Info -->
+    <div class="header-info">
+      <div class="header-name">JARRED CARTER</div>
+      <div class="header-title">SECURITY ENGINEER • FITNESS INSTRUCTOR • <a href="modeling/index.html" class="header-model-link">MODEL</a></div>
+      <div class="header-time" id="current-time">--:-- [NY] --</div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    
+    <!-- Section 1: Hero / Info -->
+    <section id="info" class="section hero">
+      <!-- Large background text -->
+      <div class="bg-text">Jarred</div>
+
+      <div class="hero-content">
+        <!-- Left - Bio -->
+        <div class="hero-bio">
+          <p class="hero-text">
+            Helping others craft secure systems that protect what matters and bridging the gap between
+            <em>technical excellence</em> and <em>creative expression</em>.
+          </p>
+          <p class="scroll-hint">[SCROLL TO EXPLORE]</p>
+        </div>
+
+        <!-- Right - Images -->
+        <div class="hero-images"><img src="media/cheq-square.png" alt="Threat Hunting" class="hero-img">
+          <img src="media/nyutandon-stackedlogo-color.png" alt="NYU" class="hero-img">
+          <img src="media/slt-logo-square.png" alt="SLT" class="hero-img">
+          <img src="media/wfwv-square.png" alt="WFWV" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: About -->
+    <section class="section about">
+      <div class="bg-text">About</div>
+
+      <div class="services">
+        <div class="service-row">
+          <span class="service-num">[01]</span>
+          <a href="#work" style="text-decoration:none"> <h3 class="service-title">Cybersecurity</h3> </a>
+          <p class="service-desc">
+            Threat modeling, penetration testing, and secure code review. 
+            I help teams find and patch gaps in systems according to industry standards for more reliable system
+              confidentiality, integrity, and availability.
+          </p>
+        </div>
+
+        <div class="service-row">
+          <span class="service-num">[02]</span>
+          <a href="https://sltnyc.com/instructor/jarred-carter/" style="text-decoration:none"> <h3 class="service-title">Fitness</h3> </a>
+          <p class="service-desc">
+              Ensuring proper form and tailoring each Pilates class to each individual client with hands-on corrections and
+              high energy for an intense and effective full-body workout.
+              <!--<button class="portfolio-link" onclick="openPasswordModal()">
+                  <svg class="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  View portfolio
+              </button> -->
+          </p>
+        </div>
+<!--
+        <div class="service-row">
+          <span class="service-num">[03]</span>
+          <h3 class="service-title">Modeling</h3>
+          <p class="service-desc">
+            Editorial, runway, and campaign work. Two New York Fashion Week seasons
+            and a portfolio built on presence and precision.
+            <button class="portfolio-link" onclick="openPasswordModal()">
+              <svg class="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              View portfolio
+            </button>
+          </p>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- Section 3: Work Experience -->
+    <section id="work" class="section work">
+      <div class="bg-text">Work</div>
+
+      <div class="section-header">
+        <span class="section-label">WORK EXPERIENCE</span>
+      </div>
+
+      <div class="experience">
+        <a href="/experience/security-analyst-open-law-library.html" class="experience-row">
+          <span class="experience-num">[01]</span>
+          <h3 class="experience-title">Security Analyst</h3>
+          <p class="experience-desc">Open Law Library • 06/2024 - 09/2024</p>
+          <span class="experience-arrow">→</span>
+        </a>
+
+        <a href="/experience/penetration-testing-engineer-cnb.html" class="experience-row">
+          <span class="experience-num">[02]</span>
+          <h3 class="experience-title">Penetration Testing Engineer</h3>
+          <p class="experience-desc">City National Bank • 08/2022 - 12/2022</p>
+          <span class="experience-arrow">→</span>
+        </a>
+
+        <a href="/experience/information-systems-specialist-wfwv.html" class="experience-row">
+          <span class="experience-num">[03]</span>
+          <h3 class="experience-title">Information Systems Specialist I</h3>
+          <p class="experience-desc">WorkForce WV • 05/2018 - 08/2023</p>
+          <span class="experience-arrow">→</span>
+        </a>
+<!--
+          <a href="#" class="experience-row">
+              <span class="experience-num">[05]</span>
+              <h3 class="experience-title">Propulsion Systems Analyst</h3>
+              <p class="experience-desc">NASA • 05/2021 - 09/2021</p>
+              <span class="experience-arrow">→</span>
+          </a> -->
+      </div>
+    </section>
+
+    <!-- Section 4: Archive -->
+    <section id="archive" class="section archive">
+      <div class="bg-text">Archive</div>
+
+      <div class="section-header">
+        <span class="section-label">SELECTED PROJECTS</span>
+      </div>
+
+      <div class="projects">
+        <a href="/projects/threat-intelligence-investigation-cheq.html" class="proj-card">
+          <div class="proj-header">
+            <h3 class="proj-title">Threat Intelligence Investigation</h3>
+            <span class="proj-year">2026</span>
+          </div>
+          <p class="proj-type">Automated Bot Traffic & Ad Fraud Analysis</p>
+        </a>
+
+          <a href="/projects/offensive-security-engineering.html" class="proj-card">
+              <div class="proj-header">
+                  <h3 class="proj-title">Offensive Security Engineering</h3>
+                  <span class="proj-year">2025</span>
+              </div>
+              <p class="proj-type">Reverse Engineering & Malware Analysis</p>
+          </a>
+
+        <a href="/projects/nbn-corporation-penetration-test.html" class="proj-card">
+          <div class="proj-header">
+            <h3 class="proj-title">NBN Corporation Penetration Test</h3>
+            <span class="proj-year">2024</span>
+          </div>
+          <p class="proj-type">Vulnerability Analysis</p>
+        </a>
+
+        <a href="/projects/digital-forensics-analysis.html" class="proj-card">
+          <div class="proj-header">
+            <h3 class="proj-title">Digital Forensics Analysis</h3>
+            <span class="proj-year">2024</span>
+          </div>
+          <p class="proj-type">Evidence Restoration & Malware Analysis</p>
+        </a>
+      </div>
+
+        <a href="/projects/application-security-engineering.html" class="proj-card">
+            <div class="proj-header">
+                <h3 class="proj-title">Application Security Engineering</h3>
+                <span class="proj-year">2024</span>
+            </div>
+            <p class="proj-type">API, Container, Mobile, & AI Security</p>
+        </a>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section id="contact" class="section contact">
+      <div class="bg-text">Contact</div>
+
+      <div class="contact-content">
+        <!-- Left -->
+        <div class="contact-left">
+          <p class="contact-label">Let's collaborate</p>
+          <a href="mailto:jc12690@nyu.edu" class="contact-email">jc12690@nyu.edu</a>
+          <p class="contact-desc">
+            Open to security consulting, private fitness classes, editorial features, and creative collaborations.
+            Based in New York, NY.
+          </p>
+        </div>
+
+        <!-- Right - Links -->
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/jarred-carter" class="contact-link">
+            <span class="contact-link-num">[01]</span>
+            <span class="contact-link-text">LinkedIn</span>
+            <span class="contact-link-arrow">→</span>
+          </a>
+          <a href="https://github.com/jc12690" class="contact-link">
+            <span class="contact-link-num">[02]</span>
+            <span class="contact-link-text">GitHub</span>
+            <span class="contact-link-arrow">→</span>
+          </a>
+          <a href="https://medium.com/@jcart657" class="contact-link">
+            <span class="contact-link-num">[03]</span>
+            <span class="contact-link-text">Blog</span>
+            <span class="contact-link-arrow">→</span>
+          </a>
+          <a href="https://retraclabs.co" class="contact-link">
+            <span class="contact-link-num">[04]</span>
+            <span class="contact-link-text">Retrac Labs</span>
+            <span class="contact-link-arrow">→</span>
+          </a>
+            <a href="https://platform.cyberr.ai/profile/1bdf6432-2ef0-44f2-93ff-a5bb8367349f?action=connect" class="contact-link">
+                <span class="contact-link-num">[05]</span>
+                <span class="contact-link-text">Cyberr</span>
+                <span class="contact-link-arrow">→</span>
+            </a>
+        </div>
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+        <span class="footer-text">JARRED CARTER — SECURITY. FITNESS. STYLE.</span>
+        <span class="footer-year">MADE WITH L♥VE IN NEW YORK CITY. COPYRIGHT © 2026 JARRED M. CARTER.</span>
+      </footer>
+    </section>
+
+  </main>
+  <!--
+     Password Modal
+  <div class="modal" id="password-modal">
+    <div class="modal-overlay" onclick="closePasswordModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePasswordModal()">×</button>
+      
+      <div id="password-form">
+        <h2 class="modal-title">Enter Password</h2>
+        <p class="modal-desc">This section is password protected.</p>
+        <input type="password" id="password-input" class="password-input" placeholder="Enter password">
+        <p class="password-error" id="password-error">Incorrect password.</p>
+        <button class="password-btn" onclick="checkPassword()">Unlock</button>
+      </div>
+
+      <div id="portfolio-content" style="display: none;">
+        <h2 class="modal-title">Portfolio Access</h2>
+        <p class="modal-desc">Welcome to the modeling-media portfolio.</p>
+        <div class="portfolio-media">
+          <img src="media/modeling_portrait.jpg" alt="Portfolio 1" class="portfolio-img">
+          <img src="media/hero_modeling_portrait.jpg" alt="Portfolio 2" class="portfolio-img">
+        </div>
+        <p class="portfolio-note">Full portfolio available upon request</p>
+      </div>
+    </div>
+  </div>
+-->
+  <script src="app.js"></script>
+</body>
+</html>
