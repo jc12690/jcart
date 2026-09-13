@@ -150,7 +150,52 @@ screenshots around `1.05`. Just re-run — it overwrites.
 
 ---
 
-## Recipe 4 — when the Pilates site is ready
+## Recipe 4 — publishing the IEEE / NASA / CNCF work
+
+The **Published work** section is built and wired, but it stays hidden until you
+fill it in. In `content/site.json` under `"publications"` there are three
+entries, each marked `"draft": true`. The build skips drafts and tells you:
+
+```
+NOTE: 3 publication(s) still marked "draft": true and were skipped
+```
+
+Fill in the real values and flip the flag:
+
+```json
+{
+  "draft": false,
+  "title": "The actual title of the paper",
+  "venue": "IEEE Transactions on ...",
+  "year": "2020",
+  "role": "Co-author",
+  "summary": "One or two sentences on what it argues or demonstrates.",
+  "link": "https://doi.org/...",
+  "link_label": "Read the paper"
+}
+```
+
+The moment at least one entry is not a draft, the section appears, a
+**Published** link is added to the menu bar, and the Pilates section renumbers
+itself from 03 to 04. Delete any entry you don't need.
+
+Notes on what I could and couldn't find in the repo:
+
+* **IEEE** — `files/ieee-paper.pdf` is already here (431 KB, October 2020), so
+  `"link": "/files/ieee-paper.pdf"` works today. The PDF carries no title or
+  author metadata, so you'll need to supply the title, venue, and your role —
+  plus an IEEE Xplore DOI if it has one, which is a stronger link than the PDF.
+* **NASA** — nothing in the repo. The only trace is a commented-out experience
+  row in your old homepage (`Propulsion Systems Analyst, 05/2021–09/2021`),
+  which is a job rather than a publication. Send the title and link.
+* **CNCF** — nothing at all in the repo. Send the title and link.
+
+The `"_note"` field in each draft is a reminder to you; the build ignores it,
+so delete it once you've filled the entry in.
+
+---
+
+## Recipe 5 — when your own Pilates site is ready
 
 In `content/site.json`:
 
@@ -176,7 +221,7 @@ Build. The card on the opening screen becomes clickable and the teal
 
 ---
 
-## Recipe 5 — preview before you publish
+## Recipe 6 — preview before you publish
 
 ```bash
 python3 -m http.server 8900

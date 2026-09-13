@@ -88,12 +88,12 @@ body{margin:0; background:var(--void); color:var(--ink);
   color:var(--ink); white-space:nowrap; margin:0;
   text-shadow:0 0 38px rgba(244,244,242,.15);
   clip-path:inset(-12% 100% -18% -5%);}
-.go .script{animation:write .8s cubic-bezier(.36,.05,.25,1) forwards}
+.go .script{animation:write 1.15s cubic-bezier(.36,.05,.25,1) forwards}
 @keyframes write{to{clip-path:inset(-12% -5% -18% -5%)}}
 .nib{position:absolute; top:-6%; bottom:-8%; width:clamp(30px,5vw,74px);
   left:-5%; opacity:0; pointer-events:none; z-index:2;
   background:radial-gradient(closest-side,rgba(255,255,255,.6),transparent 72%)}
-.go .nib{animation:nib .8s cubic-bezier(.36,.05,.25,1) forwards}
+.go .nib{animation:nib 1.15s cubic-bezier(.36,.05,.25,1) forwards}
 @keyframes nib{
   0%{left:-6%; opacity:0}
   14%{opacity:.95}
@@ -102,7 +102,7 @@ body{margin:0; background:var(--void); color:var(--ink);
 
 .whoami{margin:0; font-weight:700; letter-spacing:-.03em; line-height:1;
   font-size:clamp(18px,3.1vw,42px); color:var(--ink); opacity:0; transform:translateY(10px)}
-.go .whoami{animation:rise .5s cubic-bezier(.16,.84,.24,1) .62s forwards}
+.go .whoami{animation:rise .5s cubic-bezier(.16,.84,.24,1) .95s forwards}
 @keyframes rise{to{opacity:1; transform:none}}
 
 .gate{position:absolute; inset:0; display:flex; flex-direction:column;
@@ -378,3 +378,20 @@ footer{max-width:1180px; margin:0 auto; padding:34px clamp(18px,5vw,56px) 60px;
   *{transition-duration:.001s!important}
   .eof .blink{animation:none}
 }
+
+/* a caveat sitting under an outbound link on a detail page */
+.linknote{margin:12px 0 0; max-width:58ch; font-family:var(--mono); font-size:11.5px;
+  line-height:1.7; color:var(--dimmer)}
+.linknote b{color:var(--dim); font-weight:400}
+
+/* ---------- publication rows: meta sits under the title, aligned with it ---------- */
+.item.pub{display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:0 clamp(12px,1.7vw,20px); align-items:start}
+.item.pub .idx{padding-top:7px}
+.pubbody{display:flex; flex-direction:column; gap:9px; min-width:0}
+.pubhead{display:flex; align-items:baseline; gap:14px}
+.pubhead h3{flex:1 1 auto}
+.pubhead .arw{flex:0 0 auto}
+.item.pub .when{margin-left:0; white-space:normal; line-height:1.5}
+.item.pub p{margin:0}
+.item.pub .linknote{margin:0}

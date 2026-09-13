@@ -26,13 +26,34 @@ def md(s):
     s = re.sub(r'_(.+?)_', r'<em>\1</em>', s)
     return s
 
+_SIZE_CACHE = {}
+def imgsize(path):
+    """Real pixel dimensions, so the browser can reserve the space before the
+    image loads. Without this, lazy images grow the page after layout and any
+    scroll-to-section computed beforehand lands in the wrong place."""
+    if path not in _SIZE_CACHE:
+        try:
+            from PIL import Image
+            with Image.open(path) as im:
+                _SIZE_CACHE[path] = im.size
+        except Exception:
+            _SIZE_CACHE[path] = None
+    return _SIZE_CACHE[path]
+
+
+def _dim(path):
+    wh = imgsize(path)
+    return f' width="{wh[0]}" height="{wh[1]}"' if wh else ''
+
+
 def plate(key, caption, alt=None, cls=''):
     """A dithered image that develops into colour on hover and opens a lightbox."""
     if not key:
         return ''
+    jpg, png = f'assets/img/{key}.jpg', f'assets/img/{key}.png'
     return (f'<figure class="plate {cls}" tabindex="0">'
-            f'<img class="col" src="assets/img/{key}.jpg" alt="" loading="lazy">'
-            f'<img class="dith" src="assets/img/{key}.png" alt="{esc(alt or caption or "")}" loading="lazy">'
+            f'<img class="col" src="{jpg}" alt=""{_dim(jpg)} loading="lazy" decoding="async">'
+            f'<img class="dith" src="{png}" alt="{esc(alt or caption or "")}"{_dim(png)} loading="lazy" decoding="async">'
             f'<figcaption><span>{esc(caption or "")}</span>'
             f'<b>HOVER TO DEVELOP</b></figcaption></figure>')
 
@@ -97,8 +118,9 @@ def detail(e, n):
     link = ''
     if e.get('link') and e.get('link_label'):
         ext = ' target="_blank" rel="noopener noreferrer"' if str(e['link']).startswith('http') else ''
+        note = (f'<p class="linknote">{md(e["link_note"])}</p>' if e.get('link_note') else '')
         link = (f'<p style="margin:0"><a class="btn" href="{esc(e["link"])}"{ext}>'
-                f'{esc(e["link_label"])} <span>&rarr;</span></a></p>')
+                f'{esc(e["link_label"])} <span>&rarr;</span></a></p>{note}')
     blocks = ''
     if e.get('problem'):
         blocks += ('<div class="block"><h4>The Problem</h4>' +
@@ -156,6 +178,39 @@ palette += [
  {'t': 'LinkedIn', 'k': 'linkedin connect', 'tag': 'LINK', 'c': 'var(--ink)', 'h': '#connect'},
 ]
 
+# ---------------------------------------------------------------- publications
+PUB = S.get('publications') or {}
+pub_items = [p for p in PUB.get('items', []) if not p.get('draft')]
+pub_drafts = [p for p in PUB.get('items', []) if p.get('draft')]
+
+pubs_html = ''
+if pub_items:
+    rows = ''
+    for i, p in enumerate(pub_items, 1):
+        meta = ' &middot; '.join(esc(x) for x in
+               [p.get('venue'), p.get('year'), p.get('role')] if x)
+        body = f'<p>{md(p["summary"])}</p>' if p.get('summary') else ''
+        if p.get('note'):
+            body += f'<p class="linknote">{md(p["note"])}</p>'
+        # title, then its meta directly beneath it and aligned with it --
+        # the number sits in its own column so nothing tucks under it
+        inner = (f'<span class="idx">{i:02d}</span>'
+                 f'<span class="pubbody">'
+                 f'<span class="pubhead"><h3>{esc(p["title"])}</h3>'
+                 f'{"<span class=\"arw\">&rarr;</span>" if p.get("link") else ""}</span>'
+                 f'<span class="when">{meta}</span>{body}</span>')
+        if p.get('link'):
+            ext = ' target="_blank" rel="noopener noreferrer"' if str(p['link']).startswith('http') else ''
+            rows += f'<a class="item pub" href="{esc(p["link"])}"{ext}>{inner}</a>'
+        else:
+            rows += f'<div class="item pub">{inner}</div>'
+    pubs_html = f'''
+  <section class="sec" id="publications">
+    <div class="eyebrow"><span class="n">03</span><span>{esc(PUB.get("eyebrow","Published work"))}</span><span class="bar"></span></div>
+    <h2 style="max-width:18ch">{esc(PUB.get("headline","Writing and research."))}</h2>
+    <div class="rows">{rows}</div>
+  </section>'''
+
 # ---------------------------------------------------------------- pieces
 R, P, CN, CO = S['resume'], S['pilates'], S['connect'], S['colophon']
 
@@ -205,6 +260,7 @@ page = f'''<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Grotesk:wght@400;500;700&family=Geist+Mono:wght@400;500&family=Silkscreen:wght@400;700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/cursors.css">
 {ga}
 </head>
 <body>
@@ -214,6 +270,7 @@ page = f'''<!doctype html>
   {HAIR}
   <a href="#resume">R&eacute;sum&eacute;</a>
   <a href="#projects">Projects</a>
+  {'<a href="#publications">Published</a>' if pub_items else ''}
   <a href="#pilates">Pilates</a>
   <a href="#connect" class="hide-sm">Connect</a>
   <span class="mb-right">
@@ -286,10 +343,11 @@ page = f'''<!doctype html>
     </div>
   </section>
 
+{pubs_html}
   <div class="secwrap pilates" id="pilates">
     <div class="ghostword" aria-hidden="true">PILATES PILATES</div>
     <section class="sec">
-      <div class="eyebrow"><span class="n">03</span><span>{esc(P['eyebrow'])}</span><span class="bar"></span></div>
+      <div class="eyebrow"><span class="n">{'04' if pub_items else '03'}</span><span>{esc(P['eyebrow'])}</span><span class="bar"></span></div>
       <div class="split">
         <div>
           <h2>{esc(P['headline'])}</h2>
@@ -359,5 +417,10 @@ open('index.html','w',encoding='utf-8').write(page)
 print(f'index.html        {len(page)/1024:.0f} KB')
 print(f'  projects {len(projects)}   experience {len(roles)}   detail pages {len(entries)}')
 print(f'  palette  {len(palette)} entries')
+if pub_drafts:
+    print(f'\n  NOTE: {len(pub_drafts)} publication(s) still marked "draft": true and were skipped:')
+    for p in pub_drafts:
+        print(f'        - {p.get("title","(untitled)")}')
+    print('        Fill them in in content/site.json and set "draft": false to publish them.')
 raw = [c for c in page if ord(c) > 127]
 print(f'  raw non-ASCII in output: {len(raw)}')

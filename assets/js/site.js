@@ -2,6 +2,12 @@
   var RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $  = function(id){ return document.getElementById(id); };
 
+  /* This page routes on the hash, so the browser restoring a previous scroll
+     offset on reload fights the router (and poisons the saved index position
+     when someone reloads straight into a detail view). We place the reader
+     ourselves in route(). */
+  if("scrollRestoration" in history) history.scrollRestoration = "manual";
+
   var NY = "America/New_York";
   function tick(){
     $("clock").textContent = new Date().toLocaleTimeString("en-US",
@@ -46,18 +52,70 @@
   /* start the write-on only once Pacifico is actually loaded, so it never
      wipes across a fallback face and then reflow-jumps */
   var hero = $("heroBlock");
-  function begin(){ hero.classList.add("go"); setTimeout(function(){ $("cue").classList.add("on"); }, RM?0:1150); }
+  function begin(){ hero.classList.add("go"); setTimeout(function(){ $("cue").classList.add("on"); }, RM?0:1550); }
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(begin); else begin();
 
   /* ---------- router ---------- */
   var details = [].slice.call(document.querySelectorAll(".detail"));
+  var indexScroll = 0;          /* where the reader was before opening a detail */
+  var routed = false;           /* false until the first route() has run */
+
+  /* html{scroll-behavior:smooth} is what we want for in-page nav links, but it
+     turns every programmatic placement into a ~1s animation that the next one
+     interrupts. Jump instantly inside here, then hand smooth scrolling back. */
+  function place(fn){
+    var el = document.documentElement, prev = el.style.scrollBehavior;
+    el.style.scrollBehavior = "auto";
+    fn();
+    requestAnimationFrame(function(){ el.style.scrollBehavior = prev; });
+  }
   function route(){
     var h = location.hash.replace(/^#/, "");
-    var target = h.indexOf("/") === 0 ? document.querySelector('.detail[data-slug="'+h.slice(1)+'"]') : null;
+    var target = h.indexOf("/") === 0
+      ? document.querySelector('.detail[data-slug="' + h.slice(1) + '"]') : null;
+    var wasDetail = document.body.classList.contains("detail-open");
     details.forEach(function(d){ d.classList.toggle("active", d === target); });
     document.body.classList.toggle("detail-open", !!target);
-    if(target){ $("menubar").classList.add("on"); window.scrollTo(0,0); }
-    else if((window.scrollY||0) < 10){ $("menubar").classList.remove("on"); }
+
+    if(target){
+      if(!routed) indexScroll = 0;   /* deep-linked in: nothing to restore */
+      $("menubar").classList.add("on");
+      place(function(){ window.scrollTo(0, 0); });
+      routed = true;
+      draw();
+      return;
+    }
+
+    /* Leaving a detail view for a section anchor: the browser already tried to
+       scroll there while .index was still display:none, so that scroll was lost.
+       Now that the index is visible again, put the section back under the user. */
+    var sec = h ? document.getElementById(h) : null;
+    if(sec){
+      $("menubar").classList.add("on");
+      /* .index was display:none until a moment ago, so its images had not even
+         begun loading. Flush layout before measuring anything. */
+      void document.body.offsetHeight;
+
+      if(wasDetail && indexScroll > 10){
+        /* Came from a detail view: put the reader back exactly where they were
+           in the list, which is what a back link should do. */
+        place(function(){ window.scrollTo(0, indexScroll); });
+      }else{
+        /* Deep-linked straight into a detail, so there is no saved position.
+           Aim at the section, then re-assert once the images that were hidden
+           with .index have loaded and stopped changing the page height. */
+        var aim = function(){
+          place(function(){ sec.scrollIntoView({ behavior: "auto", block: "start" }); });
+        };
+        aim();
+        setTimeout(aim, 250);
+      }
+      routed = true;
+      draw();
+      return;
+    }
+    if((window.scrollY || 0) < 10) $("menubar").classList.remove("on");
+    routed = true;
     draw();
   }
   addEventListener("hashchange", route);
@@ -73,6 +131,10 @@
   function draw(){
     frame = false;
     if(document.body.classList.contains("detail-open")) return;
+    /* Remember where the reader is on the index. Capturing this inside route()
+       is too late: a "#/slug" fragment matches no element, so the browser
+       scrolls to the top of the document before hashchange even fires. */
+    indexScroll = window.scrollY || window.pageYOffset || 0;
     var span = wrap.offsetHeight - innerHeight;
     var p = c01((window.scrollY || window.pageYOffset) / (span || 1));
     var h = c01(p / 0.40);

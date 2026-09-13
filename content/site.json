@@ -30,7 +30,7 @@
   "resume": {
     "eyebrow": "Security Engineer",
     "headline": "Secure systems that protect what matters.",
-    "lede": "Penetration testing, vulnerability management, and threat intelligence — across public law infrastructure, regional banking, and e-commerce. I do the technical work, then **translate it into risk language executives can act on**.",
+    "lede": "Penetration testing, vulnerability management, and threat intelligence across public law infrastructure, regional banking, and e-commerce. I do the technical work, then **translate it into risk language executives can act on**.",
     "image": "bobst",
     "image_caption": "BOBST LIBRARY / NYU",
     "image_alt": "Jarred Carter in the stacks at NYU Bobst Library",
@@ -75,13 +75,13 @@
   "pilates": {
     "eyebrow": "Off the keyboard",
     "headline": "I also teach fifty of the hardest minutes in New York.",
-    "lede": "Megaformer instructor at **SLT**. Which is really a job about people: reading a room of fifteen strangers, correcting form without killing confidence, and keeping the energy up when everyone’s shaking. _Security work needs the same skill — the finding only matters if you can get someone to act on it._",
+    "lede": "Megaformer instructor at **SLT**. Which is really a job about people: reading a room of fifteen strangers, correcting form without killing confidence, and keeping the energy up when everyone’s shaking. _Security work needs the same skill, and the finding only matters if you can get someone to act on it._",
     "image": "slt-noho",
     "image_caption": "SLT / NOHO",
     "image_alt": "The SLT NoHo studio floor",
     "button_label": "Learn more",
-    "button_href": null,
-    "button_note": "SITE IN PROGRESS"
+    "button_href": "https://sltnyc.com/instructor/jarred-carter/",
+    "button_note": null
   },
   "connect": {
     "script": "let’s connect",
@@ -92,8 +92,8 @@
   },
   "colophon": {
     "paragraphs": [
-      "**Die-hard Apple fan since my pre-teen years** — so this whole thing is a love letter to **System 7** (1991). The menu bar, the bitmap type, the hard-edged panels, and the 1-bit imagery are all borrowed from it.",
-      "That image treatment is **Atkinson dithering**, named for Bill Atkinson, who wrote QuickDraw for the original Macintosh. It pushes only 6/8 of the quantization error into neighboring pixels, which is why it reads crisp instead of muddy — and why the dots can melt back into a photograph when you open one."
+      "**Die-hard Apple fan since my pre-teen years**, so this whole thing is a love letter to **System 7** (1991). The menu bar, the bitmap type, the hard-edged panels, and the 1-bit imagery are all borrowed from it.",
+      "That image treatment is **Atkinson dithering**, named for Bill Atkinson, who wrote QuickDraw for the original Macintosh. It pushes only 6/8 of the quantization error into neighboring pixels, which is why it reads crisp instead of muddy and is why the dots can melt back into a photograph when you open one."
     ],
     "specs": [
       [
@@ -121,7 +121,7 @@
         "System 7, 1991"
       ]
     ],
-    "footer_left": "JARRED CARTER — SECURITY. FITNESS.",
+    "footer_left": "COPYRIGHT © 2026 JARRED CARTER.",
     "footer_right": "MADE WITH L♥VE IN NEW YORK CITY"
   },
   "entries": [
@@ -283,8 +283,9 @@
         "PeStudio: static malware analysis and executable inspection",
         "MITRE ATT&CK: TTP mapping and threat actor behavior classification"
       ],
-      "link": "/files/threat-intel-assignment.md",
-      "link_label": "View project"
+      "link": "https://medium.com/@jcart657/the-cuckoos-egg-9b502442ea67",
+      "link_label": "Essay: The Cuckoo's Egg",
+      "link_note": "Coursework artifacts stay unpublished so quiz answers aren't given away. This essay is the one piece I can share; it shows analytical thinking and writing, not forensics tooling."
     },
     {
       "slug": "appsec",
@@ -302,7 +303,7 @@
       "image": "nyu-tandon",
       "image_caption": "6 METROTECH / NYU TANDON",
       "problem": [
-        "Modern applications don't have a single attack surface — they have many. A web app can be hardened while the API it talks to leaks data. A container can be locked down while the mobile client it serves has unencrypted communications. Application security engineering means understanding the full stack and knowing where each layer breaks down under adversarial pressure. These five projects were designed to build exactly that: comprehensive, layer-by-layer security intuition grounded in real remediation work."
+        "Modern applications don't have a single attack surface. They have many. A web app can be hardened while the API it talks to leaks data. A container can be locked down while the mobile client it serves has unencrypted communications. Application security engineering means understanding the full stack and knowing where each layer breaks down under adversarial pressure. These five projects were designed to build exactly that: comprehensive, layer-by-layer security intuition grounded in real remediation work."
       ],
       "included": [
         "Identified and remediated 4 critical vulnerabilities (XSS, CSRF, SQL Injection, command injection) in a Django web application",
@@ -319,7 +320,7 @@
         "Established foundation for securing AI model APIs and detecting anomalous usage patterns"
       ],
       "impact": [
-        "Across five projects, every major layer of the modern application stack got put under adversarial pressure — and fixed. From a Django app leaking to SQL injection, to an Android client with unencrypted API traffic, to a legacy C binary hiding buffer overflows, the through-line is the same: find the weakness, understand why it exists, and close it. The AI/ML security angle across multiple projects is particularly relevant as organizations rush to ship model-serving infrastructure without fully understanding its attack surface."
+        "Across five projects, every major layer of the modern application stack got put under adversarial pressure. From a Django app leaking to SQL injection, to an Android client with unencrypted API traffic, to a legacy C binary hiding buffer overflows, the through-line is the same: find the weakness, understand why it exists, and close it. The AI/ML security angle across multiple projects is particularly relevant as organizations rush to ship model-serving infrastructure without fully understanding its attack surface."
       ],
       "stack": [
         "Django: web application framework for security assessment and remediation",
@@ -428,7 +429,7 @@
       "image": null,
       "image_caption": null,
       "problem": [
-        "Managing IT assets, software licensing, and user access across 18 geographically dispersed government career centers is a coordination problem as much as a technical one. Without centralized visibility, hardware went underutilized, licensing costs ballooned, and security and compliance standards were applied inconsistently across locations. There was no single source of truth for asset lifecycle, system usage, or access controls — making risk assessment, remediation, and reporting largely reactive."
+        "Managing IT assets, software licensing, and user access across 18 geographically dispersed government career centers is a coordination problem as much as a technical one. Without centralized visibility, hardware went underutilized, licensing costs ballooned, and security and compliance standards were applied inconsistently across locations. There was no single source of truth for asset lifecycle, system usage, or access controls: making risk assessment, remediation, and reporting largely reactive."
       ],
       "included": [
         "Live dashboards and KPIs for IT asset inventory, system usage, and lifecycle tracking across 18 centers",
@@ -454,5 +455,43 @@
       "link": "https://workforcewv.org/",
       "link_label": "Visit site"
     }
-  ]
+  ],
+  "publications": {
+    "eyebrow": "Published work",
+    "headline": "Writing and Research",
+    "items": [
+      {
+        "draft": false,
+        "title": "Emissary-Ingress Security Self-Assessment",
+        "venue": "CNCF TAG Security — Security Pals",
+        "year": "Fall 2023, published 2026",
+        "role": "Co-author",
+        "summary": "A community security assessment of **Emissary-Ingress**, the Kubernetes-native API gateway built on Envoy Proxy. Covers the threat model, actors and actions, security functions, secure development practices, and issue-resolution process. Co-authored with three others and published by the CNCF's security TAG.",
+        "link": "https://tag-security.cncf.io/community/assessments/projects/emissary-ingress/self-assessment/",
+        "link_label": "Read the assessment"
+      },
+      {
+        "draft": false,
+        "title": "Propulsion Systems Laboratory Virtual Simulator: 450-lb Airline Heater Model",
+        "venue": "NASA Glenn Research Center",
+        "year": "2021",
+        "role": "Propulsion Systems Analyst",
+        "summary": "A virtual simulator for the Propulsion Systems Laboratory (PSL) at Glenn Research Center has been in development for several years to provide operators experience with conducting test runs prior to stepping into the actual control room. This project focused on the addition of a heater on the 450-lb airline in the simulator for the PSL. Mass flow and temperature relations were explored to generate three equations that were then tested against actual data from a PSL test run to determine one that best represented the actual data. This formula was then adapted into code that enabled the simulator to emulate the addition of fuel into the heater to heat the air on the journey to its designated test cell. Upon completion, the simulator was able to run smoothly and with values that mirrored those in the test run conducted in 2009.",
+        "note": "Internal NASA work — not publicly available. Abstract shown in full.",
+        "link": "",
+        "link_label": ""
+      },
+      {
+        "draft": false,
+        "title": "Trade-off Model of Fog-Cloud Computing for Space Information Networks",
+        "venue": "IEEE Cloud Summit",
+        "year": "2020",
+        "role": "First author",
+        "summary": "As IoT demand pushes cloud providers toward satellite operators, moving data between nodes in a space information network becomes a **confidentiality, integrity, and availability** problem. This paper examines whether a fog-cloud architecture is viable in that setting, and what fog computing specifically buys you on the security side, evaluating existing proposals against the attack surface between nodes. Presented at IEEE Cloud Summit in Harrisburg, PA.",
+        "note": "Co-authored with Husnu S. Narman, Ozlem Cosgun, and Jinwei Liu. DOI: 10.1109/IEEECloudSummit48914.2020.00020",
+        "link": "https://ieeexplore.ieee.org/document/9283686",
+        "link_label": "Read on IEEE Xplore"
+      }
+    ]
+  }
 }
