@@ -1,0 +1,14 @@
+#!/bin/sh
+# Rebuilds index.html from content/site.json before every commit, so editing
+# content and forgetting `python3 tools/build.py` can't ship a stale page.
+# (That already happened once: an edit to site.json was committed and pushed
+# while index.html still had the old text.)
+set -e
+if [ -f tools/build.py ]; then
+  python3 tools/build.py > /dev/null || {
+    echo "pre-commit: build failed. Commit aborted."; exit 1; }
+  if ! git diff --quiet -- index.html; then
+    git add index.html
+    echo "pre-commit: index.html was out of date; rebuilt and staged it."
+  fi
+fi

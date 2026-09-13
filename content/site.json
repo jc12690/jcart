@@ -1,5 +1,5 @@
 {
-  "_README": "Every word, link, and image on the site lives in this file. Edit it, then run: python3 tools/build.py  — see EDITING.md for the full guide.",
+  "_README": "Every word, link, and image on the site lives in this file. Edit it, then run: python3 tools/build.py   See EDITING.md for the full guide.",
   "site": {
     "title": "Jarred Carter",
     "domain": "jarredmcarter.com",
@@ -190,7 +190,7 @@
         "Findings translated into formats suitable for both technical teams and senior leadership"
       ],
       "impact": [
-        "Working through 20+ malware samples and an equal number of vulnerabilities back-to-back builds a pattern recognition that's hard to get any other way. Each reverse engineering session deepened the ability to map unknown binaries to known TTPs and develop bespoke exploits, and each vulnerability root cause analysis sharpened the instinct for where code breaks down under adversarial pressure — skills that show up directly in penetration testing, incident response, and security code review."
+        "Working through 20+ malware samples and an equal number of vulnerabilities back-to-back builds a pattern recognition that's hard to get any other way. Each reverse engineering session deepened the ability to map unknown binaries to known TTPs and develop bespoke exploits, and each vulnerability root cause analysis sharpened the instinct for where code breaks down under adversarial pressure. Those are skills that show up directly in penetration testing, incident response, and security code review."
       ],
       "stack": [
         "Ghidra: NSA-developed reverse engineering and binary analysis framework",
@@ -271,7 +271,7 @@
         "Forensic image and file system creation and inspection using Procmon and PeStudio"
       ],
       "impact": [
-        "Reassembling a fragmented attack chain across 8 system images — recovering deleted files, correlating metadata, and reverse engineering the malware that started it all — mirrors exactly what incident responders face after a real breach. The ability to identify 80+ functions and libraries in unknown executables, and map them back to attacker behavior, is the difference between knowing an incident happened and understanding how, why, and what to do next."
+        "Reassembling a fragmented attack chain across 8 system images (recovering deleted files, correlating metadata, and reverse engineering the malware that started it all) mirrors exactly what incident responders face after a real breach. The ability to identify 80+ functions and libraries in unknown executables, and map them back to attacker behavior, is the difference between knowing an incident happened and understanding how, why, and what to do next."
       ],
       "stack": [
         "Scalpel: file carving and deleted evidence recovery from system images",
@@ -463,7 +463,7 @@
       {
         "draft": false,
         "title": "Emissary-Ingress Security Self-Assessment",
-        "venue": "CNCF TAG Security — Security Pals",
+        "venue": "CNCF TAG Security, Security Pals",
         "year": "Fall 2023, published 2026",
         "role": "Co-author",
         "summary": "A community security assessment of **Emissary-Ingress**, the Kubernetes-native API gateway built on Envoy Proxy. Covers the threat model, actors and actions, security functions, secure development practices, and issue-resolution process. Co-authored with three others and published by the CNCF's security TAG.",
@@ -477,7 +477,7 @@
         "year": "2021",
         "role": "Propulsion Systems Analyst",
         "summary": "A virtual simulator for the Propulsion Systems Laboratory (PSL) at Glenn Research Center has been in development for several years to provide operators experience with conducting test runs prior to stepping into the actual control room. This project focused on the addition of a heater on the 450-lb airline in the simulator for the PSL. Mass flow and temperature relations were explored to generate three equations that were then tested against actual data from a PSL test run to determine one that best represented the actual data. This formula was then adapted into code that enabled the simulator to emulate the addition of fuel into the heater to heat the air on the journey to its designated test cell. Upon completion, the simulator was able to run smoothly and with values that mirrored those in the test run conducted in 2009.",
-        "note": "Internal NASA work — not publicly available. Abstract shown in full.",
+        "note": "Internal NASA work; not publicly available. Abstract shown in full.",
         "link": "",
         "link_label": ""
       },

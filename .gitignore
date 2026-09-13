@@ -1,0 +1,21 @@
+# --- SSH keys (NEVER commit these) -------------------------------
+# Deploy/auth keys for the github-personal host alias.
+jc12690
+jc12690.pub
+*.pem
+id_rsa*
+id_ed25519*
+
+# --- macOS cruft -------------------------------------------------
+.DS_Store
+**/.DS_Store
+
+# --- IDE ---------------------------------------------------------
+.idea/
+
+# --- Env / secrets -----------------------------------------------
+.env
+.env.*
+
+# --- Node (for the upcoming Vite rebuild) ------------------------
+node_modules/
