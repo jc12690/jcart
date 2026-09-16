@@ -254,6 +254,7 @@ page = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{{if(localStorage.getItem("jc-theme")==="light")document.documentElement.setAttribute("data-theme","light")}}catch(e){{}}</script>
 <title>{esc(S['site']['title'])}</title>
 <meta name="description" content="{esc(R['headline'])} Security engineer and Pilates instructor in New York.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,6 +287,8 @@ page = f'''<!doctype html>
         </span>
       </span>
     </span>
+    <button class="themetog" id="themeTog" type="button" aria-pressed="false"
+            aria-label="Switch to light mode" title="Switch to light mode"><span class="sw" aria-hidden="true"></span>THEME</button>
     <span class="kbd" id="palOpen">&#8984;K</span>
   </span>
 </nav>

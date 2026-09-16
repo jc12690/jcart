@@ -92,8 +92,8 @@
   },
   "colophon": {
     "paragraphs": [
-      "**Die-hard Apple fan since my pre-teen years**, so this whole thing is a love letter to **System 7** (1991). The menu bar, the bitmap type, the hard-edged panels, and the 1-bit imagery are all borrowed from it.",
-      "That image treatment is **Atkinson dithering**, named for Bill Atkinson, who wrote QuickDraw for the original Macintosh. It pushes only 6/8 of the quantization error into neighboring pixels, which is why it reads crisp instead of muddy and is why the dots can melt back into a photograph when you open one."
+      "I've been a **die-hard Apple fan since my pre-teen years**, so this entire site is a love letter to Apple's **System 7** (1991). The menu bar, bitmap type, hard-edged panels, and 1-bit imagery are all borrowed from it.",
+      "Image treatment is **Atkinson dithering**, named for Bill Atkinson, who wrote QuickDraw for the original Macintosh. It pushes only 6/8 of the quantization error into neighboring pixels, which is why it reads crisp instead of muddy and why the dots can melt back into a photograph when you open one."
     ],
     "specs": [
       [

@@ -8,6 +8,31 @@
      ourselves in route(). */
   if("scrollRestoration" in history) history.scrollRestoration = "manual";
 
+  /* ---------- theme -------------------------------------------------------
+     Dark is the default and prefers-color-scheme is deliberately NOT consulted:
+     light is opt-in only. <head> already stamped data-theme before first paint,
+     so this just syncs the control and handles clicks. Wired up first, before
+     anything else in this IIFE, so a failure further down can't strand it. */
+  var TK = "jc-theme", root = document.documentElement, tog = $("themeTog");
+  function syncTog(){
+    if(!tog) return;
+    var light = root.getAttribute("data-theme") === "light";
+    tog.setAttribute("aria-pressed", light ? "true" : "false");
+    var label = light ? "Switch to dark mode" : "Switch to light mode";
+    tog.setAttribute("aria-label", label);
+    tog.setAttribute("title", label);
+  }
+  function setTheme(t){
+    if(t === "light") root.setAttribute("data-theme", "light");
+    else root.removeAttribute("data-theme");
+    try{ localStorage.setItem(TK, t); }catch(e){}
+    syncTog();
+  }
+  syncTog();
+  if(tog) tog.addEventListener("click", function(){
+    setTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+  });
+
   var NY = "America/New_York";
   function tick(){
     $("clock").textContent = new Date().toLocaleTimeString("en-US",
@@ -143,7 +168,10 @@
     hero.style.filter     = h > 0.02 ? "blur(" + (h*h*4.2).toFixed(2) + "px)" : "none";
     hero.style.visibility = h >= 1 ? "hidden" : "visible";
     cue.style.opacity     = String(c01(1 - p*9));
-    menubar.classList.toggle("on", p > 0.34);
+    var barOn = p > 0.34;
+    menubar.classList.toggle("on", barOn);
+    /* keep hidden chrome out of the tab order */
+    menubar.inert = !barOn;
     var live = p > 0.40;
     gate.classList.toggle("live", live);
     gate.setAttribute("aria-hidden", live ? "false" : "true");
