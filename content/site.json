@@ -3,7 +3,7 @@
   "site": {
     "title": "Jarred Carter",
     "domain": "jarredmcarter.com",
-    "analytics_id": "G-14FCSXK4BK"
+    "analytics_token": "baeb040b9418422b9a4543f89163988a"
   },
   "hero": {
     "script": "hello, world!",
@@ -20,11 +20,10 @@
     },
     {
       "title": "Pilates Instructor",
-      "sub": "SLT New York · own site in progress",
+      "sub": "SLT New York · classes, playlists, & moves",
       "color": "slt",
-      "href": null,
-      "enabled": false,
-      "badge": "SOON"
+      "href": "fitness/",
+      "enabled": true
     }
   ],
   "resume": {

@@ -11,9 +11,41 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Grotesk:wght@400;500;700&family=Geist+Mono:wght@400;500&family=Silkscreen:wght@400;700&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/cursors.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-14FCSXK4BK"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag("js",new Date());gtag("config","G-14FCSXK4BK");</script>
+<script>
+(function(){
+  /* Google Analytics ran on this site until September 2026 and left _ga cookies
+     in returning visitors' browsers, plus a jc-consent record from the banner
+     that gated it. Nothing reads either any more, so expire them. This block can
+     be deleted after the end of 2028, by which point the cookies would have
+     expired on their own. */
+  try{
+    var parts=location.hostname.split("."),domains=[""];
+    for(var i=0;i<parts.length-1;i++)domains.push("."+parts.slice(i).join("."));
+    document.cookie.split(";").forEach(function(pair){
+      var n=pair.split("=")[0].trim();
+      if(n==="_ga"||n.indexOf("_ga_")===0||n==="_gid"||n.indexOf("_gat")===0){
+        domains.forEach(function(d){
+          document.cookie=n+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"+(d?"; domain="+d:"");
+        });
+      }
+    });
+    localStorage.removeItem("jc-consent");
+  }catch(e){}
+
+  /* Cloudflare Web Analytics. It sets no cookies and stores nothing on the
+     visitor's device, so this site needs no consent banner. Gated to the
+     production hostname so local development and forks never reach the real
+     dashboard. The token is public by design and visible in the page source. */
+  var h=location.hostname;
+  if(h==="jarredmcarter.com"||h==="www.jarredmcarter.com"){
+    var b=document.createElement("script");
+    b.type="module";
+    b.src="https://static.cloudflareinsights.com/beacon.min.js";
+    b.setAttribute("data-cf-beacon",'{"token": "baeb040b9418422b9a4543f89163988a"}');
+    document.head.appendChild(b);
+  }
+})();
+</script>
 </head>
 <body>
 <div class="crt"></div><div class="vig"></div>
@@ -72,7 +104,7 @@ gtag("js",new Date());gtag("config","G-14FCSXK4BK");</script>
     </div>
     <div class="gate" id="gate" aria-hidden="true">
       <p class="gate-lead" id="gateLead">Two things I do</p>
-      <ul class="roles" id="roles"><li><a class="role" href="#resume" style="--c:var(--sec)"><span class="top"><span class="sq"></span><span class="ttl">Security Engineer</span><span class="go2">&rarr;</span></span><span class="sub">R&#233;sum&#233;, projects, &amp; internships</span></a></li><li><div class="role soon" style="--c:var(--slt)"><span class="top"><span class="sq"></span><span class="ttl">Pilates Instructor</span><span class="tagsoon">SOON</span></span><span class="sub">SLT New York &#183; own site in progress</span></div></li></ul>
+      <ul class="roles" id="roles"><li><a class="role" href="#resume" style="--c:var(--sec)"><span class="top"><span class="sq"></span><span class="ttl">Security Engineer</span><span class="go2">&rarr;</span></span><span class="sub">R&#233;sum&#233;, projects, &amp; internships</span></a></li><li><a class="role" href="fitness/" style="--c:var(--slt)"><span class="top"><span class="sq"></span><span class="ttl">Pilates Instructor</span><span class="go2">&rarr;</span></span><span class="sub">SLT New York &#183; classes, playlists, &amp; moves</span></a></li></ul>
     </div>
     <div class="cue" id="cue">&#9663; SCROLL</div>
   </div></div>

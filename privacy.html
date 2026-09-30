@@ -398,14 +398,42 @@
         }
 
     </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-14FCSXK4BK"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-14FCSXK4BK');
+  (function(){
+    /* Google Analytics ran on this site until September 2026 and left _ga cookies
+       in returning visitors' browsers, plus a jc-consent record from the banner
+       that gated it. Nothing reads either any more, so expire them. This block can
+       be deleted after the end of 2028, by which point the cookies would have
+       expired on their own. */
+    try{
+      var parts=location.hostname.split("."),domains=[""];
+      for(var i=0;i<parts.length-1;i++)domains.push("."+parts.slice(i).join("."));
+      document.cookie.split(";").forEach(function(pair){
+        var n=pair.split("=")[0].trim();
+        if(n==="_ga"||n.indexOf("_ga_")===0||n==="_gid"||n.indexOf("_gat")===0){
+          domains.forEach(function(d){
+            document.cookie=n+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"+(d?"; domain="+d:"");
+          });
+        }
+      });
+      localStorage.removeItem("jc-consent");
+    }catch(e){}
+  
+    /* Cloudflare Web Analytics. It sets no cookies and stores nothing on the
+       visitor's device, so this site needs no consent banner. Gated to the
+       production hostname so local development and forks never reach the real
+       dashboard. The token is public by design and visible in the page source. */
+    var h=location.hostname;
+    if(h==="jarredmcarter.com"||h==="www.jarredmcarter.com"){
+      var b=document.createElement("script");
+      b.type="module";
+      b.src="https://static.cloudflareinsights.com/beacon.min.js";
+      b.setAttribute("data-cf-beacon",'{"token": "baeb040b9418422b9a4543f89163988a"}');
+      document.head.appendChild(b);
+    }
+  })();
   </script>
+
 </head>
 <body>
 
@@ -441,7 +469,9 @@
     <p class="policy-intro">
         At Retrac Labs, we believe privacy is a <em>right</em>, not a feature.
         This page describes the privacy practices for jarredmcarter.com
-        and all apps published under the Retrac Labs name.
+        and all apps published under the Retrac Labs name. The apps collect
+        nothing. The website counts page views without cookies and without
+        identifying you, which is why it has no consent banner to click.
     </p>
 
     <!-- 01 — JARREDMCARTER.COM -->
@@ -450,17 +480,64 @@
             <span class="section-num">[01]</span>
             Website
         </div>
-        <div class="section-body">
+        <div class="section-body" id="website">
             <span class="section-scope">jarredmcarter.com</span>
-            <p class="nothing-statement">Nothing.</p>
+            <p class="nothing-statement">No cookies from me.</p>
             <p>
-                This website does not use cookies, tracking pixels, analytics
-                software, or any form of user tracking. We do not collect names,
-                email addresses, IP addresses, or any other personal information.
-                No data is stored, sold, or shared with third parties.
+                This site uses <strong>Cloudflare Web Analytics</strong> to count
+                page views. Cloudflare states that it
+                &ldquo;does not use any client-side state, such as cookies or
+                localStorage, to collect usage metrics,&rdquo; and that it does
+                not fingerprint individuals via IP address, User&nbsp;Agent, or
+                anything else. Measurement is taken from the browser&rsquo;s
+                Performance&nbsp;API and reported as aggregate counts.
+            </p>
+            <p>
+                Because the analytics store nothing on your device and read
+                nothing from it, they are not the kind that needs a cookie
+                banner. What I can see is limited to totals: popular pages, referrers, countries, and device types.
+                There is no way for me to single you out, follow you between
+                visits, or recognise you on another site.
+            </p>
+            <p>
+                <strong>This site used Google Analytics until September&nbsp;2026.</strong>
+                That has been removed entirely. If you visited before then, your
+                browser may still hold <code>_ga</code> cookies from it; every
+                page now deletes those on load. Nothing reads them in the
+                meantime.
+            </p>
+            <p>
+                <strong>One thing of mine is stored on your device</strong>, and
+                only if you ask for it: <code>jc-theme</code> holds the word
+                &ldquo;light&rdquo; or &ldquo;dark&rdquo;, written when you click
+                the theme switch so the site remembers your preference. It never
+                leaves your browser and is not analytics. Clearing site data
+                removes it.
+            </p>
+            <p>
+                <strong>The one exception is Apple Music&rsquo;s player on the
+                fitness page.</strong> My class playlists play right on
+                <code>/fitness/</code> through Apple Music&rsquo;s embedded
+                player, which loads as you scroll to it. When it does, Apple
+                sets a <code>geo</code> cookie, stores an analytics client ID
+                (<code>mtClientId</code>) in your browser, and reports to
+                Apple&rsquo;s metrics service, all under Apple&rsquo;s privacy
+                policy. Every playlist also has a plain link that opens Apple
+                Music directly.
+            </p>
+            <p>
+                <strong>Other parties, unavoidably.</strong> The site is served by
+                GitHub&nbsp;Pages, which keeps its own request logs including IP
+                addresses for security and abuse purposes; I have no access to
+                them. Fonts are fetched from Google&nbsp;Fonts, which receives
+                your IP as a side effect of serving the font files.
+            </p>
+            <p>
+                Nothing is sold or shared with third parties for their own
+                purposes. There is no ad network, no social pixel, no embedded
+                widget, no mailing list, and no account to create.
             </p>
         </div>
-    </div>
 
     <!-- 02 — SNIPPYSTACK -->
     <div class="policy-section">

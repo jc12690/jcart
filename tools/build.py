@@ -80,6 +80,42 @@ HAIR = '''<a class="homelink" id="homeLink" href="#top" aria-label="Back to the 
       <rect width="24" height="30" fill="currentColor" mask="url(#jcHair)"/>
     </svg></a>'''
 
+ANALYTICS = """<script>
+(function(){
+  /* Google Analytics ran on this site until September 2026 and left _ga cookies
+     in returning visitors' browsers, plus a jc-consent record from the banner
+     that gated it. Nothing reads either any more, so expire them. This block can
+     be deleted after the end of 2028, by which point the cookies would have
+     expired on their own. */
+  try{
+    var parts=location.hostname.split("."),domains=[""];
+    for(var i=0;i<parts.length-1;i++)domains.push("."+parts.slice(i).join("."));
+    document.cookie.split(";").forEach(function(pair){
+      var n=pair.split("=")[0].trim();
+      if(n==="_ga"||n.indexOf("_ga_")===0||n==="_gid"||n.indexOf("_gat")===0){
+        domains.forEach(function(d){
+          document.cookie=n+"=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/"+(d?"; domain="+d:"");
+        });
+      }
+    });
+    localStorage.removeItem("jc-consent");
+  }catch(e){}
+
+  /* Cloudflare Web Analytics. It sets no cookies and stores nothing on the
+     visitor's device, so this site needs no consent banner. Gated to the
+     production hostname so local development and forks never reach the real
+     dashboard. The token is public by design and visible in the page source. */
+  var h=location.hostname;
+  if(h==="{DOMAIN}"||h==="www.{DOMAIN}"){
+    var b=document.createElement("script");
+    b.type="module";
+    b.src="https://static.cloudflareinsights.com/beacon.min.js";
+    b.setAttribute("data-cf-beacon",'{"token": "{TOKEN}"}');
+    document.head.appendChild(b);
+  }
+})();
+</script>"""
+
 # ---------------------------------------------------------------- load
 S = json.load(open('content/site.json', encoding='utf-8'))
 entries  = S['entries']
@@ -242,11 +278,9 @@ pil_note = (f'<span style="font-family:var(--pix);font-size:9px;color:var(--dimm
             f'{esc(P["button_note"])}</span>' if P.get('button_note') else '')
 
 ga = ''
-if S['site'].get('analytics_id'):
-    gid = S['site']['analytics_id']
-    ga = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
-          f'<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}\n'
-          f'gtag("js",new Date());gtag("config","{gid}");</script>')
+if S['site'].get('analytics_token'):
+    ga = ANALYTICS.replace('{DOMAIN}', S['site'].get('domain', '')) \
+                  .replace('{TOKEN}', S['site']['analytics_token'])
 
 # ---------------------------------------------------------------- assemble
 page = f'''<!doctype html>
