@@ -482,3 +482,20 @@ footer{max-width:1180px; margin:0 auto; padding:34px clamp(18px,5vw,56px) 60px;
 .item.pub .when{margin-left:0; white-space:normal; line-height:1.5}
 .item.pub p{margin:0}
 .item.pub .linknote{margin:0}
+
+/* ---------- lab log (Hack The Box): progress tiles, machines, modules ---------- */
+.sticky .metrics{margin:0}
+.lablog{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1px;
+  background:var(--rule); border:1px solid var(--rule)}
+.lablog li{background:var(--void); padding:14px 16px; display:grid;
+  grid-template-columns:minmax(0,1fr) auto; gap:8px 14px; align-items:baseline}
+.ll-name{font-size:15px; font-weight:500; letter-spacing:-.01em; color:var(--ink)}
+.ll-date{font-family:var(--mono); font-size:10.5px; letter-spacing:.07em;
+  color:var(--dimmer); white-space:nowrap; font-variant-numeric:tabular-nums}
+.ll-meta{grid-column:1 / -1; display:flex; flex-wrap:wrap; gap:6px}
+.ll-note{grid-column:1 / -1; font-size:14px; line-height:1.6; color:var(--dim)}
+.ll-link{grid-column:1 / -1; justify-self:start; font-family:var(--mono); font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--accent-ink); text-decoration:none}
+.ll-link:hover{text-decoration:underline; text-underline-offset:3px}
+.block .ll-empty{margin:0; max-width:none; line-height:1.6; padding:14px 16px; border:1px dashed var(--rule-hi);
+  font-family:var(--mono); font-size:11.5px; color:var(--dimmer)}

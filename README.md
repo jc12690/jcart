@@ -27,6 +27,7 @@ photos, publishing the IEEE/NASA/CNCF entries, and going live with the Pilates s
 ```
 index.html          generated — do not edit
 content/site.json   every word, link, and image choice
+content/htb.json    the Hack The Box log: machines and modules (EDITING.md, Recipe 9)
 assets/css          site.css (styling) + cursors.css (generated)
 assets/css/cursors.css  generated pixel cursors
 assets/js/site.js   theme switch, hero animation, router, lightbox, command palette

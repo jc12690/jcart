@@ -164,6 +164,37 @@
       "link_label": "View project"
     },
     {
+      "slug": "hack-the-box",
+      "kind": "project",
+      "draft": true,
+      "_note": "Draft: the build skips this entry until you set \"draft\" to false. Before publishing: rewrite the copy in your own voice, keep only the tags you've earned, and set \"link\" to your HTB profile URL with \"link_label\": \"View HTB profile\". Machines and modules are logged in content/htb.json (EDITING.md, Recipe 9).",
+      "title": "Offensive Security Lab Practice",
+      "org": "Hack The Box",
+      "when": "2026–Present",
+      "summary": "Ongoing practice on Hack The Box: working machines end to end, from enumeration to root, and completing HTB Academy modules for the theory behind each technique. Logged as I go, in preparation for OSCP+.",
+      "tags": [
+        "Penetration Testing",
+        "Privilege Escalation",
+        "OSCP+ Prep"
+      ],
+      "headings": {
+        "problem": "Why",
+        "included": "Approach"
+      },
+      "problem": [
+        "Engagements and coursework taught me the methodology. Keeping it sharp takes repetition against systems I haven't seen before. Every Hack The Box machine is a full pass through the loop a real penetration test follows: enumerate, find a foothold, escalate, and be able to explain how it happened.",
+        "It's also how I'm preparing for **OSCP+**, so this page is a running log, not a finished project."
+      ],
+      "included": [
+        "Machines worked end to end: reconnaissance, enumeration, initial foothold, and privilege escalation to root or SYSTEM",
+        "HTB Academy modules for the theory behind a technique before using it on a live box",
+        "Any public writeups cover retired machines only, per Hack The Box's rules on active content"
+      ],
+      "lab_log": "content/htb.json",
+      "link": null,
+      "link_label": null
+    },
+    {
       "slug": "offensive-security",
       "kind": "project",
       "title": "Offensive Security Engineering",

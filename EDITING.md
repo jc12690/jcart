@@ -20,6 +20,7 @@ python3 tools/build.py
 |---|---|---|
 | Change any words on the page | `content/site.json` | run the build |
 | Add a project or job | `content/site.json` → `entries` | run the build |
+| Log a Hack The Box machine or module | `content/htb.json` | run the build |
 | Add a photo | `python3 tools/dither.py <photo> <name>` | reference `<name>`, run the build |
 | Change colors, spacing, fonts | `assets/css/site.css` | nothing — refresh |
 | Change how something behaves | `assets/js/site.js` | nothing — refresh |
@@ -120,6 +121,17 @@ Field notes:
   a new tab automatically.
 * **`image2` / `image2_caption`** — optional second photo (see
   `offensive-security` for an example).
+* **`draft`** — optional. `"draft": true` keeps the entry off the site
+  entirely: no row, no detail page, no palette entry. Preview it locally with
+  `python3 tools/build.py --drafts`. The pre-commit hook always rebuilds
+  without drafts, so a draft can't go live by accident. Delete the line (or set
+  it to `false`) to publish.
+* **`headings`** — optional. Renames the section headings on the detail page,
+  for entries where "The Problem" or "Impact" doesn't fit:
+  `"headings": {"problem": "Why", "included": "Approach"}`. The keys are
+  `problem`, `included`, `impact`, `machines`, and `modules`.
+* **`lab_log`** — optional. Points at a log file such as `content/htb.json`;
+  see Recipe 9.
 
 Prev/next navigation, the command palette, and the list row are all generated.
 You don't touch them.
@@ -387,6 +399,74 @@ Then open <http://localhost:8900>. Ctrl-C to stop.
 
 Open it this way rather than double-clicking `index.html` — some things
 (hash links, fonts) behave differently over `file://`.
+
+---
+
+## Recipe 9: The Hack The Box Log
+
+The **Offensive Security Lab Practice** entry (`hack-the-box` in
+`content/site.json`) builds its page from `content/htb.json`. You never type a
+count: the progress tiles, the machine and module lists, and the tools in
+`stack.txt` are all worked out from the log at build time.
+
+**The entry starts as a draft.** It stays off the site until you publish it.
+Before you do:
+
+1. Rewrite the copy in your own voice and keep only the tags you've earned.
+2. Set `"link"` to your HTB profile URL and `"link_label"` to `"View HTB profile"`,
+   so anyone can check the numbers.
+3. Delete the `"draft": true` line and the `"_note"` line, then build.
+
+To see it before it's live:
+
+```bash
+python3 tools/build.py --drafts
+python3 -m http.server 8900
+```
+
+Then open <http://localhost:8900/#/hack-the-box>.
+
+**Log a machine** when you own it. Add a block to `"machines"`:
+
+```json
+{
+  "name": "MachineName",
+  "os": "Linux",
+  "difficulty": "Easy",
+  "date": "2026-10-15",
+  "owned": "root",
+  "retired": true,
+  "technique": "One line: how you got in and how you escalated",
+  "tools": ["Nmap", "Burp Suite"],
+  "writeup": "https://..."
+}
+```
+
+* **`owned`**: `"user"` for the user flag only, `"root"` once you have root
+  or SYSTEM. Only `"root"` counts toward *Machines rooted*. Upgrade the same
+  block when you finish the box rather than adding a second one.
+* **`retired`**: set it to `true` once Hack The Box retires the machine.
+  Their rules forbid publishing solutions to active machines, so until a box
+  is retired its `technique` and `writeup` stay off the page and the build
+  prints a warning saying so. Name, OS, difficulty, and date still show.
+* **`tools`**: optional. Every tool you list here shows up in `stack.txt`,
+  most-used first. That keeps the stack honest: it's only what you've logged.
+* **`technique`** and **`writeup`**: optional.
+
+**Log a module** when it hits 100%. Add a block to `"modules"`:
+
+```json
+{ "name": "Module name exactly as HTB Academy shows it", "date": "2026-10-15" }
+```
+
+Order doesn't matter in either list; the page sorts newest first. Both
+example blocks also live at the top of `content/htb.json` (the keys starting
+with `_`, which the build ignores), so you can copy from there.
+
+**If the build stops** with `LAB LOG PROBLEMS`, it names the block and the
+field. Dates must look like `2026-10-04`, and `owned` must be `user` or `root`.
+The log is checked even while the entry is a draft, so a typo shows up the
+day you log the box, not the day you publish.
 
 ---
 

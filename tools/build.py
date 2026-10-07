@@ -3,14 +3,20 @@
 Builds index.html from content/site.json.
 
     python3 tools/build.py
+    python3 tools/build.py --drafts   # also include entries marked "draft": true
 
 Nothing else needs editing to change the site's words, links, or images --
 it all lives in content/site.json. See EDITING.md.
+
+--drafts is for previewing locally. The pre-commit hook always rebuilds
+without it, so a draft can't be published by accident.
 """
 import json, os, re, sys, html, shutil
+from datetime import date
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
+DRAFTS = '--drafts' in sys.argv[1:]
 
 # ---------------------------------------------------------------- helpers
 def esc(s):
@@ -118,7 +124,8 @@ ANALYTICS = """<script>
 
 # ---------------------------------------------------------------- load
 S = json.load(open('content/site.json', encoding='utf-8'))
-entries  = S['entries']
+entry_drafts = [e for e in S['entries'] if e.get('draft')]
+entries  = [e for e in S['entries'] if DRAFTS or not e.get('draft')]
 projects = [e for e in entries if e['kind'] == 'project']
 roles    = [e for e in entries if e['kind'] == 'role']
 
@@ -131,6 +138,103 @@ for k in ('resume','pilates'):
 if missing:
     sys.exit('MISSING IMAGES:\n  ' + '\n  '.join(missing) +
              '\n\nAdd the photo with:  python3 tools/dither.py <photo> <name>')
+
+# ---------------------------------------------------------------- lab logs
+# An entry can point at a log file ("lab_log": "content/htb.json"). The build
+# reads it, does the counting, and renders the machine and module lists, so
+# logging a box is one block in that file and nothing else. EDITING.md, Recipe 9.
+OWNED = ('user', 'root')
+lab_warnings = []
+
+def load_lab_log(e):
+    path = e['lab_log']
+    try:
+        L = json.load(open(path, encoding='utf-8'))
+    except FileNotFoundError:
+        sys.exit(f'LAB LOG NOT FOUND: {path} (named by "{e["slug"]}" in content/site.json)')
+    except json.JSONDecodeError as err:
+        sys.exit(f'LAB LOG IS NOT VALID JSON: {path}\n  {err}\n\n'
+                 'Usually a missing comma between blocks, or a trailing comma after the last one.')
+    problems = []
+    for kind, need in (('machines', ('name', 'os', 'difficulty', 'date', 'owned')),
+                       ('modules',  ('name', 'date'))):
+        for i, m in enumerate(L.get(kind, []), 1):
+            label = f'{kind} #{i} ({m.get("name") or "no name"})'
+            problems += [f'{label}: missing "{k}"' for k in need if not m.get(k)]
+            if m.get('date'):
+                try:
+                    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', m['date']): raise ValueError
+                    date.fromisoformat(m['date'])
+                except ValueError:
+                    problems.append(f'{label}: "date" must look like 2026-10-04')
+            if kind == 'machines' and m.get('owned') and m['owned'] not in OWNED:
+                problems.append(f'{label}: "owned" must be "user" or "root"')
+    if problems:
+        sys.exit(f'LAB LOG PROBLEMS in {path}:\n  ' + '\n  '.join(problems))
+    return L
+
+# Checked even while the entry is a draft, so a typo shows up the day you log the box.
+LOGS = {e['slug']: load_lab_log(e) for e in S['entries'] if e.get('lab_log')}
+
+def lab_progress(L):
+    """The numbers, counted from the log rather than typed in, so they can't drift."""
+    machines, modules = L.get('machines', []), L.get('modules', [])
+    rooted = [m for m in machines if m['owned'] == 'root']
+    user_only = len(machines) - len(rooted)
+    lin = sum(1 for m in rooted if m['os'].lower() == 'linux')
+    win = sum(1 for m in rooted if m['os'].lower() == 'windows')
+    other = len(rooted) - lin - win
+    dates = [x['date'] for x in machines + modules]
+    tiles = [
+        (len(rooted), 'Machines rooted' + (f', plus {user_only} user-only' if user_only else '')),
+        (f'{lin} / {win}' + (f' / {other}' if other else ''),
+         'Linux / Windows' + (' / Other' if other else '')),
+        (len(modules), 'Academy modules completed'),
+        (date.fromisoformat(max(dates)).strftime('%b %Y') if dates else 'None yet', 'Last activity'),
+    ]
+    return ('<div><p class="kicker sh">$ cat progress.txt</p><div class="metrics">' +
+            ''.join(f'<div class="metric"><span class="v">{esc(v)}</span>'
+                    f'<span class="k">{esc(k)}</span></div>' for v, k in tiles) +
+            '</div></div>')
+
+def lab_blocks(L, H):
+    """Machine and module lists, newest first. An empty list says so plainly."""
+    empty = '<p class="ll-empty">total 0</p>'
+    def machine(m):
+        meta = ''.join(f'<span class="pill{" hot" if k == "owned" else ""}">{esc(m[k])}</span>'
+                       for k in ('os', 'difficulty', 'owned'))
+        # Hack The Box forbids publishing solutions to active machines, so the
+        # technique line and any writeup link only ship once a box is retired.
+        note = link = ''
+        if m.get('retired'):
+            if m.get('technique'):
+                note = f'<span class="ll-note">{esc(m["technique"])}</span>'
+            if m.get('writeup'):
+                ext = ' target="_blank" rel="noopener noreferrer"' if str(m['writeup']).startswith('http') else ''
+                link = f'<a class="ll-link" href="{esc(m["writeup"])}"{ext}>Writeup &rarr;</a>'
+        elif m.get('technique') or m.get('writeup'):
+            lab_warnings.append(f'{m["name"]} is active, so its technique and writeup stay off '
+                                f'the page until you mark it "retired": true')
+        return (f'<li><span class="ll-name">{esc(m["name"])}</span>'
+                f'<span class="ll-date">{esc(m["date"])}</span>'
+                f'<span class="ll-meta">{meta}</span>{note}{link}</li>')
+    def module(d):
+        return (f'<li><span class="ll-name">{esc(d["name"])}</span>'
+                f'<span class="ll-date">{esc(d["date"])}</span></li>')
+    out = ''
+    for key, fn in (('machines', machine), ('modules', module)):
+        items = sorted(L.get(key, []), key=lambda x: x['date'], reverse=True)
+        body = f'<ol class="lablog">{"".join(fn(x) for x in items)}</ol>' if items else empty
+        out += f'<div class="block"><h4>{H[key]}</h4>{body}</div>'
+    return out
+
+def lab_tools(L):
+    """Every tool named in the log, most-used first, for stack.txt."""
+    counts = {}
+    for m in sorted(L.get('machines', []), key=lambda x: x['date']):
+        for t in m.get('tools', []):
+            counts[t] = counts.get(t, 0) + 1
+    return sorted(counts, key=lambda t: -counts[t])
 
 # ---------------------------------------------------------------- rows
 def row(e, i):
@@ -147,6 +251,9 @@ project_rows = ''.join(row(e, i+1) for i, e in enumerate(projects))
 role_rows    = ''.join(row(e, i+1) for i, e in enumerate(roles))
 
 # ---------------------------------------------------------------- details
+HEADINGS = {'problem': 'The Problem', 'included': 'What&rsquo;s Included', 'impact': 'Impact',
+            'machines': 'Machine Log', 'modules': 'Academy Modules'}
+
 def detail(e, n):
     prev, nxt = entries[n-1], entries[(n+1) % len(entries)]
     back = 'projects' if e['kind'] == 'project' else 'experience'
@@ -157,20 +264,31 @@ def detail(e, n):
         note = (f'<p class="linknote">{md(e["link_note"])}</p>' if e.get('link_note') else '')
         link = (f'<p style="margin:0"><a class="btn" href="{esc(e["link"])}"{ext}>'
                 f'{esc(e["link_label"])} <span>&rarr;</span></a></p>{note}')
+    # Section headings can be renamed per entry: "headings": {"problem": "Why"}
+    H = dict(HEADINGS)
+    H.update({k: esc(v) for k, v in (e.get('headings') or {}).items()})
+    L = LOGS.get(e['slug'])
     blocks = ''
     if e.get('problem'):
-        blocks += ('<div class="block"><h4>The Problem</h4>' +
+        blocks += (f'<div class="block"><h4>{H["problem"]}</h4>' +
                    ''.join(f'<p>{md(p)}</p>' for p in e['problem']) + '</div>')
     if e.get('included'):
-        blocks += ('<div class="block"><h4>What&rsquo;s Included</h4><ul class="inc">' +
+        blocks += (f'<div class="block"><h4>{H["included"]}</h4><ul class="inc">' +
                    ''.join(f'<li>{esc(x)}</li>' for x in e['included']) + '</ul></div>')
+    if L:
+        blocks += lab_blocks(L, H)
     if e.get('impact'):
-        blocks += ('<div class="block"><h4>Impact</h4><div class="impact">' +
+        blocks += (f'<div class="block"><h4>{H["impact"]}</h4><div class="impact">' +
                    ''.join(f'<p>{md(p)}</p>' for p in e['impact']) + '</div></div>')
+    progress = lab_progress(L) if L else ''
+    stack_items = list(e.get('stack') or [])
+    if L:
+        have = {s.split(':')[0].strip().lower() for s in stack_items}
+        stack_items += [t for t in lab_tools(L) if t.lower() not in have]
     stack = ''
-    if e.get('stack'):
+    if stack_items:
         stack = ('<div><p class="kicker sh">$ cat stack.txt</p><div class="chips">' +
-                 ''.join(f'<span class="chip">{esc(x)}</span>' for x in e['stack']) + '</div></div>')
+                 ''.join(f'<span class="chip">{esc(x)}</span>' for x in stack_items) + '</div></div>')
     return f'''
 <article class="detail" data-slug="{e['slug']}">
   <div class="dtop"><a class="back" href="{anchor}">$ cd ../{back}</a></div>
@@ -186,7 +304,7 @@ def detail(e, n):
     <div class="dgrid">
       <div>{blocks}{link}</div>
       <div class="sticky">
-        {plate(e.get('image'), e.get('image_caption'))}
+        {progress}{plate(e.get('image'), e.get('image_caption'))}
         {plate(e.get('image2'), e.get('image2_caption'))}
         {stack}
       </div>
@@ -459,5 +577,17 @@ if pub_drafts:
     for p in pub_drafts:
         print(f'        - {p.get("title","(untitled)")}')
     print('        Fill them in in content/site.json and set "draft": false to publish them.')
+if entry_drafts:
+    verb = 'INCLUDED for preview (--drafts)' if DRAFTS else 'skipped'
+    print(f'\n  NOTE: {len(entry_drafts)} entr{"y" if len(entry_drafts) == 1 else "ies"} '
+          f'marked "draft": true {verb}:')
+    for e in entry_drafts:
+        print(f'        - {e["title"]}')
+    if DRAFTS:
+        print('        Preview only. The pre-commit hook rebuilds without drafts.')
+    else:
+        print('        Preview with:  python3 tools/build.py --drafts')
+for w in lab_warnings:
+    print(f'\n  WARNING: {w}')
 raw = [c for c in page if ord(c) > 127]
 print(f'  raw non-ASCII in output: {len(raw)}')
