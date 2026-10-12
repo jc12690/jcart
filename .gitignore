@@ -19,3 +19,9 @@ id_ed25519*
 
 # --- Node (for the upcoming Vite rebuild) ------------------------
 node_modules/
+
+# --- Video originals -------------------------------------------
+# ProRes exports run hundreds of MB, and GitHub refuses files over 100 MB.
+# The site plays small copies from fitness/media/ instead.
+*.mov
+*.MOV

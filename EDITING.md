@@ -305,10 +305,13 @@ tapping it opens the full post on Instagram:
   clip: "media/mmm-2026-10-05.mp4" },
 ```
 
-Make the clip from the same video you posted:
+Keep your original export (a 4K ProRes `.mov` is fine) in
+`media/fitness-media/`. Git ignores `.mov` files, because GitHub refuses any
+file over 100 MB, and Chrome and Firefox can't play ProRes anyway. Make the
+small copy the card plays from it, trimmed the way you want it to loop:
 
 ```bash
-ffmpeg -i YOUR_REEL.mp4 -an -t 8 -vf "scale=540:-2,format=yuv420p" -c:v libx264 -crf 28 -movflags +faststart fitness/media/mmm-2026-10-05.mp4
+ffmpeg -i media/fitness-media/YOUR_EXPORT.mov -an -vf "scale=540:-2,format=yuv420p" -c:v libx264 -crf 28 -movflags +faststart fitness/media/mmm-2026-10-05.mp4
 ```
 
 Then its poster, with the same name ending in `.jpg`. The card finds it on its
@@ -316,11 +319,12 @@ own, and it is what visitors see if their phone blocks autoplay (an iPhone in
 Low Power Mode does):
 
 ```bash
-ffmpeg -ss 0.5 -i YOUR_REEL.mp4 -frames:v 1 -vf "scale=540:-2" -q:v 4 fitness/media/mmm-2026-10-05.jpg
+ffmpeg -ss 0.5 -i media/fitness-media/YOUR_EXPORT.mov -frames:v 1 -vf "scale=540:-2" -q:v 4 fitness/media/mmm-2026-10-05.jpg
 ```
 
-Each one comes out around half a megabyte, so a year of Mondays is roughly
-25 MB, well inside what GitHub Pages allows. If you ever clear out old clips,
+Point `clip` at the `.mp4` copy, never the original. A clip and its poster come
+to well under half a megabyte, so a year of Mondays stays under 25 MB, well
+inside what GitHub Pages allows. If you ever clear out old clips,
 delete the entry's `clip` line too, and the card falls back to plain type.
 For a still instead of a clip, use `img: "media/your-cover.jpg"`.
 

@@ -39,7 +39,8 @@ var JC_PLAYLISTS = [
   {w:24, name:"SLT #24",   url:"https://music.apple.com/us/playlist/slt-24/pl.u-8aAVMMeSaKLKaP"},
   {w:25, name:"SLT #25",   url:"https://music.apple.com/us/playlist/slt-25/pl.u-xlyNBylIpPDPp3"},
   {w:26, name:"SLT #26",   url:"https://music.apple.com/us/playlist/slt-26/pl.u-oZyl5yWI09l90Z"},
-  {w:27, name:"SLT #27",   url:"https://music.apple.com/us/playlist/slt-27/pl.u-8aAVMAViaKLKaP", latest:true},
+  {w:27, name:"SLT #27",   url:"https://music.apple.com/us/playlist/slt-27/pl.u-8aAVMAViaKLKaP"},
+  {w:28, name:"SLT #28",   url:"https://music.apple.com/us/playlist/slt-28/pl.u-8aAVMy9IaKLKaP", latest:true},
 ];
 
 /* ============================================================================
@@ -64,6 +65,9 @@ var JC_PLAYLISTS = [
    ============================================================================ */
 var JC_MEGA_MOVES = [
     { date: "2026-10-05", move: "Reverse Catfish",
-        url: "https://www.instagram.com/reel/DeH6z_-OhvV/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
-        clip: "media/MMM1-8-5-26.mov" },
+        url: "https://www.instagram.com/reel/DeH6z_-OhvV/",
+        clip: "media/mmm-2026-10-05.mp4" },
+    { date: "2026-10-12", move: "Reverse Bear",
+        url: "https://www.instagram.com/reel/DeZsDh1uSlq/",
+        clip: "media/mmm-2026-10-12.mp4" },
 ];
