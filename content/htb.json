@@ -1,0 +1,20 @@
+{
+  "_README": "Your Hack The Box log. Add a machine when you own it and a module when it hits 100%. Copy the matching _example block into \"machines\" or \"modules\", fill it in, and run: python3 tools/build.py. Order doesn't matter; the build sorts newest first and does all the counting. Full guide: EDITING.md, Recipe 9.",
+  "_example_machine": {
+    "name": "MachineName",
+    "os": "Linux",
+    "difficulty": "Easy",
+    "date": "2026-10-15",
+    "owned": "root",
+    "retired": true,
+    "technique": "One line: how you got in and how you escalated",
+    "tools": ["Nmap", "Burp Suite"],
+    "writeup": ""
+  },
+  "_example_module": {
+    "name": "Module name exactly as HTB Academy shows it",
+    "date": "2026-10-15"
+  },
+  "machines": [],
+  "modules": []
+}
