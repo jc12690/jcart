@@ -366,6 +366,51 @@
       "link_label": "View on GitHub"
     },
     {
+      "slug": "retrac-labs",
+      "kind": "role",
+      "title": "Founder",
+      "org": "Retrac Labs",
+      "when": "May 2026–Present",
+      "summary": "Retrac Labs is my independent studio for privacy-first Mac and iPhone apps. Three are on the App Store, and each keeps what you give it on your own device: no accounts, no cloud, and on the Mac, no way for the app to reach the network at all.",
+      "tags": [
+        "Privacy",
+        "Threat Modeling",
+        "Swift",
+        "App Store"
+      ],
+      "image": "amparo-store",
+      "image_caption": "AMPARO / APP STORE",
+      "headings": {
+        "problem": "Why",
+        "included": "What Shipped"
+      },
+      "problem": [
+        "Most apps that handle sensitive data, from voice recordings to clipboard history to cycle logs, send a copy somewhere: a server, an analytics vendor, a cloud backup. Every copy is another place it can leak, be sold, or be handed over. Cycle logs show the stakes most plainly, since in the US, health data held by an app company can be subpoenaed.",
+        "Retrac Labs starts from the opposite assumption: the safest copy of your data is the only one, on your own device, and a privacy promise should be something you can check rather than take on faith."
+      ],
+      "included": [
+        "Apunte for Mac: transcription of recordings, calls, and meetings, run entirely on the Mac, with on-device summaries and a Touch ID lock",
+        "Retazo for Mac: clipboard history that skips password-manager copies, lets one-time codes fade after five minutes, and strips tracking tags from links",
+        "Amparo for iPhone: cycle tracking with no account or cloud, kept out of iCloud Backup by default, with Discreet Mode and an encrypted AirDrop transfer to a new phone",
+        "Mac apps shipped without the outgoing-network entitlement, so their own code cannot open a connection, which anyone can confirm with codesign",
+        "Product, design, engineering, and App Store releases, from first commit to shipped update"
+      ],
+      "impact": [
+        "Three apps are live on the App Store as of October 2026, and each has already shipped several updates. Every privacy claim is built to be checked rather than trusted: one codesign command shows the Mac apps can't reach the network, and Amparo's data stays out of the cloud unless the user chooses otherwise. It's security work aimed at the user's side of the threat model: decide what could be taken, then make sure it never leaves the device."
+      ],
+      "stack": [
+        "Swift, SwiftUI, and SwiftData: all three apps, with data stored only on the device",
+        "App Sandbox entitlements: the Mac apps ship with no network access, checkable with codesign",
+        "Speech and Foundation Models: Apunte's transcription and summaries, run on the Mac",
+        "Vision: text read from Retazo's screenshot clips, on the Mac",
+        "CryptoKit and LocalAuthentication: encryption, and Apunte's Touch ID lock",
+        "WidgetKit, ActivityKit, and App Intents: Amparo's widgets, Live Activity, and Siri",
+        "StoreKit: one-time purchases and subscriptions"
+      ],
+      "link": "https://retraclabs.co",
+      "link_label": "Visit Retrac Labs"
+    },
+    {
       "slug": "open-law-library",
       "kind": "role",
       "title": "Security Analyst",

@@ -34,12 +34,15 @@ assets/js/site.js   theme switch, hero animation, router, lightbox, command pale
 assets/img          .png = 1-bit dither, .jpg = colour (always in pairs)
 tools/build.py      the generator
 tools/dither.py     photo -> the dither/colour pair
+tools/modeling_media.py  photo or clip -> the modeling page's web copies
 tools/cursors.py    the pixel cursors
 media/              original photo library
 files/              résumé and PDFs
 experience/ projects/   redirect stubs, old URLs -> new #/slug routes
 fitness/            the fitness site: playlists and Mega Move Monday live in fitness/weekly.js
 quickbio/           the Instagram link-in-bio page
+modeling/           the modeling page, linked only from quickbio (EDITING.md, Recipe 10)
+privacy.html        redirect to the Retrac Labs privacy policy on retraclabs.co
 ```
 
 ## Notes

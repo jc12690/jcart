@@ -41,11 +41,13 @@ python3 tools/build.py
 │   └── img/                ← .png = dithered, .jpg = colour (pairs!)
 ├── tools/
 │   ├── build.py            ← content/site.json → index.html
-│   └── dither.py           ← photo → the .png/.jpg pair
+│   ├── dither.py           ← photo → the .png/.jpg pair
+│   └── modeling_media.py   ← photo or clip → the modeling page's web copies
 ├── media/                  ← your original photo library (untouched)
 ├── files/                  ← résumé + PDFs
 ├── legacy-index.html       ← the previous homepage, kept for reference
 ├── fitness/                ← the fitness site (edited by hand; see Recipe 7)
+├── modeling/               ← the modeling page, linked only from quickbio (Recipe 10)
 └── experience/ projects/ quickbio/
                             ← redirect stubs, plus the link-in-bio page
 ```
@@ -238,9 +240,9 @@ The token lives in `content/site.json`:
 "site": { "analytics_token": "baeb040b9418422b9a4543f89163988a" }
 ```
 
-Change it there and rebuild. Three pages are not generated (`privacy.html`,
-`quickbio/index.html`, and `fitness/index.html`), so the same token is pasted
-into each and has to be changed by hand.
+Change it there and rebuild. Three pages are not generated
+(`quickbio/index.html`, `fitness/index.html`, and `modeling/index.html`), so
+the same token is pasted into each and has to be changed by hand.
 
 Two deliberate details in the snippet:
 
@@ -282,9 +284,7 @@ above the list.
 **The player is automatic too.** Each week's Apple Music player is built from
 its `url`, so there is no embed code to paste, and it follows the site's theme:
 dark in dark mode, light in light mode. It loads as visitors scroll to it.
-Apple's player sets its own cookie and analytics ID when it loads, and the
-privacy page says so; if you ever change how the player works, keep that
-paragraph in step with it.
+Apple's player sets its own cookie and analytics ID when it loads.
 
 **Add a Mega Move Monday.** Append to `JC_MEGA_MOVES`, newest last:
 
@@ -297,7 +297,7 @@ arrive, and one "Coming Monday" card always stays at the end. An entry with a
 `move` and `date` but no `url` shows as a named teaser.
 
 **Let visitors see you doing the move.** Add `clip` to the entry and the card
-autoplays a short, silent loop of you, the way the old modeling page did;
+autoplays a short, silent loop of you, the way the modeling page does;
 tapping it opens the full post on Instagram:
 
 ```js
@@ -382,7 +382,9 @@ you moving.
 dressed to match. It loads `fitness/weekly.js` too, so Recent Playlists always
 shows the four newest weeks (Latest goes wherever `latest: true` is) and
 Clients' Favorites shows every `fav: true` week. There is nothing to edit
-there. Its headshot is `fitness/media/headshot.jpg`.
+there. Its headshot is `fitness/media/headshot.jpg`. Quickbio is also the only
+page that links to the modeling page (`modeling/`); keep it off the homepage
+and the fitness site.
 
 **Also shared with the homepage:** the cursors in `assets/img/cursors/`, the
 `jc-theme` light/dark preference, and the Cloudflare analytics token, which is
@@ -471,6 +473,43 @@ with `_`, which the build ignores), so you can copy from there.
 field. Dates must look like `2026-10-04`, and `owned` must be `user` or `root`.
 The log is checked even while the entry is a draft, so a typo shows up the
 day you log the box, not the day you publish.
+
+---
+
+## Recipe 10: The Modeling Page
+
+It lives in `modeling/`: `index.html`, `modeling.css`, `modeling.js`, and
+`media/`. Like the fitness site it is **not generated**, and quickbio is the
+only page that links to it; keep it off the homepage and the fitness site.
+
+Every photo shows on the page as people scroll, in full color, with no hover
+or click needed to see it. Clicking one opens it full size at once (no mosaic
+here, unlike the fitness site), and the behind-the-scenes clips play on their
+own, silently, while they're on screen.
+
+**Add a photo or clip.** Put the original in `media/modeling-media/`, then
+make the web copies from it:
+
+```bash
+python3 tools/modeling_media.py media/modeling-media/YOUR_PHOTO.jpg
+```
+
+That writes a 900-wide copy for the page and a 2000-pixel one for the viewer
+into `modeling/media/`, turned upright and stripped of camera and location
+data. A clip gets a silent 540-wide copy every browser plays, plus a poster.
+The command prints a line like this:
+
+```js
+{ src: "media/YOUR_PHOTO.jpg", full: "media/YOUR_PHOTO-lg.jpg", w: 900, h: 1350 },
+```
+
+Paste it into the right collection's `items` in `JC_MODELING`, at the top of
+`modeling/modeling.js`. The order there is the order on the page. A new brand
+or collection follows the shape of the ones already in the list, with its
+photographers under `photography`.
+
+The originals in `media/modeling-media/` can be any size; only the copies are
+loaded by visitors. The page's own preview card is `modeling/media/share.jpg`.
 
 ---
 
