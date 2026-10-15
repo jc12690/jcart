@@ -78,7 +78,16 @@ img,video{display:block; max-width:100%}
 /* ---------- hero: the behind-the-scenes clips, side by side ---------- */
 .hero{position:relative; height:min(100svh,980px); min-height:560px; overflow:hidden; background:#000; color:#eef1f0}
 .wall{position:absolute; inset:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2px}
-.wall video{width:100%; height:100%; object-fit:cover}
+/* the original page's opening: each strip wipes down to the bottom of the
+   screen, one after another, and the name rises in once they're up */
+.wall video{width:100%; height:100%; object-fit:cover;
+  clip-path:inset(0 0 100% 0); animation:stripReveal 1.2s cubic-bezier(.16,1,.3,1) forwards}
+.wall video:nth-child(2){animation-delay:.14s}
+.wall video:nth-child(3){animation-delay:.28s}
+.wall video:nth-child(4){animation-delay:.42s}
+@keyframes stripReveal{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.hero-text > *{opacity:0; animation:riseIn .9s cubic-bezier(.16,1,.3,1) .85s forwards}
+@keyframes riseIn{from{opacity:0; transform:translateY(18px)}to{opacity:1; transform:none}}
 /* the name sits centered on the clips, with a shade behind it so it stays
    legible over any frame, and a lighter one under the bar */
 .hero::after{content:""; position:absolute; inset:0; pointer-events:none;
@@ -97,10 +106,8 @@ img,video{display:block; max-width:100%}
   color:rgba(238,241,240,.85); text-wrap:balance}
 .hero .btn.line{color:#eef1f0; border-color:rgba(238,241,240,.6)}
 .hero .btn.line:hover{background:rgba(238,241,240,.12)}
-@media (max-width:700px){
-  .wall{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .wall video:nth-child(n+3){display:none}
-}
+/* all four strips stay on a phone, held upright, with hairline gaps */
+@media (max-width:480px){.wall{gap:1px}}
 
 /* ---------- the work: every photo on the page, laid out by modeling.js ---------- */
 .work{max-width:1352px; margin:0 auto; padding:clamp(64px,10vh,110px) var(--gut) 0}
@@ -182,4 +189,5 @@ body.lb-lock{overflow:hidden}
   html{scroll-behavior:auto}
   .btn{transition:none}
   .btn.fill:hover{transform:none}
+  .wall video,.hero-text > *{animation:none; clip-path:none; opacity:1}
 }
