@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The pages worth finding in search. The modeling page is left out on
+     purpose: quickbio is the only place that links to it. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://jarredmcarter.com/</loc></url>
+  <url><loc>https://jarredmcarter.com/fitness/</loc></url>
+  <url><loc>https://jarredmcarter.com/quickbio/</loc></url>
+</urlset>

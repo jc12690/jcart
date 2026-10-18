@@ -24,6 +24,8 @@ python3 tools/build.py
 | Add a photo | `python3 tools/dither.py <photo> <name>` | reference `<name>`, run the build |
 | Change colors, spacing, fonts | `assets/css/site.css` | nothing — refresh |
 | Change how something behaves | `assets/js/site.js` | nothing — refresh |
+| Update the link-preview picture | `python3 tools/share_cards.py` | run the build (Recipe 11) |
+| Renew security.txt (once a year) | `.well-known/security.txt` → `Expires` | commit (Recipe 11) |
 | Publish | `git add -A && git commit && git push` | GitHub Pages does the rest |
 
 ---
@@ -33,15 +35,23 @@ python3 tools/build.py
 ```
 ~/Websites/jcart/
 ├── index.html              ← GENERATED. Do not edit.
+├── 404.html                ← the page for addresses that don't exist (Recipe 11)
+├── favicon.svg / .ico      ← tab icons, plus apple-touch-icon.png (Recipe 11)
+├── .well-known/security.txt ← how to report a security problem (Recipe 11)
+├── _config.yml             ← publishes .well-known/, keeps repo docs off the site
+├── sitemap.xml robots.txt  ← what search engines should find
 ├── content/
 │   └── site.json           ← ★ every word, link, and image choice
 ├── assets/
 │   ├── css/site.css        ← all styling
 │   ├── js/site.js          ← all behaviour
-│   └── img/                ← .png = dithered, .jpg = colour (pairs!)
+│   ├── img/                ← .png = dithered, .jpg = colour (pairs!)
+│   └── share.jpg           ← the homepage's link-preview picture
 ├── tools/
 │   ├── build.py            ← content/site.json → index.html
 │   ├── dither.py           ← photo → the .png/.jpg pair
+│   ├── icons.py            ← the favicon and home-screen icon
+│   ├── share_cards.py      ← the homepage and quickbio link-preview pictures
 │   └── modeling_media.py   ← photo or clip → the modeling page's web copies
 ├── media/                  ← your original photo library (untouched)
 ├── files/                  ← résumé + PDFs
@@ -76,10 +86,12 @@ Open `content/site.json`, find the text, change it, save, build.
 }
 ```
 
-Two bits of formatting work inside any text:
+Four bits of formatting work inside any text:
 
 * `**bold**` → **bold**
 * `_italic_` → *italic*
+* `` `code` `` → `code`, for commands, flags, and file names
+* `[a link](https://...)` → a link (a full `https://` address, or one that starts with `/` or `#`)
 
 Everything else is literal. You do **not** need to escape `&`, `<`, quotes, or
 accented characters — the build handles that.
@@ -207,6 +219,34 @@ Notes on what I could and couldn't find in the repo:
 
 The `"_note"` field in each draft is a reminder to you; the build ignores it,
 so delete it once you've filled the entry in.
+
+**A free copy under a paper.** Each paper's card is one big link (usually to
+the publisher), so a second link goes in its own fields and shows on a line
+under the card:
+
+```json
+"pdf": "/files/ieee-paper.pdf",
+"pdf_label": "Free PDF, author's version",
+"pdf_note": "© 2020 IEEE. Personal use of this material is permitted; ..."
+```
+
+IEEE lets authors post their accepted manuscript (never IEEE's formatted
+final version) on a personal site, as long as IEEE's copyright notice and the
+DOI come with it. `files/ieee-paper.pdf` has the full notice and the DOI
+stamped at the foot of its first page.
+
+**Education, credentials, and the roles you want** live under `"resume"`:
+`"education"` (with `"when"`, plus `"more"` for further degrees),
+`"credentials"` (one line each, shown under Certifications & Honors), and
+`"seeking"` (the line with the green dot under the headline). Leave any of
+them out and its piece disappears.
+
+**Extra sections on a project or job page.** Besides `problem`, `included`,
+`impact`, and `stack`, an entry can carry `"sections"`: a list of blocks, each
+with a `"heading"` and any of `"paragraphs"`, `"items"` (a bulleted list),
+`"code"` (shown verbatim in a terminal box), and `"after"` (paragraphs below
+the code). The Retrac Labs entry uses them for the codesign proof and Amparo's
+threat model.
 
 ---
 
@@ -510,6 +550,81 @@ photographers under `photography`.
 
 The originals in `media/modeling-media/` can be any size; only the copies are
 loaded by visitors. The page's own preview card is `modeling/media/share.jpg`.
+
+---
+
+## Recipe 11: Icons, Link Previews, the 404 Page, and security.txt
+
+These are the files that make the site look finished outside the page itself.
+None of them change often.
+
+### The Tab and Home-Screen Icons
+
+`favicon.svg`, `favicon.ico`, and `apple-touch-icon.png` sit at the root, and
+every page links them as `/favicon.svg` and so on, so the same three files
+serve the homepage, fitness, quickbio, modeling, and the 404 page. They're the
+pixel `J_` from the Retrac Labs brand marks, in the site's green. To change
+them, edit the bitmap or colors at the top of `tools/icons.py`, then:
+
+```bash
+python3 tools/icons.py
+```
+
+A new page needs the same three `<link rel="icon">` lines its neighbors have.
+
+### Link Previews
+
+When someone pastes an address into iMessage, LinkedIn, or Slack, the preview
+picture comes from that page's `og:image` tag:
+
+| Page | Picture | Made by |
+|---|---|---|
+| Homepage | `assets/share.jpg` | `tools/share_cards.py home` |
+| quickbio | `quickbio/share.jpg` | `tools/share_cards.py quickbio` |
+| Fitness | `fitness/media/share.jpg` | by hand |
+| Modeling | `modeling/media/share.jpg` | by hand |
+
+The homepage card takes its words and photo from `content/site.json` (the
+hero, the two roles, and the résumé photo), so after changing those:
+
+```bash
+python3 tools/share_cards.py home
+python3 tools/build.py
+```
+
+The quickbio card's words are in `tools/share_cards.py`, since quickbio itself
+is edited by hand. The script needs Google Chrome and an internet connection.
+Apps cache previews for days or weeks; LinkedIn's Post Inspector
+(linkedin.com/post-inspector) refreshes LinkedIn's right away.
+
+`site.profiles` in `content/site.json` lists the accounts search engines
+should tie to your name. Add or remove one there and rebuild.
+
+### The 404 Page
+
+`404.html` is a System 7 bomb alert. GitHub Pages shows it for any address
+that doesn't exist, at that address, so everything in it links from the root
+(`/assets/...`), never relative to the page. **Restart** goes home and
+**Resume** goes to the résumé. It's edited by hand. The local preview server
+doesn't use it for missing pages, so open `localhost:8900/404.html` directly.
+
+### security.txt
+
+`.well-known/security.txt` tells anyone who finds a security problem how to
+reach you (it's the RFC 9116 standard, and security people check for it). It
+has to carry an expiry date under a year out, and an expired one doesn't
+count. **Once a year, move its `Expires` line ahead**, keeping it under a
+year from that day. The build warns you on every commit starting 45 days
+before it runs out.
+
+GitHub Pages skips folders whose names start with a dot, so `_config.yml`
+tells it to publish `.well-known/`. It also keeps this guide, the README,
+`content/`, and `tools/` off the live site, since none of them is part of a
+page. Don't delete that file.
+
+`sitemap.xml` lists the pages worth finding in search (the homepage, the
+fitness site, and quickbio), and `robots.txt` points crawlers to it. The
+modeling page is left out of the sitemap on purpose.
 
 ---
 

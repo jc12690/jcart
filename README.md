@@ -35,6 +35,12 @@ assets/img          .png = 1-bit dither, .jpg = colour (always in pairs)
 tools/build.py      the generator
 tools/dither.py     photo -> the dither/colour pair
 tools/modeling_media.py  photo or clip -> the modeling page's web copies
+tools/icons.py      favicon.svg, favicon.ico, apple-touch-icon.png
+tools/share_cards.py  the link-preview pictures (assets/share.jpg, quickbio/share.jpg)
+404.html            the System 7 bomb page for addresses that don't exist
+.well-known/security.txt  how to report a security problem; renew its Expires yearly
+_config.yml         publishes .well-known/ and keeps EDITING.md, README.md, content/, and tools/ off the live site
+sitemap.xml         pages for search engines (modeling left out on purpose); robots.txt points to it
 tools/cursors.py    the pixel cursors
 media/              original photo library
 files/              résumé and PDFs

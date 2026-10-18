@@ -1,0 +1,5 @@
+# Everything here is public; crawlers are welcome.
+User-agent: *
+Allow: /
+
+Sitemap: https://jarredmcarter.com/sitemap.xml

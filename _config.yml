@@ -1,0 +1,13 @@
+# GitHub Pages runs this site through Jekyll, which skips any folder whose name
+# starts with a dot. "include" publishes .well-known/ (security.txt) anyway.
+include:
+  - .well-known
+
+# Repo files that aren't part of the website. Without this list, GitHub Pages
+# serves them at jarredmcarter.com/EDITING.md and so on. No page loads anything
+# from content/ or tools/; the build reads them on your Mac.
+exclude:
+  - EDITING.md
+  - README.md
+  - content/
+  - tools/

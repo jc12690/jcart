@@ -26,11 +26,23 @@ def esc(s):
     return ''.join(c if ord(c) < 128 else '&#%d;' % ord(c) for c in s)
 
 def md(s):
-    """The tiny bit of markdown allowed in site.json: **bold** and _italic_."""
+    """The tiny bit of markdown allowed in site.json: **bold**, _italic_,
+    `code`, and [a link](https://...). Links and code are set aside first, so
+    an underscore in a URL or a command never turns into italics."""
     s = esc(s)
+    kept = []
+    def keep(html):
+        kept.append(html)
+        return f'\x00{len(kept) - 1}\x00'
+    s = re.sub(r'`([^`]+)`', lambda m: keep(f'<code>{m.group(1)}</code>'), s)
+    def link(m):
+        text, href = m.group(1), m.group(2)
+        ext = ' target="_blank" rel="noopener noreferrer"' if href.startswith('http') else ''
+        return keep(f'<a href="{href}"{ext}>{text}</a>')
+    s = re.sub(r'\[([^\]]+)\]\(((?:https?://|/|#)[^)\s]+)\)', link, s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', s)
     s = re.sub(r'_(.+?)_', r'<em>\1</em>', s)
-    return s
+    return re.sub('\x00(\\d+)\x00', lambda m: kept[int(m.group(1))], s)
 
 _SIZE_CACHE = {}
 def imgsize(path):
@@ -264,6 +276,8 @@ def detail(e, n):
         note = (f'<p class="linknote">{md(e["link_note"])}</p>' if e.get('link_note') else '')
         link = (f'<p style="margin:0"><a class="btn" href="{esc(e["link"])}"{ext}>'
                 f'{esc(e["link_label"])} <span>&rarr;</span></a></p>{note}')
+    elif e.get('link_note'):   # a note can stand alone, for work that stays unpublished
+        link = f'<p class="linknote">{md(e["link_note"])}</p>'
     # Section headings can be renamed per entry: "headings": {"problem": "Why"}
     H = dict(HEADINGS)
     H.update({k: esc(v) for k, v in (e.get('headings') or {}).items()})
@@ -280,6 +294,16 @@ def detail(e, n):
     if e.get('impact'):
         blocks += (f'<div class="block"><h4>{H["impact"]}</h4><div class="impact">' +
                    ''.join(f'<p>{md(p)}</p>' for p in e['impact']) + '</div></div>')
+    # Optional extra sections, in order: "sections": [{"heading", "paragraphs",
+    # "items", "code", "after"}]. "code" shows as a terminal block, verbatim.
+    for sec in e.get('sections') or []:
+        body = ''.join(f'<p>{md(x)}</p>' for x in sec.get('paragraphs') or [])
+        if sec.get('items'):
+            body += '<ul class="inc">' + ''.join(f'<li><span>{md(x)}</span></li>' for x in sec['items']) + '</ul>'
+        if sec.get('code'):
+            body += f'<pre class="term"><code>{esc(sec["code"])}</code></pre>'
+        body += ''.join(f'<p>{md(x)}</p>' for x in sec.get('after') or [])
+        blocks += f'<div class="block"><h4>{esc(sec["heading"])}</h4>{body}</div>'
     progress = lab_progress(L) if L else ''
     stack_items = list(e.get('stack') or [])
     if L:
@@ -358,6 +382,10 @@ if pub_items:
             rows += f'<a class="item pub" href="{esc(p["link"])}"{ext}>{inner}</a>'
         else:
             rows += f'<div class="item pub">{inner}</div>'
+        # The card is one big link, so a second link (a free copy) sits under it.
+        if p.get('pdf'):
+            rows += (f'<p class="pubextra"><a href="{esc(p["pdf"])}">{esc(p.get("pdf_label") or "Free PDF")} '
+                     f'<span>&rarr;</span></a>{" " + md(p["pdf_note"]) if p.get("pdf_note") else ""}</p>')
     pubs_html = f'''
   <section class="sec" id="publications">
     <div class="eyebrow"><span class="n">03</span><span>{esc(PUB.get("eyebrow","Published work"))}</span><span class="bar"></span></div>
@@ -400,6 +428,59 @@ if S['site'].get('analytics_token'):
     ga = ANALYTICS.replace('{DOMAIN}', S['site'].get('domain', '')) \
                   .replace('{TOKEN}', S['site']['analytics_token'])
 
+# ---------------------------------------------------------------- link previews + search
+# What iMessage, LinkedIn, and Slack show when someone pastes the address, and
+# the structured data that tells search engines which profiles are yours.
+SITE_URL = f"https://{S['site']['domain']}/"
+DESCRIPTION = f"{R['headline']} Security engineer and Pilates instructor in New York."
+share = S['site'].get('share_image')
+if share and not os.path.exists(share):
+    sys.exit(f'ERROR: site.share_image "{share}" does not exist. Run: python3 tools/share_cards.py')
+share_tags = ''
+if share:
+    sw, sh = imgsize(share) or (1200, 630)
+    share_tags = (f'<meta property="og:image" content="{SITE_URL}{share}">\n'
+                  f'<meta property="og:image:width" content="{sw}">\n'
+                  f'<meta property="og:image:height" content="{sh}">\n'
+                  f'<meta property="og:image:alt" content="{esc(S["site"]["title"])}: security engineer and Pilates instructor">\n'
+                  '<meta name="twitter:card" content="summary_large_image">\n')
+person = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    'name': S['site']['title'],
+    'url': SITE_URL,
+    'image': f"{SITE_URL}assets/img/{R['image']}.jpg",
+    'jobTitle': [r['title'] for r in S['roles'] if r.get('enabled')],
+    'alumniOf': [{'@type': 'CollegeOrUniversity', 'name': ed['school']} for ed in [R['education']] + R['education'].get('more', [])],
+    'homeLocation': {'@type': 'Place', 'name': 'New York, NY'},
+    'sameAs': S['site'].get('profiles', []),
+}
+# "</" can't appear inside a <script>, so escape the slash.
+person_ld = json.dumps(person, ensure_ascii=True, indent=1).replace('</', '<\\/')
+HEAD_META = f'''<link rel="canonical" href="{SITE_URL}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{esc(S['site']['title'])}">
+<meta property="og:description" content="{esc(DESCRIPTION)}">
+<meta property="og:url" content="{SITE_URL}">
+{share_tags}<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{person_ld}
+</script>'''
+
+# ---------------------------------------------------------------- education + what I'm after
+def degree_html(ed):
+    sub = ' &middot; '.join(esc(x) for x in [ed['school'], ed.get('when')] if x)
+    return (f'<p class="degree">{esc(ed["degree"])}<br>'
+            f'<span>{sub}</span></p>')
+education = ''.join(degree_html(ed) for ed in [R['education']] + R['education'].get('more', []))
+credentials = ''
+if R.get('credentials'):
+    credentials = ('<p class="kicker" style="margin-top:20px">Certifications &amp; Honors</p>'
+                   '<ul class="creds">' + ''.join(f'<li>{md(c)}</li>' for c in R['credentials']) + '</ul>')
+seeking = f'<p class="seeking"><span class="dot" aria-hidden="true"></span><span>{md(R["seeking"])}</span></p>' if R.get('seeking') else ''
+
 # ---------------------------------------------------------------- assemble
 page = f'''<!doctype html>
 <html lang="en">
@@ -408,7 +489,8 @@ page = f'''<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{{if(localStorage.getItem("jc-theme")==="light")document.documentElement.setAttribute("data-theme","light")}}catch(e){{}}</script>
 <title>{esc(S['site']['title'])}</title>
-<meta name="description" content="{esc(R['headline'])} Security engineer and Pilates instructor in New York.">
+<meta name="description" content="{esc(DESCRIPTION)}">
+{HEAD_META}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Grotesk:wght@400;500;700&family=Geist+Mono:wght@400;500&family=Silkscreen:wght@400;700&display=swap">
@@ -471,13 +553,14 @@ page = f'''<!doctype html>
         {plate(R['image'], R['image_caption'], R['image_alt'])}
         <div style="margin-top:22px">
           <p class="kicker">Education</p>
-          <p style="margin:0;font-size:15px">{esc(R['education']['degree'])}<br>
-            <span style="color:var(--dim);font-family:var(--mono);font-size:12px">{esc(R['education']['school'])}</span></p>
+          {education}
+          {credentials}
         </div>
       </div>
       <div>
         <h2>{esc(R['headline'])}</h2>
         <p class="lede">{md(R['lede'])}</p>
+        {seeking}
         <div class="metrics">{metrics}</div>
         <p class="kicker">Experience</p>
         <div class="rows">{role_rows}</div>
@@ -589,5 +672,20 @@ if entry_drafts:
         print('        Preview with:  python3 tools/build.py --drafts')
 for w in lab_warnings:
     print(f'\n  WARNING: {w}')
+
+# security.txt has to carry an expiry date, and an expired one is invalid.
+# This goes to stderr so the pre-commit hook, which hides the rest, shows it.
+try:
+    from datetime import datetime, timezone
+    sec = open('.well-known/security.txt', encoding='utf-8').read()
+    exp = re.search(r'^Expires:\s*(\S+)', sec, re.M).group(1)
+    left = (datetime.fromisoformat(exp.replace('Z', '+00:00')) - datetime.now(timezone.utc)).days
+    if left < 45:
+        state = f'expired {-left} days ago' if left < 0 else f'expires in {left} days'
+        print(f'\n  WARNING: .well-known/security.txt {state}. Move its Expires line about a\n'
+              '           year ahead (keep it under a year) and commit. EDITING.md, Recipe 11.',
+              file=sys.stderr)
+except (OSError, AttributeError, ValueError):
+    print('\n  WARNING: .well-known/security.txt is missing or has no valid Expires line.', file=sys.stderr)
 raw = [c for c in page if ord(c) > 127]
 print(f'  raw non-ASCII in output: {len(raw)}')

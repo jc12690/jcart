@@ -1,0 +1,8 @@
+# How to report a security problem on jarredmcarter.com (RFC 9116).
+# Email me what you found and how to reproduce it. Please give me a chance to
+# fix it before you publish, and don't test in ways that could take the site
+# down or touch anyone else's data.
+Contact: mailto:jc12690@nyu.edu
+Expires: 2027-10-01T04:00:00.000Z
+Preferred-Languages: en
+Canonical: https://jarredmcarter.com/.well-known/security.txt
