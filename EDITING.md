@@ -564,8 +564,10 @@ None of them change often.
 every page links them as `/favicon.svg` and so on, so the same three files
 serve the homepage, fitness, quickbio, modeling, and the 404 page. They're the
 hair mark from the top bar, in white on the site's dark panel color, so they
-read in a light tab bar and a dark one. To change them, edit the colors or the
-size setting at the top of `tools/icons.py`, then:
+read in a light tab bar and a dark one. The fitness site has its own set in
+`fitness/` (linked from `fitness/index.html`), the same mark with the hair in
+its blue. To change either, edit the colors or `SETS` at the top of
+`tools/icons.py`, then:
 
 ```bash
 python3 tools/icons.py

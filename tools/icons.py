@@ -6,11 +6,12 @@ links them from the site root.
 
     python3 tools/icons.py
 
-Writes, at the repo root:
+Writes, at the repo root (white, for jarredmcarter.com and its other pages):
     favicon.svg            the tab icon, for every current browser
     favicon.ico            16, 32, and 48px, for older browsers and anything
                            that asks for /favicon.ico on its own
     apple-touch-icon.png   180px, for a page saved to an iPhone home screen
+and the same three files in fitness/, with the hair in the Pilates site's blue.
 
 The mark is white on the site's dark panel color, so it reads in both a light
 tab bar (the dark square stands out) and a dark one (the white hair does).
@@ -36,6 +37,10 @@ MARK_W, MARK_H = 24, 30
 INK = '#f4f4f2'     # --ink
 TILE = '#0e0e10'    # --panel
 EDGE = '#2e3037'    # --rule-hi
+TEAL = '#00a7d3'    # the Pilates site's blue (fitness.css --teal)
+
+# Where each set goes, and the color of its hair. Same design, colors only.
+SETS = [('', INK), ('fitness', TEAL)]
 
 # The mark fills this share of the icon's height, centered.
 FILL = 0.80
@@ -47,7 +52,7 @@ def mark_box(size):
     return k, (size - MARK_W * k) / 2, (size - MARK_H * k) / 2
 
 
-def png(size, rounded=True):
+def png(size, rounded=True, ink=INK):
     """Drawn 8x large and scaled down, so curves and corners stay smooth.
     The home-screen icon is square: iOS rounds it."""
     s = 8
@@ -70,11 +75,11 @@ def png(size, rounded=True):
         h.ellipse([x0 + (cx - r) * k, y0 + (cy - r) * k, x0 + (cx + r) * k, y0 + (cy + r) * k], fill=255)
     fx, fy, rx, ry = FACE
     h.ellipse([x0 + (fx - rx) * k, y0 + (fy - ry) * k, x0 + (fx + rx) * k, y0 + (fy + ry) * k], fill=0)
-    big.paste(Image.new('RGBA', big.size, INK), (0, 0), hair)
+    big.paste(Image.new('RGBA', big.size, ink), (0, 0), hair)
     return big.resize((size, size), Image.LANCZOS)
 
 
-def svg():
+def svg(ink=INK):
     k, x0, y0 = mark_box(32)
     curls = ''.join(f'<circle cx="{cx}" cy="{cy}" r="{r}"/>' for cx, cy, r in CURLS)
     fx, fy, rx, ry = FACE
@@ -85,18 +90,19 @@ def svg():
             f'<mask id="hair"><g transform="translate({x0:.3f} {y0:.3f}) scale({k:.4f})">'
             f'<rect width="{MARK_W}" height="{MARK_H}" fill="#000"/><g fill="#fff">{curls}</g>'
             f'<ellipse cx="{fx}" cy="{fy}" rx="{rx}" ry="{ry}" fill="#000"/></g></mask>'
-            f'<rect width="32" height="32" fill="{INK}" mask="url(#hair)"/></svg>\n')
+            f'<rect width="32" height="32" fill="{ink}" mask="url(#hair)"/></svg>\n')
 
 
 def main():
-    out = lambda name: os.path.join(ROOT, name)
-    open(out('favicon.svg'), 'w').write(svg())
-    sizes = [16, 32, 48]
-    frames = [png(s) for s in sizes]
-    frames[-1].save(out('favicon.ico'), sizes=[(s, s) for s in sizes], append_images=frames[:-1])
-    png(180, rounded=False).convert('RGB').save(out('apple-touch-icon.png'), optimize=True)
-    for name in ('favicon.svg', 'favicon.ico', 'apple-touch-icon.png'):
-        print(f'{name:22} {os.path.getsize(out(name)):>6} bytes')
+    for folder, ink in SETS:
+        out = lambda name: os.path.join(ROOT, folder, name)
+        open(out('favicon.svg'), 'w').write(svg(ink))
+        sizes = [16, 32, 48]
+        frames = [png(s, ink=ink) for s in sizes]
+        frames[-1].save(out('favicon.ico'), sizes=[(s, s) for s in sizes], append_images=frames[:-1])
+        png(180, rounded=False, ink=ink).convert('RGB').save(out('apple-touch-icon.png'), optimize=True)
+        for name in ('favicon.svg', 'favicon.ico', 'apple-touch-icon.png'):
+            print(f'{os.path.join(folder, name):30} {os.path.getsize(out(name)):>6} bytes')
 
 
 if __name__ == '__main__':
