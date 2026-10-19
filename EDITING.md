@@ -563,8 +563,9 @@ None of them change often.
 `favicon.svg`, `favicon.ico`, and `apple-touch-icon.png` sit at the root, and
 every page links them as `/favicon.svg` and so on, so the same three files
 serve the homepage, fitness, quickbio, modeling, and the 404 page. They're the
-pixel `J_` from the Retrac Labs brand marks, in the site's green. To change
-them, edit the bitmap or colors at the top of `tools/icons.py`, then:
+hair mark from the top bar, in white on the site's dark panel color, so they
+read in a light tab bar and a dark one. To change them, edit the colors or the
+size setting at the top of `tools/icons.py`, then:
 
 ```bash
 python3 tools/icons.py
