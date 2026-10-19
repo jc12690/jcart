@@ -70,4 +70,7 @@ var JC_MEGA_MOVES = [
     { date: "2026-10-12", move: "Reverse Bear",
         url: "https://www.instagram.com/reel/DeZsDh1uSlq/",
         clip: "media/mmm-2026-10-12.mp4" },
+    { date: "2026-10-19", move: "Escalator Lunge",
+        url: "https://www.instagram.com/reel/DesS0XgOHvI/",
+        clip: "media/mmm-2026-10-19.mp4" },
 ];
