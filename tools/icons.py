@@ -6,15 +6,16 @@ links them from the site root.
 
     python3 tools/icons.py
 
-Writes, at the repo root (white, for jarredmcarter.com and its other pages):
+Writes, at the repo root (green, for jarredmcarter.com, modeling, and the 404 page):
     favicon.svg            the tab icon, for every current browser
     favicon.ico            16, 32, and 48px, for older browsers and anything
                            that asks for /favicon.ico on its own
     apple-touch-icon.png   180px, for a page saved to an iPhone home screen
-and the same three files in fitness/, with the hair in the Pilates site's blue.
+and the same three files in fitness/, with the hair in the Pilates site's blue,
+used by the fitness site and quickbio.
 
-The mark is white on the site's dark panel color, so it reads in both a light
-tab bar (the dark square stands out) and a dark one (the white hair does).
+The mark sits on the site's dark panel color, so it reads in both a light tab
+bar (the dark square stands out) and a dark one (the colored hair does).
 Its geometry is copied from the top bar's SVG: circles for the curls, with an
 ellipse cut out for the face.
 """
@@ -37,10 +38,11 @@ MARK_W, MARK_H = 24, 30
 INK = '#f4f4f2'     # --ink
 TILE = '#0e0e10'    # --panel
 EDGE = '#2e3037'    # --rule-hi
+GREEN = '#83fa40'   # jarredmcarter.com's green (site.css --sec)
 TEAL = '#00a7d3'    # the Pilates site's blue (fitness.css --teal)
 
 # Where each set goes, and the color of its hair. Same design, colors only.
-SETS = [('', INK), ('fitness', TEAL)]
+SETS = [('', GREEN), ('fitness', TEAL)]
 
 # The mark fills this share of the icon's height, centered.
 FILL = 0.80

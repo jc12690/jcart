@@ -563,11 +563,14 @@ None of them change often.
 `favicon.svg`, `favicon.ico`, and `apple-touch-icon.png` sit at the root, and
 every page links them as `/favicon.svg` and so on, so the same three files
 serve the homepage, fitness, quickbio, modeling, and the 404 page. They're the
-hair mark from the top bar, in white on the site's dark panel color, so they
-read in a light tab bar and a dark one. The fitness site has its own set in
-`fitness/` (linked from `fitness/index.html`), the same mark with the hair in
-its blue. To change either, edit the colors or `SETS` at the top of
-`tools/icons.py`, then:
+hair mark from the top bar, in the site's green on its dark panel color, so
+they read in a light tab bar and a dark one. The fitness site and quickbio
+use their own set in `fitness/`, the same mark with the hair in the Pilates
+blue. To change either, edit the colors or `SETS` at the top of
+`tools/icons.py`, run the command below, and then bump the `?v=` number on
+the icon links (in `tools/build.py`, `404.html`, `modeling/`, `fitness/`, and
+`quickbio/`). Browsers hold on to favicons, and a new number makes them fetch
+the new one:
 
 ```bash
 python3 tools/icons.py

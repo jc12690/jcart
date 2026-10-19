@@ -462,9 +462,9 @@ HEAD_META = f'''<link rel="canonical" href="{SITE_URL}">
 <meta property="og:title" content="{esc(S['site']['title'])}">
 <meta property="og:description" content="{esc(DESCRIPTION)}">
 <meta property="og:url" content="{SITE_URL}">
-{share_tags}<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{share_tags}<link rel="icon" href="/favicon.ico?v=3" sizes="32x32">
+<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <script type="application/ld+json">
 {person_ld}
 </script>'''
