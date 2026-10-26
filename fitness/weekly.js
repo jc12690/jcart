@@ -40,7 +40,9 @@ var JC_PLAYLISTS = [
   {w:25, name:"SLT #25",   url:"https://music.apple.com/us/playlist/slt-25/pl.u-xlyNBylIpPDPp3"},
   {w:26, name:"SLT #26",   url:"https://music.apple.com/us/playlist/slt-26/pl.u-oZyl5yWI09l90Z"},
   {w:27, name:"SLT #27",   url:"https://music.apple.com/us/playlist/slt-27/pl.u-8aAVMAViaKLKaP"},
-  {w:28, name:"SLT #28",   url:"https://music.apple.com/us/playlist/slt-28/pl.u-8aAVMy9IaKLKaP", latest:true},
+  {w:28, name:"SLT #28",   url:"https://music.apple.com/us/playlist/slt-28/pl.u-8aAVMy9IaKLKaP"},
+  {w:29, name:"SLT #29",   url:"https://music.apple.com/us/playlist/slt-29/pl.u-WabZ1A3CvDlDvr"},
+  {w:30, name:"SLT #30",   url:"https://music.apple.com/us/playlist/slt-30/pl.u-NpXmbZpup3g3p1", latest:true},
 ];
 
 /* ============================================================================
