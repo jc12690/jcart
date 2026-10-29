@@ -33,7 +33,16 @@
   $("callBtn").href = "tel:+1" + a + b + c;
   $("textBtn").href = "sms:+1" + a + b + c;
 
-  /* ---------- the hello writes itself, then the photo develops into colour ---------- */
-  requestAnimationFrame(function(){ $("intro").classList.add("go"); });
-  setTimeout(function(){ $("photo").classList.add("dev"); }, RM ? 0 : 1700);
+  /* ---------- the hello writes itself, then the photo develops into colour ----------
+     Started only once Pacifico is loaded, as on the homepage, so it never wipes
+     across a fallback face and then jumps. If the font is still loading after
+     1.5 seconds (a slow phone connection), start anyway, so the name shows. */
+  var begun = false;
+  function begin(){
+    if(begun) return; begun = true;
+    $("intro").classList.add("go");
+    setTimeout(function(){ $("photo").classList.add("dev"); }, RM ? 0 : 1700);
+  }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(begin); else begin();
+  setTimeout(begin, 1500);
 })();

@@ -58,6 +58,7 @@ python3 tools/build.py
 ├── legacy-index.html       ← the previous homepage, kept for reference
 ├── fitness/                ← the fitness site (edited by hand; see Recipe 7)
 ├── modeling/               ← the modeling page, linked only from quickbio (Recipe 10)
+├── dot-quickbio/           ← the page the Dot card and band open; unlisted (Recipe 12)
 └── experience/ projects/ quickbio/
                             ← redirect stubs, plus the link-in-bio page
 ```
@@ -280,9 +281,10 @@ The token lives in `content/site.json`:
 "site": { "analytics_token": "baeb040b9418422b9a4543f89163988a" }
 ```
 
-Change it there and rebuild. Three pages are not generated
-(`quickbio/index.html`, `fitness/index.html`, and `modeling/index.html`), so
-the same token is pasted into each and has to be changed by hand.
+Change it there and rebuild. Five pages are not generated
+(`quickbio/index.html`, `fitness/index.html`, `modeling/index.html`,
+`dot-quickbio/index.html`, and `404.html`), so the same token is pasted into
+each and has to be changed by hand.
 
 Two deliberate details in the snippet:
 
@@ -568,8 +570,8 @@ they read in a light tab bar and a dark one. The fitness site and quickbio
 use their own set in `fitness/`, the same mark with the hair in the Pilates
 blue. To change either, edit the colors or `SETS` at the top of
 `tools/icons.py`, run the command below, and then bump the `?v=` number on
-the icon links (in `tools/build.py`, `404.html`, `modeling/`, `fitness/`, and
-`quickbio/`). Browsers hold on to favicons, and a new number makes them fetch
+the icon links (in `tools/build.py`, `404.html`, `modeling/`, `fitness/`,
+`quickbio/`, and `dot-quickbio/`). Browsers hold on to favicons, and a new number makes them fetch
 the new one:
 
 ```bash
@@ -695,6 +697,53 @@ developed photograph needs a dark surround, and the dither-to-colour animation
 reads on nothing else) and the **plate captions**. Photo plates get a hard black
 frame and an offset shadow in light mode, which also stops the near-white
 screenshots dissolving into the paper.
+
+---
+
+## Recipe 12: The Dot Card Page
+
+`dot-quickbio/` is the page your Dot card and band open: your phone number,
+LinkedIn, this site, Retrac Labs, and the résumé. Program the card with:
+
+```
+https://jarredmcarter.com/dot-quickbio/
+```
+
+It is **unlisted**. Nothing on the site links to it, the sitemap leaves it out,
+and `<meta name="robots" content="noindex">` asks search engines to skip it.
+Keep it that way, and don't list it in `robots.txt` either: that file is public,
+so it would point straight at the page.
+
+Like quickbio, it's edited by hand (`index.html`, `dot.css`, `dot.js`). It loads
+the homepage's own stylesheet, `/assets/css/site.css`, so it follows any change
+to the homepage's colors, type, and buttons; `dot.css` only adds the narrow
+column, the phone block, and the résumé window. Before giving something a new
+class there, check that `site.css` doesn't already use the name, because the
+homepage's styles would land on it too (`.role` did, while this page was built).
+
+**The phone number** is in `index.html` as three parts on `#phoneNum`
+(`data-a`, `data-b`, and `data-c`), and `dot.js` joins them into the number on
+screen and the Call and Text links. That keeps it out of the page source, and
+out of this public repo, as one string a scraper could match. To change it,
+change the three parts.
+
+**The photo** is the pair `assets/img/dot-headshot.png` and `dot-headshot.jpg`,
+made at the size the page shows it, 168 pixels square, so each dot is one pixel:
+
+```bash
+python3 tools/dither.py YOUR_PHOTO.jpg dot-headshot --crop L,T,R,B --dither-width 168 --color-width 504
+```
+
+Crop to a square around your face. `--crop` takes fractions of the original (0
+to 1), so on a portrait photo the left-to-right span has to be wider than the
+top-to-bottom span for the result to come out square; the command should print
+`(168, 168)`. The page shows the 1-bit version first and develops it into color
+once the hello has written itself.
+
+**The résumé** link opens `/files/jarred-carter-resume.pdf`, the same file the
+homepage links, so replacing that file updates both. The window's
+"128K · 2 pages" line is typed into `index.html`; change it if the size or page
+count does.
 
 ---
 

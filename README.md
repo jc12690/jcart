@@ -40,7 +40,7 @@ tools/share_cards.py  the link-preview pictures (assets/share.jpg, quickbio/shar
 404.html            the System 7 bomb page for addresses that don't exist
 .well-known/security.txt  how to report a security problem; renew its Expires yearly
 _config.yml         publishes .well-known/ and keeps EDITING.md, README.md, content/, and tools/ off the live site
-sitemap.xml         pages for search engines (modeling left out on purpose); robots.txt points to it
+sitemap.xml         pages for search engines (modeling and dot-quickbio left out on purpose); robots.txt points to it
 tools/cursors.py    the pixel cursors
 media/              original photo library
 files/              résumé and PDFs
@@ -48,6 +48,7 @@ experience/ projects/   redirect stubs, old URLs -> new #/slug routes
 fitness/            the fitness site: playlists and Mega Move Monday live in fitness/weekly.js
 quickbio/           the Instagram link-in-bio page
 modeling/           the modeling page, linked only from quickbio (EDITING.md, Recipe 10)
+dot-quickbio/       the page the Dot card and band open; unlisted (EDITING.md, Recipe 12)
 privacy.html        redirect to the Retrac Labs privacy policy on retraclabs.co
 ```
 

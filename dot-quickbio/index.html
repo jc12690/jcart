@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{if(localStorage.getItem("jc-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <title>Jarred Carter · Contact</title>
 <!-- Unlisted: the Dot card and band open this page. Nothing on the site links
@@ -60,6 +60,8 @@
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="stylesheet" href="/assets/css/cursors.css">
 <link rel="stylesheet" href="dot.css">
+<!-- without JavaScript nothing starts the write-on, so show the hello and name as they are -->
+<noscript><style>.script{clip-path:none}.whoami{opacity:1;transform:none}.nib{display:none}</style></noscript>
 </head>
 <body>
 <div class="crt"></div><div class="vig"></div>
@@ -76,18 +78,18 @@
 
 <main class="card">
   <header class="intro" id="intro">
-    <figure class="plate" id="photo"><img class="col" src="/assets/img/headshot.jpg" alt="" width="504" height="504" decoding="async"><img class="dith" src="/assets/img/headshot.png" alt="Jarred Carter" width="168" height="168"></figure>
+    <figure class="plate" id="photo"><img class="col" src="/assets/img/dot-headshot.jpg" alt="" width="504" height="504" decoding="async"><img class="dith" src="/assets/img/dot-headshot.png" alt="Jarred Carter" width="168" height="168"></figure>
     <span class="scriptWrap">
       <p class="script">nice to meet you!</p>
       <span class="nib" aria-hidden="true"></span>
     </span>
     <h1 class="whoami">i&#8217;m jarred carter</h1>
-    <p class="role">Security Engineer &#183; Founder, Retrac Labs &#183; New York</p>
+    <p class="tagline">Security Engineer &#183; Founder, Retrac Labs &#183; New York</p>
     <p class="seeking"><span class="dot" aria-hidden="true"></span><span>Open to <b>security analyst</b> and <b>penetration testing</b> roles.</span></p>
   </header>
 
   <section class="sec">
-    <div class="eyebrow"><span class="n">01</span><span>Call or Text</span><span class="bar"></span></div>
+    <h2 class="eyebrow"><span class="n">01</span><span>Call or Text</span><span class="bar"></span></h2>
     <div class="phone">
       <!-- The number is put together by dot.js from these three parts, so it
            never sits in the page source or the public repo as one string. -->
@@ -100,7 +102,7 @@
   </section>
 
   <section class="sec">
-    <div class="eyebrow"><span class="n">02</span><span>Elsewhere</span><span class="bar"></span></div>
+    <h2 class="eyebrow"><span class="n">02</span><span>Elsewhere</span><span class="bar"></span></h2>
     <div class="rows">
       <a class="item" href="https://linkedin.com/in/jarred-carter" target="_blank" rel="noopener noreferrer"><span class="head"><span class="idx">01</span><h3>LinkedIn</h3><span class="org">in/jarred-carter</span><span class="arw">&#8599;</span></span><p>Connect, and see where I&#8217;ve worked.</p></a>
       <a class="item" href="/"><span class="head"><span class="idx">02</span><h3>Personal Site</h3><span class="org">jarredmcarter.com</span><span class="arw">&rarr;</span></span><p>Projects, published research, and the full story.</p></a>
@@ -109,12 +111,12 @@
   </section>
 
   <section class="sec">
-    <div class="eyebrow"><span class="n">03</span><span>R&eacute;sum&eacute;</span><span class="bar"></span></div>
+    <h2 class="eyebrow"><span class="n">03</span><span>R&eacute;sum&eacute;</span><span class="bar"></span></h2>
     <!-- a System 7 Finder window holding one document -->
     <div class="win">
       <div class="win-title"><span class="win-close" aria-hidden="true"></span><span class="win-name">R&eacute;sum&eacute;</span></div>
       <div class="win-info"><span>1 item</span><span>128K &#183; 2 pages</span></div>
-      <a class="win-body" href="/files/jarred-carter-resume.pdf" aria-label="R&eacute;sum&eacute;, PDF, 2 pages">
+      <a class="win-body" href="/files/jarred-carter-resume.pdf">
         <svg class="doc" viewBox="0 0 32 32" width="64" height="64" shape-rendering="crispEdges" aria-hidden="true">
           <path d="M6.5 1.5h13l6 6v23h-19z" fill="var(--face)" stroke="currentColor"/>
           <path d="M19.5 1.5v6h6" fill="none" stroke="currentColor"/>
