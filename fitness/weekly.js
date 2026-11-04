@@ -78,4 +78,7 @@ var JC_MEGA_MOVES = [
     { date: "2026-10-26", move: "High Crunch",
         url: "https://www.instagram.com/p/De-UxRKOq3M/",
         clip: "media/mmm-2026-10-26.mp4" },
+    { date: "2026-11-02", move: "Deadlift",
+        url: "https://www.instagram.com/reel/DfQgkUauVlR/",
+        clip: "media/mmm-2026-11-02.mp4" },
 ];
