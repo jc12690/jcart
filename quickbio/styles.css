@@ -32,6 +32,11 @@ a,button{cursor:var(--cur-hand),pointer}
 :focus-visible{outline:2px solid var(--teal-ink); outline-offset:3px}
 img{display:block; max-width:100%}
 
+/* A fixed, solid layer of the page's ground behind everything. Safari on the
+   iPhone Duo colors its side toolbar from fixed layers touching the screen's
+   edge; with only the body's color to go on, it reused the color from the last
+   visit after a theme change (a dark toolbar beside a light page). */
+.backdrop{position:fixed; inset:0; z-index:-1; background:var(--ground); pointer-events:none}
 .crt{position:fixed; inset:0; pointer-events:none; z-index:60}
 .crt::before{content:""; position:absolute; inset:0; background:var(--crt-v)}
 .crt::after{content:""; position:absolute; inset:0; background:var(--crt-h); opacity:.4}

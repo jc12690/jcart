@@ -505,7 +505,7 @@ page = f'''<!doctype html>
   {HAIR}
   <a href="#resume">R&eacute;sum&eacute;</a>
   <a href="#projects">Projects</a>
-  {'<a href="#publications">Published</a>' if pub_items else ''}
+  {'<a href="#publications" class="hide-xs">Published</a>' if pub_items else ''}
   <a href="#pilates">Pilates</a>
   <a href="#connect" class="hide-sm">Connect</a>
   <span class="mb-right">
@@ -646,6 +646,7 @@ page = f'''<!doctype html>
 </div>
 
 <script>window.__PALETTE__ = {json.dumps(palette, ensure_ascii=True)};</script>
+<script src="assets/js/duo.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>

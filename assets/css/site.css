@@ -114,7 +114,7 @@ body{margin:0; background:var(--void); color:var(--ink);
   opacity:.88; transition:opacity .2s, filter .2s}
 .homelink:hover{opacity:1; filter:drop-shadow(0 0 7px var(--mark-glow))}
 .mark{width:12px; height:15px; display:block; color:currentColor}
-.mb-clock{font-family:var(--mono); font-size:10px}
+.mb-clock{font-family:var(--mono); font-size:10px; white-space:nowrap}
 .clockwrap{position:relative; cursor:default; outline-offset:2px}
 .clockwrap:hover .mb-clock,.clockwrap:focus-visible .mb-clock{color:var(--ink)}
 .clockpop{
@@ -158,6 +158,20 @@ body{margin:0; background:var(--void); color:var(--ink);
 :root[data-theme="light"] .themetog .sw::after{transform:translateX(7px)}
 :root[data-theme="light"] .themetog .sw{background:var(--accent-ink)}
 @media (max-width:640px){.menubar .hide-sm{display:none}}
+/* Phones. With every link showing, the bar needs about 530px, so on a phone the
+   clock, THEME, and the palette key ran off the right edge and the only way into
+   light mode was unreachable. Drop Published (its section sits between Projects
+   and Pilates, a short scroll away) and the palette key (it names a keyboard
+   shortcut, and the palette only searches entries that are all on the page),
+   and tighten the gaps: the bar then needs 376px, which fits the folded iPhone
+   Duo (382px) and every larger phone. Below that (the 375px iPhones, and 360px
+   Android phones) the clock goes too, and the bar needs 317px. */
+@media (max-width:540px){
+  .menubar{gap:12px}
+  .mb-right{gap:8px}
+  .menubar .hide-xs,.menubar .kbd{display:none}
+}
+@media (max-width:379px){.menubar .clockwrap{display:none}}
 
 /* ---------- hero ---------- */
 #wrap{position:relative; height:300vh}
@@ -467,8 +481,10 @@ footer{max-width:1180px; margin:0 auto; padding:34px clamp(18px,5vw,56px) 60px;
 }
 
 /* a caveat sitting under an outbound link on a detail page */
+/* anywhere: a DOI like 10.1109/IEEECloudSummit48914.2020.00020 has no break
+   point of its own, and on a phone it pushed the page wider than the screen */
 .linknote{margin:12px 0 0; max-width:58ch; font-family:var(--mono); font-size:11.5px;
-  line-height:1.7; color:var(--dimmer)}
+  line-height:1.7; color:var(--dimmer); overflow-wrap:anywhere}
 .linknote b{color:var(--dim); font-weight:400}
 
 /* ---------- publication rows: meta sits under the title, aligned with it ---------- */

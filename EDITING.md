@@ -45,6 +45,7 @@ python3 tools/build.py
 ├── assets/
 │   ├── css/site.css        ← all styling
 │   ├── js/site.js          ← all behaviour
+│   ├── js/duo.js           ← every page: the iPhone Duo turn fix (Design Notes)
 │   ├── img/                ← .png = dithered, .jpg = colour (pairs!)
 │   └── share.jpg           ← the homepage's link-preview picture
 ├── tools/
@@ -697,6 +698,41 @@ developed photograph needs a dark surround, and the dither-to-colour animation
 reads on nothing else) and the **plate captions**. Photo plates get a hard black
 frame and an offset shadow in light mode, which also stops the near-white
 screenshots dissolving into the paper.
+
+### Phones and the iPhone Duo
+
+The narrowest screens to check are 360px (many Android phones), 375px (the
+smallest iPhones), and 382px (the iPhone Duo folded; 594px when it's folded and
+turned sideways). Checked on the iOS 27.1 simulator on November 6, 2026:
+
+* **Nothing may be wider than the screen.** One line that's too wide lets
+  Safari slide the whole page sideways. Long strings with no spaces, like a DOI
+  or a URL, need `overflow-wrap:anywhere`, the way `.linknote` has it.
+* **The homepage's menu bar** shows every link only from 641px up. At 640px and
+  below it drops Connect; at 540px and below, Published and the ⌘K key; and
+  below 380px, the clock. Before that, THEME ran off the right edge of every
+  phone. If you add a link to the bar, give it `class="hide-xs"` or check that
+  the bar still fits at 382px.
+* **The Duo's side toolbar takes its color from the page.** Folded, Safari puts
+  its controls in a rail down the right side of the screen and colors that rail
+  from a fixed layer touching the screen's edge, or else the page background.
+  It also remembers each page's color between visits, so after someone switched
+  themes, quickbio and the Dot page came back with a dark rail beside a light
+  page. A fixed, solid layer in the page's ground color (`.backdrop`) fixes
+  that; the Pilates site, quickbio, and the Dot page have one. The homepage and
+  the modeling page passed without one, but give any new page with a theme
+  switch a backdrop too.
+* **`assets/js/duo.js`** undoes a Safari bug: turn the folded Duo sideways and
+  the rail moves to the left, leaving the page slid 84px sideways with its left
+  edge cut off. Every page loads it, so a new page should too. Delete it once
+  Safari stops doing that.
+* **Two things a page can't change.** Nothing can show under the rail: Safari
+  gives the page only the space beside it, even with `viewport-fit=cover`, and
+  WebKit says it is still researching that. And folded, the top 16 or so pixels
+  of the screen belong to iOS: a tap there scrolls to the top of the page
+  instead of pressing what's under it. Every page's menu bar sits partly
+  inside that strip, so on the folded Duo its buttons work only when tapped
+  low.
 
 ---
 
