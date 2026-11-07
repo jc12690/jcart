@@ -31,7 +31,7 @@ content/htb.json    the Hack The Box log: machines and modules (EDITING.md, Reci
 assets/css          site.css (styling) + cursors.css (generated)
 assets/css/cursors.css  generated pixel cursors
 assets/js/site.js   theme switch, hero animation, router, lightbox, command palette
-assets/js/duo.js    every page: undoes Safari's sideways nudge on the folded iPhone Duo
+assets/js/duo.js    every page: fixes for Safari on the folded iPhone Duo (top strip, toolbar color, sideways nudge)
 assets/img          .png = 1-bit dither, .jpg = colour (always in pairs)
 tools/build.py      the generator
 tools/dither.py     photo -> the dither/colour pair

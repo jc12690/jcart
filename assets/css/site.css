@@ -89,6 +89,13 @@ body{margin:0; background:var(--void); color:var(--ink);
   font-family:var(--disp); font-size:16px; line-height:1.5; overflow-x:hidden}
 :focus-visible{outline:2px solid var(--accent-ink); outline-offset:3px}
 
+/* A fixed, solid layer of the page's ground behind everything. Folded, the iPhone
+   Duo's Safari colors its side toolbar from a fixed layer touching the screen's
+   edge, and remembers each page's color between visits; with only the body's
+   color to go on, the Dot page came back after a theme switch with a dark
+   toolbar beside a light page. The homepage, the Dot page, and 404 each start
+   <body> with one. (A switch made on the page itself is assets/js/duo.js's job.) */
+.backdrop{position:fixed; inset:0; z-index:-1; background:var(--void); pointer-events:none}
 .crt{position:fixed; inset:0; pointer-events:none; z-index:70}
 .crt::before{content:""; position:absolute; inset:0;
   background:var(--crt-v)}
@@ -98,8 +105,12 @@ body{margin:0; background:var(--void); color:var(--ink);
   background:var(--vig)}
 
 /* ---------- menu bar ---------- */
+/* --duo-top is 20px on the folded iPhone Duo and 0 everywhere else; see
+   assets/js/duo.js. It puts the bar's buttons below the strip of screen that
+   iOS keeps for itself there. */
 .menubar{position:fixed; top:0; left:0; right:0; z-index:75;
-  display:flex; align-items:center; gap:18px; height:32px; padding:0 16px;
+  display:flex; align-items:center; gap:18px;
+  height:calc(32px + var(--duo-top,0px)); padding:var(--duo-top,0px) 16px 0;
   font-family:var(--pix); font-size:10px; letter-spacing:.04em; color:var(--dim);
   background:var(--chrome-bg); backdrop-filter:var(--chrome-blur);
   border-bottom:1px solid var(--rule); opacity:0; pointer-events:none;
@@ -339,7 +350,7 @@ h3{margin:0}
 body.detail-open #wrap,body.detail-open .index{display:none}
 body.detail-open .detail.active{display:block}
 body.detail-open .menubar{opacity:1; pointer-events:auto}
-.dtop{max-width:1180px; margin:0 auto; padding:60px clamp(18px,5vw,56px) 0}
+.dtop{max-width:1180px; margin:0 auto; padding:calc(60px + var(--duo-top,0px)) clamp(18px,5vw,56px) 0}
 .back{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono);
   font-size:11px; letter-spacing:.1em; text-transform:uppercase;
   color:var(--dim); text-decoration:none; transition:color .2s}
@@ -367,7 +378,7 @@ body.detail-open .menubar{opacity:1; pointer-events:auto}
   font-size:12px; flex:0 0 auto; line-height:1.7}
 .impact{border-left:2px solid var(--accent-ink); padding:2px 0 2px 20px}
 .impact p{color:var(--ink); font-size:16px}
-.sticky{position:sticky; top:56px; display:flex; flex-direction:column; gap:22px}
+.sticky{position:sticky; top:calc(56px + var(--duo-top,0px)); display:flex; flex-direction:column; gap:22px}
 .dnav{max-width:1180px; margin:0 auto; padding:clamp(34px,5vh,56px) clamp(18px,5vw,56px) 70px;
   border-top:1px solid var(--rule); display:flex; justify-content:space-between; gap:16px}
 .dnav a{font-family:var(--mono); font-size:11.5px; color:var(--dim); text-decoration:none;
@@ -422,7 +433,7 @@ body.detail-open .menubar{opacity:1; pointer-events:auto}
 .lb-fig figcaption{display:flex; justify-content:space-between; align-items:center; gap:14px;
   font-family:var(--pix); font-size:9px; letter-spacing:.07em; color:var(--dim)}
 .lb-fig figcaption b{font-weight:400; font-family:var(--mono); font-size:10px; color:var(--accent-ink)}
-.lb-x{position:absolute; top:clamp(10px,2vh,22px); right:clamp(12px,2vw,26px);
+.lb-x{position:absolute; top:calc(clamp(10px,2vh,22px) + var(--duo-top,0px)); right:clamp(12px,2vw,26px);
   width:34px; height:34px; display:grid; place-items:center; cursor:pointer;
   background:var(--lbx-bg); color:var(--dim); border:1px solid var(--rule-hi); border-radius:4px;
   font-size:19px; line-height:1; font-family:var(--disp); transition:.2s}

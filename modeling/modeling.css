@@ -36,9 +36,14 @@ a,button{cursor:var(--cur-hand),pointer}
 img,video{display:block; max-width:100%}
 
 /* ---------- chrome bar: the same bar as the Pilates site ---------- */
+/* Room at the top of the screen: the phone's own inset, plus --duo-top, which
+   is 20px on the folded iPhone Duo (where a tap in the top strip scrolls the
+   page instead of pressing a button) and 0 everywhere else. See
+   /assets/js/duo.js. */
+:root{--top-inset:calc(env(safe-area-inset-top,0px) + var(--duo-top,0px))}
 .bar{position:fixed; top:0; left:0; right:0; z-index:70;
   display:flex; align-items:center; gap:16px;
-  padding:env(safe-area-inset-top,0px) clamp(16px,3vw,28px) 0; height:calc(36px + env(safe-area-inset-top,0px));
+  padding:var(--top-inset) clamp(16px,3vw,28px) 0; height:calc(36px + var(--top-inset));
   font-family:var(--pix); font-size:10px; letter-spacing:.05em; color:var(--dim);
   background:color-mix(in srgb,var(--ground) 86%,transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   border-bottom:1px solid var(--rule)}
@@ -94,7 +99,7 @@ img,video{display:block; max-width:100%}
   background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(0,0,0,.62),rgba(0,0,0,.28) 70%,rgba(0,0,0,.18)),
              linear-gradient(180deg,rgba(0,0,0,.45),transparent 16%)}
 .hero-text{position:absolute; z-index:2; inset:0; display:flex; flex-direction:column; align-items:center;
-  justify-content:center; text-align:center; padding:calc(36px + env(safe-area-inset-top,0px)) var(--gut) 0}
+  justify-content:center; text-align:center; padding:calc(36px + var(--top-inset)) var(--gut) 0}
 .hero-text .ctas{justify-content:center}
 .hero .eyebrow{color:rgba(238,241,240,.78)}
 .hero .br{color:var(--teal)}
@@ -152,7 +157,7 @@ img,video{display:block; max-width:100%}
 /* ---------- the viewer: the Pilates site's frame, opening instantly ---------- */
 .lb{--ink:#eef1f0; --dim:#8b9396; --rule:#232728; --panel:#121415; --teal-ink:#00a7d3;
   position:fixed; inset:0; z-index:90; display:grid; place-items:center;
-  padding:calc(58px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));
+  padding:calc(58px + var(--top-inset)) 16px calc(24px + env(safe-area-inset-bottom,0px));
   background:rgba(5,6,6,.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   color:var(--ink); touch-action:pinch-zoom}
 .lb[hidden]{display:none}
@@ -172,7 +177,7 @@ img,video{display:block; max-width:100%}
 .lb-x,.lb-nav{position:absolute; display:grid; place-items:center; color:var(--dim);
   background:var(--panel); border:1px solid var(--rule); transition:color .2s, border-color .2s}
 .lb-x:hover,.lb-nav:hover{color:var(--ink); border-color:var(--dim)}
-.lb-x{top:calc(12px + env(safe-area-inset-top,0px)); right:clamp(12px,2vw,26px); width:38px; height:38px;
+.lb-x{top:calc(12px + var(--top-inset)); right:clamp(12px,2vw,26px); width:38px; height:38px;
   font-family:var(--sans); font-size:22px; line-height:1}
 .lb-nav{top:50%; width:46px; height:46px; margin-top:-23px; font-family:var(--mono); font-size:16px}
 .lb-nav.prev{left:clamp(12px,2vw,26px)}

@@ -45,9 +45,14 @@ img,video{max-width:100%; display:block}
 .crt::after{content:""; position:absolute; inset:0; background:var(--crt-h); opacity:.4}
 
 /* ---------- chrome bar: same family as jcart ---------- */
+/* Room at the top of the screen: the phone's own inset, plus --duo-top, which
+   is 20px on the folded iPhone Duo (where a tap in the top strip scrolls the
+   page instead of pressing a button) and 0 everywhere else. See
+   /assets/js/duo.js. */
+:root{--top-inset:calc(env(safe-area-inset-top,0px) + var(--duo-top,0px))}
 .bar{position:fixed; top:0; left:0; right:0; z-index:70;
   display:flex; align-items:center; gap:16px;
-  padding:env(safe-area-inset-top,0px) clamp(16px,3vw,28px) 0; height:calc(36px + env(safe-area-inset-top,0px));
+  padding:var(--top-inset) clamp(16px,3vw,28px) 0; height:calc(36px + var(--top-inset));
   font-family:var(--pix); font-size:10px; letter-spacing:.05em; color:var(--dim);
   background:color-mix(in srgb,var(--ground) 86%,transparent); backdrop-filter:blur(10px);
   border-bottom:1px solid var(--rule)}
@@ -261,7 +266,7 @@ img,video{max-width:100%; display:block}
    lightbox: a picture reads best against black. */
 .lb{--ink:#eef1f0; --dim:#8b9396; --rule:#232728; --panel:#121415; --teal-ink:#00a7d3;
   position:fixed; inset:0; z-index:90; display:grid; place-items:center;
-  padding:calc(58px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));
+  padding:calc(58px + var(--top-inset)) 16px calc(24px + env(safe-area-inset-bottom,0px));
   background:rgba(5,6,6,.93); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   color:var(--ink); touch-action:pinch-zoom; animation:lbIn .24s ease both}
 .lb[hidden]{display:none}
@@ -287,7 +292,7 @@ img,video{max-width:100%; display:block}
 .lb-x,.lb-nav{position:absolute; display:grid; place-items:center; color:var(--dim);
   background:var(--panel); border:1px solid var(--rule); transition:color .2s, border-color .2s}
 .lb-x:hover,.lb-nav:hover{color:var(--ink); border-color:var(--dim)}
-.lb-x{top:calc(12px + env(safe-area-inset-top,0px)); right:clamp(12px,2vw,26px); width:38px; height:38px;
+.lb-x{top:calc(12px + var(--top-inset)); right:clamp(12px,2vw,26px); width:38px; height:38px;
   font-family:var(--sans); font-size:22px; line-height:1}
 .lb-nav{top:50%; width:46px; height:46px; margin-top:-23px; font-family:var(--mono); font-size:16px}
 .lb-nav.prev{left:clamp(12px,2vw,26px)}

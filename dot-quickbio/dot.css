@@ -7,15 +7,9 @@
 :root{--win-line:#3a3c44}
 :root[data-theme="light"]{--win-line:var(--ink)}
 
-/* A fixed, solid layer of the page's ground behind everything. Safari on the
-   iPhone Duo colors its side toolbar from fixed layers touching the screen's
-   edge; with only the body's color to go on, it reused the color from the last
-   visit after a theme change (a dark toolbar beside a light page). */
-.backdrop{position:fixed; inset:0; z-index:-1; background:var(--void); pointer-events:none}
-
 .mb-title{color:var(--ink)}
 
-.card{max-width:620px; margin:0 auto; padding:56px 0 0}
+.card{max-width:620px; margin:0 auto; padding:calc(56px + var(--duo-top,0px)) 0 0}
 .card .sec{padding:clamp(26px,5vh,44px) clamp(16px,5vw,32px)}
 /* the section labels are h2s here, for screen readers; undo site.css's bare h2 */
 .card h2.eyebrow{margin:0 0 20px; font-weight:400; line-height:1.5}

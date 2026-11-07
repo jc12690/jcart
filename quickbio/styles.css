@@ -42,9 +42,14 @@ img{display:block; max-width:100%}
 .crt::after{content:""; position:absolute; inset:0; background:var(--crt-h); opacity:.4}
 
 /* ---------- chrome bar: the same bar as the Pilates site ---------- */
+/* Room at the top of the screen: the phone's own inset, plus --duo-top, which
+   is 20px on the folded iPhone Duo (where a tap in the top strip scrolls the
+   page instead of pressing a button) and 0 everywhere else. See
+   /assets/js/duo.js. */
+:root{--top-inset:calc(env(safe-area-inset-top,0px) + var(--duo-top,0px))}
 .bar{position:fixed; top:0; left:0; right:0; z-index:70;
   display:flex; align-items:center; gap:16px;
-  padding:env(safe-area-inset-top,0px) clamp(16px,3vw,28px) 0; height:calc(36px + env(safe-area-inset-top,0px));
+  padding:var(--top-inset) clamp(16px,3vw,28px) 0; height:calc(36px + var(--top-inset));
   font-family:var(--pix); font-size:10px; letter-spacing:.05em; color:var(--dim);
   background:color-mix(in srgb,var(--ground) 86%,transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   border-bottom:1px solid var(--rule)}
@@ -66,7 +71,7 @@ img{display:block; max-width:100%}
 
 /* ---------- the column ---------- */
 .page{max-width:480px; margin:0 auto;
-  padding:calc(36px + env(safe-area-inset-top,0px) + 30px) clamp(16px,5vw,24px) calc(36px + env(safe-area-inset-bottom,0px))}
+  padding:calc(36px + var(--top-inset) + 30px) clamp(16px,5vw,24px) calc(36px + env(safe-area-inset-bottom,0px))}
 .eyebrow{margin:0; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
   text-wrap:balance}
 .br{font-family:var(--pix); font-size:10px; color:var(--teal-ink); margin-right:6px}

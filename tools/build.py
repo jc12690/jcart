@@ -488,6 +488,7 @@ page = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{{if(localStorage.getItem("jc-theme")==="light")document.documentElement.setAttribute("data-theme","light")}}catch(e){{}}</script>
+<script src="assets/js/duo.js"></script>
 <title>{esc(S['site']['title'])}</title>
 <meta name="description" content="{esc(DESCRIPTION)}">
 {HEAD_META}
@@ -499,7 +500,7 @@ page = f'''<!doctype html>
 {ga}
 </head>
 <body>
-<div class="crt"></div><div class="vig"></div>
+<div class="backdrop" aria-hidden="true"></div><div class="crt"></div><div class="vig"></div>
 
 <nav class="menubar" id="menubar">
   {HAIR}
@@ -646,7 +647,6 @@ page = f'''<!doctype html>
 </div>
 
 <script>window.__PALETTE__ = {json.dumps(palette, ensure_ascii=True)};</script>
-<script src="assets/js/duo.js"></script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>
