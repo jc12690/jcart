@@ -90,8 +90,13 @@
   </header>
 
   <section class="sec">
-    <h2 class="eyebrow"><span class="n">01</span><span>Call or Text</span><span class="bar"></span></h2>
+    <h2 class="eyebrow"><span class="n">01</span><span>Save, Call, or Text</span><span class="bar"></span></h2>
     <div class="phone">
+      <!-- Save Contact: dot.js builds the contact card from the three parts of
+           the number below, plus this page's links, so the number still never
+           sits in the source as one string. It stays hidden until the card is
+           built, so it never shows as a dead button. -->
+      <a class="btn ghost save" id="saveBtn" href="#" hidden><svg class="card-ico" viewBox="0 0 16 12" width="22" height="16" shape-rendering="crispEdges" aria-hidden="true"><path d="M.5.5h15v11H.5z" fill="none" stroke="currentColor"/><path d="M3 3h3v3H3zM2 7h5v2H2z" fill="currentColor"/><path d="M9 3.5h4M9 5.5h4M9 7.5h3" fill="none" stroke="currentColor"/></svg>Save Contact <span>&darr;</span></a>
       <!-- The number is put together by dot.js from these three parts, so it
            never sits in the page source or the public repo as one string. -->
       <p class="num" id="phoneNum" data-a="304" data-b="941" data-c="9156">&nbsp;</p>

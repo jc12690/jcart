@@ -37,6 +37,11 @@
   letter-spacing:-.03em; line-height:1.1; color:var(--accent-ink);
   font-variant-numeric:tabular-nums}
 .pbtns{display:flex; flex-wrap:wrap; gap:12px}
+/* Save Contact, above the number. .btn's display would beat the hidden
+   attribute, so restate it. */
+.save{justify-content:center}
+.save[hidden]{display:none}
+.card-ico{display:block; flex:0 0 auto}
 .pbtns .btn{flex:1 1 120px; justify-content:center}
 
 /* ---------- links ---------- */

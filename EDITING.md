@@ -768,9 +768,21 @@ homepage's styles would land on it too (`.role` did, while this page was built).
 
 **The phone number** is in `index.html` as three parts on `#phoneNum`
 (`data-a`, `data-b`, and `data-c`), and `dot.js` joins them into the number on
-screen and the Call and Text links. That keeps it out of the page source, and
-out of this public repo, as one string a scraper could match. To change it,
-change the three parts.
+screen, the Call and Text links, and the contact card below. That keeps it out
+of the page source, and out of this public repo, as one string a scraper could
+match. To change it, change the three parts.
+
+**Save Contact**, above the number, hands people a contact card (a vCard) that
+`dot.js` builds as the page loads: your number, your NYU email, the links and
+their names from Elsewhere and the résumé window, the "Open to..." line as the note, and the
+color headshot (`dot-headshot.jpg`) as the photo. Your name, title ("Security
+Engineer · Founder"), company, email, and city are in `CARD` in `dot.js`; the
+email is in two parts there, the way `content/site.json` keeps it for the
+homepage. On an iPhone,
+tapping it opens the card with Create New Contact, which fills in iOS's New
+Contact form; on Android it downloads `Jarred Carter.vcf`, which opens in
+Contacts. There is deliberately no `.vcf` file in the repo, because it would
+hold the number as one string.
 
 **The photo** is the pair `assets/img/dot-headshot.png` and `dot-headshot.jpg`,
 made at the size the page shows it, 168 pixels square, so each dot is one pixel:
