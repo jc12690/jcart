@@ -88,5 +88,6 @@ var JC_MEGA_MOVES = [
         url: "https://www.instagram.com/reel/DfihGDIurXs/",
         clip: "media/mmm-2026-11-09.mp4" },
     { date: "2026-11-16", move: "Mega Donkey Kick",
+        url: "https://www.instagram.com/reel/Df1D1Q0OT6N/",
         clip: "media/mmm-2026-11-16.mp4" },
 ];
