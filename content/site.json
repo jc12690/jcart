@@ -187,6 +187,64 @@
       "link_label": "Read the analysis"
     },
     {
+      "slug": "meridian",
+      "kind": "project",
+      "title": "Project Meridian",
+      "org": "Self-Built Lab",
+      "when": "2026 · In Progress",
+      "summary": "A self-built, isolated lab for the full attack-and-defend cycle: break realistic targets by hand, then write the detections that catch each attack. Four attacks are done; the detections are in progress.",
+      "tags": [
+        "Penetration Testing",
+        "Web Application Security",
+        "Security Lab"
+      ],
+      "headings": {
+        "problem": "Why",
+        "included": "The Lab"
+      },
+      "problem": [
+        "Most lab writeups stop at the exploit. Meridian is meant to finish the job: every attack I land here gets a detection that would have caught it.",
+        "Four attacks are done and written up. Two more, and the whole defensive half, are what I'm building now, so this page is a running record, not a finished project."
+      ],
+      "included": [
+        "Three virtual machines on an isolated host-only network, with no bridge to my home network or the internet",
+        "A Kali Linux attacker",
+        "A Linux victim running a deliberately vulnerable Flask web app",
+        "A Windows victim for endpoint telemetry"
+      ],
+      "sections": [
+        {
+          "heading": "Findings",
+          "paragraphs": [
+            "Four findings so far, from a black-box penetration test of the web app. I exploited each one by hand, with no automated scanners, and wrote each up with its payload, impact, evidence, and remediation."
+          ],
+          "items": [
+            "**SQL injection to authentication bypass.** Logged in as the admin with no credentials.",
+            "**SQL injection to data exfiltration.** Escalated to UNION-based injection to map the database schema and dump the entire credential store, then confirmed it by logging in to every account.",
+            "**Broken access control (IDOR).** Any signed-in user could read every other user's private data: authenticated, but never authorized.",
+            "**OS command injection to remote code execution.** Ran commands on the Linux victim through the app's network tools feature."
+          ]
+        },
+        {
+          "heading": "In Progress",
+          "items": [
+            "Two more attack paths: server-side template injection (SSTI), and a file upload that leads to remote code execution",
+            "The defensive half: capturing each attack in Linux auditd and Windows Sysmon logs, then writing Sigma rules that detect it",
+            "Mapping every technique to MITRE ATT&CK",
+            "A 32-bit x86 reverse-engineering challenge, in Ghidra and radare2"
+          ]
+        }
+      ],
+      "stack": [
+        "Kali Linux: the attacker machine",
+        "Burp Suite: manual web testing, with no automated scanning",
+        "Flask and SQLite: the deliberately vulnerable target app",
+        "Host-only networking: keeps the lab off my home network and the internet"
+      ],
+      "link": null,
+      "link_label": null
+    },
+    {
       "slug": "hack-the-box",
       "kind": "project",
       "draft": true,
