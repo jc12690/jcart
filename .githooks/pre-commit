@@ -4,6 +4,10 @@
 # (That already happened once: an edit to site.json was committed and pushed
 # while index.html still had the old text.)
 set -e
+
+# First, refuse to commit a secret or anything .gitignore covers.
+"$(dirname "$0")/check-secrets"
+
 if [ -f tools/build.py ]; then
   python3 tools/build.py > /dev/null || {
     echo "pre-commit: build failed. Commit aborted."; exit 1; }
