@@ -45,7 +45,9 @@ var JC_PLAYLISTS = [
   {w:30, name:"SLT #30",   url:"https://music.apple.com/us/playlist/slt-30/pl.u-NpXmbZpup3g3p1"},
   {w:31, name:"SLT #31",   url:"https://music.apple.com/us/playlist/slt-31/pl.u-GgA5x4mi8K1K8R"},
   {w:32, name:"SLT #32",   url:"https://music.apple.com/us/playlist/slt-32/pl.u-jV896GNuqy1yqv"},
-  {w:33, name:"SLT #33",   url:"https://music.apple.com/us/playlist/slt-33/pl.u-8aAVM5ycaKLKaP", latest:true},
+  {w:33, name:"SLT #33",   url:"https://music.apple.com/us/playlist/slt-33/pl.u-8aAVM5ycaKLKaP"},
+  {w:34, name:"SLT #34",   url:"https://music.apple.com/us/playlist/slt-34/pl.u-WabZ14VfvDlDvr", fav:true, latest:true},
+  {w:35, name:"SLT #35",   url:"https://music.apple.com/us/playlist/slt-35/pl.u-NpXmbe7Ip3g3p1"},
 ];
 
 /* ============================================================================
@@ -90,4 +92,7 @@ var JC_MEGA_MOVES = [
     { date: "2026-11-16", move: "Mega Donkey Kick",
         url: "https://www.instagram.com/reel/Df1D1Q0OT6N/",
         clip: "media/mmm-2026-11-16.mp4" },
+    { date: "2026-11-23", move: "5th Lunge",
+        url: "https://www.instagram.com/reel/DgGpuHPOR1h/",
+        clip: "media/mmm-2026-11-23.mp4" },
 ];
