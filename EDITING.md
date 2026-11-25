@@ -58,6 +58,7 @@ python3 tools/build.py
 ├── files/                  ← résumé + PDFs
 ├── legacy-index.html       ← the previous homepage, kept for reference
 ├── fitness/                ← the fitness site (edited by hand; see Recipe 7)
+├── pilates/                ← jarredmcarter.com/pilates, forwards to fitness/
 ├── modeling/               ← the modeling page, linked only from quickbio (Recipe 10)
 ├── dot-quickbio/           ← the page the Dot card and band open; unlisted (Recipe 12)
 └── experience/ projects/ quickbio/
@@ -434,7 +435,9 @@ and the fitness site.
 pasted by hand into `fitness/index.html` (see Recipe 6).
 
 `media/share.jpg` is the preview card that appears when the link is shared.
-The old address, `fitness/fitness-index.html`, redirects here.
+The old address, `fitness/fitness-index.html`, redirects here, and so does
+`jarredmcarter.com/pilates` (the `pilates/` folder), the address people
+naturally type or say out loud.
 
 ---
 

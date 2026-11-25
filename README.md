@@ -47,6 +47,7 @@ media/              original photo library
 files/              résumé and PDFs
 experience/ projects/   redirect stubs, old URLs -> new #/slug routes
 fitness/            the fitness site: playlists and Mega Move Monday live in fitness/weekly.js
+pilates/            jarredmcarter.com/pilates, a short address that forwards to fitness/
 quickbio/           the Instagram link-in-bio page
 modeling/           the modeling page, linked only from quickbio (EDITING.md, Recipe 10)
 dot-quickbio/       the page the Dot card and band open; unlisted (EDITING.md, Recipe 12)
